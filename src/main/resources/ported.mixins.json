@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "concerrox.ported.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "blueberry.refmap.json",
+  "mixins": [
+    "BannerPatternItemMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8.4"
+}
