@@ -8,5 +8,25 @@
   "item.minecraft.guster_banner_pattern": "Guster Banner Pattern",
   "item.minecraft.mojang_banner_pattern": "Thing Banner Pattern",
   "item.minecraft.piglin_banner_pattern": "Snout Banner Pattern",
-  "item.minecraft.skull_banner_pattern": "Skull Charge Banner Pattern"
+  "item.minecraft.skull_banner_pattern": "Skull Charge Banner Pattern",
+
+  "item.minecraft.bolt_armor_trim_smithing_template": "Bolt Armor Trim",
+  "item.minecraft.coast_armor_trim_smithing_template": "Coast Armor Trim",
+  "item.minecraft.dune_armor_trim_smithing_template": "Dune Armor Trim",
+  "item.minecraft.eye_armor_trim_smithing_template": "Eye Armor Trim",
+  "item.minecraft.flow_armor_trim_smithing_template": "Flow Armor Trim",
+  "item.minecraft.host_armor_trim_smithing_template": "Host Armor Trim",
+  "item.minecraft.netherite_upgrade_smithing_template": "Netherite Upgrade",
+  "item.minecraft.raiser_armor_trim_smithing_template": "Raiser Armor Trim",
+  "item.minecraft.rib_armor_trim_smithing_template": "Rib Armor Trim",
+  "item.minecraft.sentry_armor_trim_smithing_template": "Sentry Armor Trim",
+  "item.minecraft.shaper_armor_trim_smithing_template": "Shaper Armor Trim",
+  "item.minecraft.silence_armor_trim_smithing_template": "Silence Armor Trim",
+  "item.minecraft.snout_armor_trim_smithing_template": "Snout Armor Trim",
+  "item.minecraft.spire_armor_trim_smithing_template": "Spire Armor Trim",
+  "item.minecraft.tide_armor_trim_smithing_template": "Tide Armor Trim",
+  "item.minecraft.vex_armor_trim_smithing_template": "Vex Armor Trim",
+  "item.minecraft.ward_armor_trim_smithing_template": "Ward Armor Trim",
+  "item.minecraft.wayfinder_armor_trim_smithing_template": "Wayfinder Armor Trim",
+  "item.minecraft.wild_armor_trim_smithing_template": "Wild Armor Trim"
 }

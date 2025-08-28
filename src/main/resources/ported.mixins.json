@@ -5,6 +5,7 @@
   "refmap": "blueberry.refmap.json",
   "mixins": [
     "BannerPatternItemMixin",
+    "SmithingTemplateItemMixin",
     "SpawnerBlockMixin"
   ],
   "client": [
