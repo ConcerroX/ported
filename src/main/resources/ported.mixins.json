@@ -8,6 +8,7 @@
     "BundleContentsMixin",
     "BundleContentsMutableMixin",
     "BundleItemMixin",
+    "SlimeBlockMixin",
     "SmithingTemplateItemMixin",
     "SpawnerBlockMixin"
   ],

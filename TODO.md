@@ -8,7 +8,7 @@
 - [ ] Small and large variants of salmon;
 - [ ] Mace smash death message;
 - [x] Sounds for monster spawners;
-- [ ] Slime blocks cancel fall damage when sneaking;
+- [x] Slime blocks cancel fall damage when sneaking;
 - [x] New texture and model for redstone torch;
 - [x] Smithing templates are named after their template type;
 - [ ] Updated trial chambers;
