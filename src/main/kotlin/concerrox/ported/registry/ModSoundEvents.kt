@@ -11,6 +11,8 @@ object ModSoundEvents {
     val SPAWNER_PLACE = variableRange("block.spawner.place")
     val SPAWNER_STEP = variableRange("block.spawner.step")
 
+    val BUBBLE_POP = variableRange("ui.hud.bubble_pop")
+
     private fun variableRange(name: String): SoundEvent =
         SoundEvent.createVariableRangeEvent(ResourceLocation.withDefaultNamespace(name))
 

@@ -11,4 +11,4 @@
 - [x] New texture and model for redstone torch;
 - [x] Smithing templates are named after their template type;
 - [ ] Updated trial chambers;
-- [ ] Empty state for air bubbles in the oxygen bar;
+- [x] Empty state for air bubbles in the oxygen bar and bubble pop sound;

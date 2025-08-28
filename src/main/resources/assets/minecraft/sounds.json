@@ -46,5 +46,11 @@
       "block/spawner/step5"
     ],
     "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "ui.hud.bubble_pop": {
+    "sounds": [
+      "ui/hud/hud_bubble"
+    ],
+    "subtitle": "subtitles.ui.hud.bubble_pop"
   }
 }

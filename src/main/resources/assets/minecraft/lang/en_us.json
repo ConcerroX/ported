@@ -28,5 +28,7 @@
   "item.minecraft.vex_armor_trim_smithing_template": "Vex Armor Trim",
   "item.minecraft.ward_armor_trim_smithing_template": "Ward Armor Trim",
   "item.minecraft.wayfinder_armor_trim_smithing_template": "Wayfinder Armor Trim",
-  "item.minecraft.wild_armor_trim_smithing_template": "Wild Armor Trim"
+  "item.minecraft.wild_armor_trim_smithing_template": "Wild Armor Trim",
+
+  "subtitles.ui.hud.bubble_pop": "Breath meter dropping"
 }
