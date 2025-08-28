@@ -5,10 +5,17 @@
   "refmap": "blueberry.refmap.json",
   "mixins": [
     "BannerPatternItemMixin",
+    "BundleContentsMixin",
+    "BundleContentsMutableMixin",
+    "BundleItemMixin",
     "SmithingTemplateItemMixin",
     "SpawnerBlockMixin"
   ],
   "client": [
+    "client.AbstractContainerScreenMixin",
+    "client.ClientBundleTooltipMixin",
+    "client.CreativeModeInventoryScreenMixin",
+    "client.GuiGraphicsMixin",
     "client.GuiMixin"
   ],
   "injectors": {

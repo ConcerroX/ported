@@ -30,5 +30,27 @@
   "item.minecraft.wayfinder_armor_trim_smithing_template": "Wayfinder Armor Trim",
   "item.minecraft.wild_armor_trim_smithing_template": "Wild Armor Trim",
 
-  "subtitles.ui.hud.bubble_pop": "Breath meter dropping"
+  "subtitles.ui.hud.bubble_pop": "Breath meter dropping",
+
+  "item.minecraft.black_bundle": "Black Bundle",
+  "item.minecraft.blue_bundle": "Blue Bundle",
+  "item.minecraft.brown_bundle": "Brown Bundle",
+  "item.minecraft.cyan_bundle": "Cyan Bundle",
+  "item.minecraft.gray_bundle": "Gray Bundle",
+  "item.minecraft.green_bundle": "Green Bundle",
+  "item.minecraft.light_blue_bundle": "Light Blue Bundle",
+  "item.minecraft.light_gray_bundle": "Light Gray Bundle",
+  "item.minecraft.lime_bundle": "Lime Bundle",
+  "item.minecraft.magenta_bundle": "Magenta Bundle",
+  "item.minecraft.orange_bundle": "Orange Bundle",
+  "item.minecraft.pink_bundle": "Pink Bundle",
+  "item.minecraft.purple_bundle": "Purple Bundle",
+  "item.minecraft.red_bundle": "Red Bundle",
+  "item.minecraft.white_bundle": "White Bundle",
+  "item.minecraft.yellow_bundle": "Yellow Bundle",
+  "item.minecraft.bundle.full": "Full",
+  "item.minecraft.bundle.empty": "Empty",
+  "item.minecraft.bundle.empty.description": "Can hold a mixed stack of items",
+  "subtitles.item.bundle.insert_fail": "Bundle full",
+  "dataPack.bundle.description": "DO NOT ENABLE THIS AS IT IS ALREADY INCLUDED IN THE PORTED MOD!"
 }

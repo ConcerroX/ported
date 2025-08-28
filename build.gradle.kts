@@ -20,6 +20,9 @@ sourceSets.main.get().resources { srcDir("src/generated/resources") }
 
 neoForge {
     version = libs.versions.neoForge.get()
+    accessTransformers {
+
+    }
     setAccessTransformers("src/main/resources/META-INF/accesstransformer.cfg")
     parchment {
         mappingsVersion = libs.versions.parchmentMappings.get()

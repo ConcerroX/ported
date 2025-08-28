@@ -12,6 +12,10 @@ object DataGenerator {
     fun onGatherData(event: GatherDataEvent) {
         val output = event.generator.packOutput
         val lookupProvider = event.lookupProvider
+        val existingFileHelper = event.existingFileHelper
+        val blockTagsProvider = ModBlockTagsProvider(output, lookupProvider, existingFileHelper)
+        event.addProvider(blockTagsProvider)
+        event.addProvider(ModItemTagsProvider(output, lookupProvider, blockTagsProvider.contentsGetter()))
         event.addProvider(ModRecipeProvider(output, lookupProvider))
     }
 

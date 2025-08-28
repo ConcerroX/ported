@@ -13,6 +13,8 @@ object ModSoundEvents {
 
     val BUBBLE_POP = variableRange("ui.hud.bubble_pop")
 
+    val BUNDLE_INSERT_FAIL = variableRange("item.bundle.insert_fail")
+
     private fun variableRange(name: String): SoundEvent =
         SoundEvent.createVariableRangeEvent(ResourceLocation.withDefaultNamespace(name))
 

@@ -1,8 +1,9 @@
 # Features
 ## 1.21.2: Bundles of Bravery
 - [x] Two new banner patterns;
-- [ ] New bundle mechanics;
-- [ ] Dyed bundles;
+- [x] New bundle mechanics;
+- [x] Dyed bundles;
+- [x] Transmute recipes;
 - [ ] Baby variants of dolphins, glow squid and squid;
 - [ ] Small and large variants of salmon;
 - [ ] Mace smash death message;

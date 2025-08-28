@@ -5,6 +5,8 @@ import concerrox.ported.registry.ModBlockEntityTypes
 import concerrox.ported.registry.ModBlocks
 import concerrox.ported.registry.ModCreativeModeTabs
 import concerrox.ported.registry.ModItems
+import concerrox.ported.registry.ModPacketTypes
+import concerrox.ported.registry.ModRecipeSerializers
 import concerrox.ported.registry.ModSoundEvents
 import net.minecraft.resources.ResourceLocation
 import net.neoforged.bus.api.IEventBus
@@ -23,6 +25,8 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
 //        ModSoundEvents.SOUND_EVENTS.register(modEventBus)
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus)
         ModCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus)
+        ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus)
+        modEventBus.addListener(ModPacketTypes::register)
         modContainer.registerConfig(ModConfig.Type.COMMON, PortedConfig.SPEC)
     }
 
