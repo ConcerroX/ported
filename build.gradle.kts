@@ -10,9 +10,9 @@ val modName = "Ported"
 val modLicense = "MIT License"
 val modAuthors = "ConcerroX"
 val modDescription = "Hello world!"
-version = "1.0.0"
+version = "1.0.1"
 group = "concerrox.ported"
-base.archivesName = modId
+base.archivesName = modId + "-neoforge-" + libs.versions.minecraft.get()
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
@@ -47,10 +47,6 @@ neoForge {
         }
     }
 }
-//
-//configurations {
-//    runtimeClasspath.extendsFrom(project.loc)
-//}
 
 repositories {
     maven("https://thedarkcolour.github.io/KotlinForForge/") // Kotlin for Forge
@@ -59,7 +55,7 @@ repositories {
 
 dependencies {
     implementation(libs.kotlinForForge)
-    runtimeOnly(libs.emi)
+    implementation(libs.emi)
 }
 
 idea {
@@ -86,4 +82,8 @@ tasks.withType<ProcessResources>().configureEach {
     )
     inputs.properties(replaceProperties)
     filesMatching("META-INF/neoforge.mods.toml") { expand(replaceProperties) }
+}
+
+tasks.shadowJar {
+    isZip64 = true
 }

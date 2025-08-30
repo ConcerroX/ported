@@ -15,8 +15,8 @@ import net.minecraft.world.level.Level
 class TransmuteRecipe(
     private val group: String,
     private val bookCategory: CraftingBookCategory,
-    private val input: Ingredient,
-    private val material: Ingredient,
+    val input: Ingredient,
+    val material: Ingredient,
     private val result: TransmuteResult
 ) : CraftingRecipe {
 //    private var placementInfo: PlacementInfo? = null
@@ -50,7 +50,7 @@ class TransmuteRecipe(
 
     override fun canCraftInDimensions(width: Int, height: Int) = width * height >= ingredients.size
 
-    override fun getResultItem(registries: HolderLookup.Provider) = null
+    override fun getResultItem(registries: HolderLookup.Provider) = ItemStack(result.item, result.count)
 
 //    public override fun display(): MutableList<RecipeDisplay> {
 //        return List.of<RecipeDisplay?>(
