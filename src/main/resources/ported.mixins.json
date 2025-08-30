@@ -4,10 +4,14 @@
   "compatibilityLevel": "JAVA_21",
   "refmap": "blueberry.refmap.json",
   "mixins": [
+    "AbstractFishMixin",
+    "AbstractSchoolingFishMixin",
     "BannerPatternItemMixin",
     "BundleContentsMixin",
     "BundleContentsMutableMixin",
     "BundleItemMixin",
+    "LivingEntityMixin",
+    "SalmonMixin",
     "SlimeBlockMixin",
     "SmithingTemplateItemMixin",
     "SpawnerBlockMixin"

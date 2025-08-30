@@ -1,6 +1,7 @@
 package concerrox.ported.event
 
 import concerrox.ported.data.ModItemTagsProvider
+import concerrox.ported.registry.ModCreativeModeTabs
 import concerrox.ported.registry.ModItems
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.CreativeModeTabs
@@ -37,6 +38,14 @@ object CommonModEventHandler {
                         CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
                     )
                 }
+            }
+
+            ModCreativeModeTabs.PORTED.key -> {
+                event.insertBefore(
+                    ModItems.WHITE_BUNDLE.toStack(),
+                    Items.BUNDLE.defaultInstance,
+                    CreativeModeTab.TabVisibility.PARENT_TAB_ONLY
+                )
             }
         }
     }

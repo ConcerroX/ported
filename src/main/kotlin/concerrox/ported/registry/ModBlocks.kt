@@ -13,18 +13,6 @@ object ModBlocks {
 
     val BLOCKS: DeferredRegister.Blocks = DeferredRegister.createBlocks(ResourceLocation.DEFAULT_NAMESPACE)
 
-    // TODO:fix this
-//    val SPAWNER = BLOCKS.new("spawner") {
-//        SpawnerBlock(newProperties {
-//            mapColor(MapColor.STONE)
-//            instrument(NoteBlockInstrument.BASEDRUM)
-//            requiresCorrectToolForDrops()
-//            strength(5f)
-//            sound(ModSoundTypes.SPAWNER)
-//            noOcclusion()
-//        })
-//    }
-
     private fun newProperties(builder: BlockBehaviour.Properties.() -> Unit) =
         BlockBehaviour.Properties.of().apply(builder)
 

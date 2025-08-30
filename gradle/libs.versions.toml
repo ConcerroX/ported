@@ -1,13 +1,13 @@
 [versions]
 minecraft = "1.21.1"
 minecraftRange = "[1.21.1]"
-neoForge = "21.1.179"
-neoForgeRange = "[21.1,)"
+neoForge = "21.1.206"
+neoForgeRange = "[21.1.197,)"
 neoForgeLoaderRange = "[5.3,)"
 parchmentMappings = "2024.11.17"
 
 [libraries]
-kotlinForForge = { group = "thedarkcolour", name = "kotlinforforge-neoforge", version = "5.5.0" }
+kotlinForForge = { group = "thedarkcolour", name = "kotlinforforge-neoforge", version = "5.9.0" }
 emi = { group = "dev.emi", name = "emi-neoforge", version = "1.1.22+1.21.1" }
 
 [plugins]

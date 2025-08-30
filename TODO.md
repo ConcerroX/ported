@@ -5,7 +5,7 @@
 - [x] Dyed bundles;
 - [x] Transmute recipes;
 - [ ] Baby variants of dolphins, glow squid and squid;
-- [ ] Small and large variants of salmon;
+- [x] Small and large variants of salmon;
 - [ ] Mace smash death message;
 - [x] Sounds for monster spawners;
 - [x] Slime blocks cancel fall damage when sneaking;

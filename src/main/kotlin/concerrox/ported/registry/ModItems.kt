@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.BannerPatternItem
 import net.minecraft.world.item.BundleItem
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.Items
 import net.minecraft.world.item.component.BundleContents
 import net.neoforged.neoforge.registries.DeferredItem
 import net.neoforged.neoforge.registries.DeferredRegister
@@ -14,7 +15,6 @@ object ModItems {
 
     val ITEMS: DeferredRegister.Items = DeferredRegister.createItems(ResourceLocation.DEFAULT_NAMESPACE)
 
-    // 1.21.2
     val FIELD_MASONED_BANNER_PATTERN = new("field_masoned_banner_pattern") {
         BannerPatternItem(ModBannerPatternTags.PATTERN_ITEM_FIELD_MASONED, newProperties { stacksTo(1) })
     }
