@@ -5,6 +5,7 @@ import concerrox.ported.data.ModItemTagsProvider
 import concerrox.ported.registry.ModCreativeModeTabs
 import concerrox.ported.registry.ModEntityTypes
 import concerrox.ported.registry.ModItems
+import net.minecraft.world.effect.MobEffectUtil
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.CreativeModeTabs
 import net.minecraft.world.item.ItemStack
@@ -13,6 +14,7 @@ import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent
+import net.neoforged.neoforge.event.entity.living.LivingBreatheEvent
 
 @EventBusSubscriber
 object CommonModEventHandler {
@@ -159,6 +161,11 @@ object CommonModEventHandler {
     fun onCreateEntityAttribute(event: EntityAttributeCreationEvent) {
         event.put(ModEntityTypes.CREAKING.get(), Creaking.createAttributes().build())
     }
+
+//
+//    private fun increaseAirSupply(entity: LivingEntity, currentAir: Int): Int {
+//        return min(currentAir + 4, entity.maxAirSupply)
+//    }
 
 //    @SubscribeEvent
 //    fun onLoadLootTable(event: LootTableLoadEvent) {
