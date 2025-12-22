@@ -58,6 +58,7 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
             ) {
                 addModifiedVanillaOverworldBiomes(mapper) { builder ->
                     builder.replaceBiome(Biomes.DARK_FOREST, ModBiomes.PALE_GARDEN)
+                    // TODO: fix this
 //                    val frozenPeaksPoints =
 //                        ParameterPointListBuilder().temperature(Temperature.NEUTRAL).humidity(Humidity.HUMID)
 //                            .continentalness(

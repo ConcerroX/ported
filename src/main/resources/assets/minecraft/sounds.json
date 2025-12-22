@@ -367,6 +367,7 @@
         "volume": 0.6
       }
     ],
+    "replace": true,
     "subtitle": "subtitles.item.elytra.flying"
   }
 }

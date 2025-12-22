@@ -26,7 +26,7 @@
 - [x] Pale Garden;
 - [x] Resin;
 - [x] Woodland mansions loot chests can now contain resin clumps;
-- [ ] Elytra flying subtitle;
+- [x] Elytra flying subtitle (fix MC-277984);
 - [x] New texture for nether bricks;
 - [ ] Baby cats and wolves get a collar with the color that is a mix between the parents';
 - [x] Bees get withered when fed wither roses, and poisoned by open eyeblossoms;
