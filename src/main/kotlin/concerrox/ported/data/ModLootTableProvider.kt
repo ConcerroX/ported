@@ -16,6 +16,7 @@ import net.minecraft.resources.ResourceKey
 import net.minecraft.world.flag.FeatureFlags
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.enchantment.Enchantments
+import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.MultifaceBlock
 import net.minecraft.world.level.storage.loot.IntRange
 import net.minecraft.world.level.storage.loot.LootPool
@@ -154,6 +155,12 @@ class ModLootTableProvider(
             dropSelf(ModBlocks.OPEN_EYEBLOSSOM.get())
             dropPottedContents(ModBlocks.POTTED_OPEN_EYEBLOSSOM.get())
 
+            add(Blocks.ENDER_CHEST) {
+                createSingleItemTableWithSilkTouch(it, Blocks.OBSIDIAN, ConstantValue.exactly(8f))
+            }
+
+
+            // Ported
             dropSelf(ModBlocks.GLOWING_OBSIDIAN.get())
             add(ModBlocks.NETHER_REACTOR_CORE.get()) {
                 LootTable.lootTable().withPool(
@@ -174,6 +181,7 @@ class ModLootTableProvider(
 
         override fun getKnownBlocks() = ModBlocks.BLOCKS.entries.map { e -> e.value() }.toMutableList().apply {
             addAll(ModBlocks.PORTED_BLOCKS.entries.map { e -> e.value() })
+            add(Blocks.ENDER_CHEST)
         }
 
         private fun hasShears(): LootItemCondition.Builder {
