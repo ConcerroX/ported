@@ -1,7 +1,7 @@
 package concerrox.ported.registry
 
 import concerrox.ported.Ported
-import concerrox.ported.entity.SalmonVariant
+import concerrox.ported.content.bundlesofbravery.salmon.SalmonVariant
 import concerrox.ported.util.new
 import net.neoforged.neoforge.attachment.AttachmentType
 import net.neoforged.neoforge.registries.DeferredRegister

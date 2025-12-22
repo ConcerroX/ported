@@ -2,6 +2,7 @@ package concerrox.ported.registry
 
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.sounds.SoundEvent
+import net.minecraft.sounds.SoundEvents
 
 object ModSoundEvents {
 
@@ -14,6 +15,44 @@ object ModSoundEvents {
     val BUBBLE_POP = variableRange("ui.hud.bubble_pop")
 
     val BUNDLE_INSERT_FAIL = variableRange("item.bundle.insert_fail")
+
+    val CREAKING_AMBIENT = variableRange("entity.creaking.ambient")
+    val CREAKING_ACTIVATE = variableRange("entity.creaking.activate")
+    val CREAKING_DEACTIVATE = variableRange("entity.creaking.deactivate")
+    val CREAKING_ATTACK = variableRange("entity.creaking.attack")
+    val CREAKING_DEATH = variableRange("entity.creaking.death")
+    val CREAKING_STEP = variableRange("entity.creaking.step")
+    val CREAKING_FREEZE = variableRange("entity.creaking.freeze")
+    val CREAKING_UNFREEZE = variableRange("entity.creaking.unfreeze")
+    val CREAKING_SPAWN = variableRange("entity.creaking.spawn")
+    val CREAKING_SWAY = variableRange("entity.creaking.sway")
+    val CREAKING_TWITCH = variableRange("entity.creaking.twitch")
+    val CREAKING_HEART_BREAK = variableRange("block.creaking_heart.break")
+    val CREAKING_HEART_FALL = variableRange("block.creaking_heart.fall")
+    val CREAKING_HEART_HIT = variableRange("block.creaking_heart.hit")
+    val CREAKING_HEART_HURT = variableRange("block.creaking_heart.hurt")
+    val CREAKING_HEART_PLACE = variableRange("block.creaking_heart.place")
+    val CREAKING_HEART_STEP = variableRange("block.creaking_heart.step")
+    val CREAKING_HEART_IDLE = variableRange("block.creaking_heart.idle")
+    val CREAKING_HEART_SPAWN = variableRange("block.creaking_heart.spawn")
+
+    val RESIN_BREAK = variableRange("block.resin.break")
+    val RESIN_FALL = variableRange("block.resin.fall")
+    val RESIN_PLACE = variableRange("block.resin.place")
+    val RESIN_STEP = variableRange("block.resin.step")
+    val RESIN_BRICKS_BREAK = variableRange("block.resin_bricks.break")
+    val RESIN_BRICKS_FALL = variableRange("block.resin_bricks.fall")
+    val RESIN_BRICKS_HIT = variableRange("block.resin_bricks.hit")
+    val RESIN_BRICKS_PLACE = variableRange("block.resin_bricks.place")
+    val RESIN_BRICKS_STEP = variableRange("block.resin_bricks.step")
+
+    val PALE_HANGING_MOSS_IDLE = variableRange("block.pale_hanging_moss.idle")
+
+    val EYEBLOSSOM_OPEN_LONG = variableRange("block.eyeblossom.open_long")
+    val EYEBLOSSOM_OPEN = variableRange("block.eyeblossom.open")
+    val EYEBLOSSOM_CLOSE_LONG = variableRange("block.eyeblossom.close_long")
+    val EYEBLOSSOM_CLOSE = variableRange("block.eyeblossom.close")
+    val EYEBLOSSOM_IDLE = variableRange("block.eyeblossom.idle")
 
     private fun variableRange(name: String): SoundEvent =
         SoundEvent.createVariableRangeEvent(ResourceLocation.withDefaultNamespace(name))

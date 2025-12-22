@@ -1,0 +1,8 @@
+{
+  "render_type": "minecraft:cutout",
+  "parent": "minecraft:block/cross_emissive",
+  "textures": {
+    "cross": "minecraft:block/open_eyeblossom",
+    "cross_emissive": "minecraft:block/open_eyeblossom_emissive"
+  }
+}

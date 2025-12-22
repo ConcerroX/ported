@@ -1,6 +1,6 @@
 package concerrox.ported.mixin;
 
-import concerrox.ported.entity.SalmonVariant;
+import concerrox.ported.content.bundlesofbravery.salmon.SalmonVariant;
 import concerrox.ported.mixininterface.SalmonExtensions;
 import concerrox.ported.registry.ModAttachmentTypes;
 import net.minecraft.world.entity.EntityType;

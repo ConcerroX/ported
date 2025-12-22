@@ -1,0 +1,17 @@
+//package concerrox.ported.content.thegardenawakens.creaking
+//
+//import net.minecraft.world.entity.AnimationState
+//import net.neoforged.api.distmarker.Dist
+//import net.neoforged.api.distmarker.OnlyIn
+//
+//@OnlyIn(Dist.CLIENT)
+//class CreakingRenderState {
+//    var deathTime = 0f
+//    var hasRedOverlay: Boolean = false
+//
+//    val invulnerabilityAnimationState = AnimationState()
+//    val attackAnimationState = AnimationState()
+//    val deathAnimationState = AnimationState()
+//    var eyesGlowing = false
+//    var canMove = false
+//}

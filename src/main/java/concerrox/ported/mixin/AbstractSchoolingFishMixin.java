@@ -1,6 +1,6 @@
 package concerrox.ported.mixin;
 
-import concerrox.ported.entity.SalmonVariant;
+import concerrox.ported.content.bundlesofbravery.salmon.SalmonVariant;
 import concerrox.ported.mixininterface.SalmonExtensions;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.DifficultyInstance;

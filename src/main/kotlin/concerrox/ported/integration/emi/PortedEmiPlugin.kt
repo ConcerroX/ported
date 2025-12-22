@@ -1,7 +1,7 @@
 package concerrox.ported.integration.emi
 
 import concerrox.ported.Ported
-import concerrox.ported.recipe.TransmuteRecipe
+import concerrox.ported.content.bundlesofbravery.transmute.TransmuteRecipe
 import dev.emi.emi.EmiPort
 import dev.emi.emi.api.EmiEntrypoint
 import dev.emi.emi.api.EmiPlugin
@@ -18,7 +18,6 @@ class PortedEmiPlugin : EmiPlugin {
     override fun register(registry: EmiRegistry) {
         for (recipe in getRecipes(registry, RecipeType.CRAFTING)) {
             if (recipe is TransmuteRecipe && recipe.canCraftInDimensions(3, 3)) {
-                print(recipe)
                 addRecipeSafe(registry, { EmiTransmuteRecipe(recipe) }, recipe)
             }
         }

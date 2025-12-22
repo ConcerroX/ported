@@ -5,27 +5,47 @@ import net.minecraft.resources.ResourceLocation
 import net.neoforged.neoforge.common.ModConfigSpec
 
 object PortedConfig {
+
+    val DEFAULT_TRIMMABLE_ARMOR = listOf(
+        "minecraft:leather_boots",
+        "minecraft:copper_boots",
+        "minecraft:chainmail_boots",
+        "minecraft:golden_boots",
+        "minecraft:iron_boots",
+        "minecraft:diamond_boots",
+        "minecraft:netherite_boots",
+        "minecraft:leather_leggings",
+        "minecraft:copper_leggings",
+        "minecraft:chainmail_leggings",
+        "minecraft:golden_leggings",
+        "minecraft:iron_leggings",
+        "minecraft:diamond_leggings",
+        "minecraft:netherite_leggings",
+        "minecraft:leather_chestplate",
+        "minecraft:copper_chestplate",
+        "minecraft:chainmail_chestplate",
+        "minecraft:golden_chestplate",
+        "minecraft:iron_chestplate",
+        "minecraft:diamond_chestplate",
+        "minecraft:netherite_chestplate",
+        "minecraft:leather_helmet",
+        "minecraft:copper_helmet",
+        "minecraft:chainmail_helmet",
+        "minecraft:golden_helmet",
+        "minecraft:iron_helmet",
+        "minecraft:diamond_helmet",
+        "minecraft:netherite_helmet",
+        "minecraft:turtle_helmet"
+    )
+
     private val BUILDER = ModConfigSpec.Builder()
 
-    val LOG_DIRT_BLOCK: ModConfigSpec.BooleanValue = BUILDER.comment("Whether to log the dirt block on common setup")
-        .define("logDirtBlock", true)
+    val TRIMMABLE_ARMOR: ModConfigSpec.ConfigValue<List<String>> =
+        BUILDER.defineListAllowEmpty("trimmableArmor", DEFAULT_TRIMMABLE_ARMOR, { "" }, ::validateItemName)
 
-    val MAGIC_NUMBER: ModConfigSpec.IntValue = BUILDER.comment("A magic number")
-        .defineInRange("magicNumber", 42, 0, Int.MAX_VALUE)
+    internal val SPEC: ModConfigSpec = BUILDER.build()
 
-    val MAGIC_NUMBER_INTRODUCTION: ModConfigSpec.ConfigValue<String> = BUILDER.comment(
-        "What you want the introduction message to be for the magic number")
-        .define("magicNumberIntroduction", "The magic number is... ")
-
-    // a list of strings that are treated as resource locations for items
-    val ITEM_STRINGS: ModConfigSpec.ConfigValue<List<String>> = BUILDER.comment(
-        "A list of items to log on common setup.")
-        .defineListAllowEmpty("items", listOf("minecraft:iron_ingot"), { "" }, { obj -> validateItemName(obj) })
-
-    val SPEC: ModConfigSpec = BUILDER.build()
-
-    private fun validateItemName(obj: Any): Boolean {
-        return obj is String && BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(obj))
-    }
+    private fun validateItemName(obj: Any) =
+        obj is String && BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(obj))
 
 }

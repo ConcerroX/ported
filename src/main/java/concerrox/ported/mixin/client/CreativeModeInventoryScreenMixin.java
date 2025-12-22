@@ -1,6 +1,6 @@
 package concerrox.ported.mixin.client;
 
-import concerrox.ported.client.gui.ItemSlotMouseAction;
+import concerrox.ported.gui.ItemSlotMouseAction;
 import concerrox.ported.mixininterface.AbstractContainerScreenExtensions;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import org.spongepowered.asm.mixin.Mixin;

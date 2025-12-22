@@ -5,7 +5,7 @@ import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.data.event.GatherDataEvent
 
-@EventBusSubscriber(modid = Ported.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = Ported.MOD_ID)
 object DataGenerator {
 
     @SubscribeEvent
@@ -17,6 +17,12 @@ object DataGenerator {
         event.addProvider(blockTagsProvider)
         event.addProvider(ModItemTagsProvider(output, lookupProvider, blockTagsProvider.contentsGetter()))
         event.addProvider(ModRecipeProvider(output, lookupProvider))
+        event.addProvider(ModDataMapProvider(output, lookupProvider))
+        event.addProvider(ModLootTableProvider(output, lookupProvider))
+//        event.addProvider(ModLootModifierProvider(output, lookupProvider))
+        event.addProvider(ModEntityTypeTagsProvider(output, lookupProvider, existingFileHelper))
+        event.addProvider(ModBiomeTagsProvider(output, lookupProvider, existingFileHelper))
+        event.addProvider(ModDatapackBuiltinEntriesProvider(output, lookupProvider))
     }
 
 }

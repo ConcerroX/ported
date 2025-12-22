@@ -1,6 +1,6 @@
 package concerrox.ported.integration.emi
 
-import concerrox.ported.recipe.TransmuteRecipe
+import concerrox.ported.content.bundlesofbravery.transmute.TransmuteRecipe
 import dev.emi.emi.EmiPort
 import dev.emi.emi.api.recipe.EmiCraftingRecipe
 import dev.emi.emi.api.stack.EmiIngredient

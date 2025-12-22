@@ -1,7 +1,7 @@
 package concerrox.ported.mixin.client;
 
-import concerrox.ported.client.gui.BundleMouseActions;
-import concerrox.ported.client.gui.ItemSlotMouseAction;
+import concerrox.ported.content.bundlesofbravery.bundle.BundleMouseActions;
+import concerrox.ported.gui.ItemSlotMouseAction;
 import concerrox.ported.mixininterface.AbstractContainerScreenExtensions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -49,7 +49,6 @@ public abstract class AbstractContainerScreenMixin implements AbstractContainerS
         ported$itemSlotMouseActions = (List<ItemSlotMouseAction>) itemSlotMouseActions;
     }
 
-    // TODO: fix this
     @Unique
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {

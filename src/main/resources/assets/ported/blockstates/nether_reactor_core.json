@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "stage=normal": {
+      "model": "ported:block/nether_reactor_core_normal"
+    },
+    "stage=initialized": {
+      "model": "ported:block/nether_reactor_core_initialized"
+    },
+    "stage=finished": {
+      "model": "ported:block/nether_reactor_core_finished"
+    }
+  }
+}

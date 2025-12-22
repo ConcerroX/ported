@@ -2,9 +2,9 @@ package concerrox.ported.mixin.client;
 
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.vertex.PoseStack;
-import concerrox.ported.client.event.ClientModEventHandler;
+import concerrox.ported.event.ClientModEventHandler;
 import concerrox.ported.registry.ModItemTags;
-import concerrox.ported.util.BundleItemUtils;
+import concerrox.ported.content.bundlesofbravery.bundle.BundleItemUtils;
 import net.minecraft.CrashReport;
 import net.minecraft.CrashReportCategory;
 import net.minecraft.ReportedException;

@@ -1,6 +1,6 @@
 package concerrox.ported.registry
 
-import concerrox.ported.network.ServerboundSelectBundleItemPayload
+import concerrox.ported.content.bundlesofbravery.bundle.ServerboundSelectBundleItemPayload
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent
 
 object ModPacketTypes {

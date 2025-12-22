@@ -10,18 +10,23 @@
     "BundleContentsMixin",
     "BundleContentsMutableMixin",
     "BundleItemMixin",
+    "ItemMixin",
     "LivingEntityMixin",
     "SalmonMixin",
     "SlimeBlockMixin",
     "SmithingTemplateItemMixin",
-    "SpawnerBlockMixin"
+    "SpawnerBlockMixin",
+    "content.thegardenawakens.AnimalMixin",
+    "content.thegardenawakens.BeeBeePollinateGoalMixin"
   ],
   "client": [
     "client.AbstractContainerScreenMixin",
     "client.ClientBundleTooltipMixin",
     "client.CreativeModeInventoryScreenMixin",
     "client.GuiGraphicsMixin",
-    "client.GuiMixin"
+    "client.GuiMixin",
+    "content.thegardenawakens.MinecraftMixin",
+    "content.thegardenawakens.ModelManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

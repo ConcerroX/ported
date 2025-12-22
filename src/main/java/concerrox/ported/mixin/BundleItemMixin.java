@@ -1,7 +1,7 @@
 package concerrox.ported.mixin;
 
+import concerrox.ported.content.bundlesofbravery.bundle.BundleContentsMutableExtensionsKt;
 import concerrox.ported.registry.ModSoundEvents;
-import concerrox.ported.util.BundleContentsMutableExtensionsKt;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;

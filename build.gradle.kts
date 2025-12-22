@@ -1,3 +1,5 @@
+import net.neoforged.moddevgradle.dsl.RunModel
+
 plugins {
     id("idea")
     kotlin("jvm") version "2.1.21"
@@ -10,7 +12,7 @@ val modName = "Ported"
 val modLicense = "MIT License"
 val modAuthors = "ConcerroX"
 val modDescription = "Hello world!"
-version = "1.0.1"
+version = "1.1.0"
 group = "concerrox.ported"
 base.archivesName = modId + "-neoforge-" + libs.versions.minecraft.get()
 
@@ -20,26 +22,35 @@ sourceSets.main.get().resources { srcDir("src/generated/resources") }
 
 neoForge {
     version = libs.versions.neoForge.get()
-    accessTransformers {
-
-    }
     setAccessTransformers("src/main/resources/META-INF/accesstransformer.cfg")
+
     parchment {
         mappingsVersion = libs.versions.parchmentMappings.get()
         minecraftVersion = libs.versions.minecraft.get()
     }
-    mods { create(modId) { sourceSet(sourceSets.main.get()) } }
+
+    mods {
+        create(modId) {
+            sourceSet(sourceSets.main.get())
+        }
+    }
+
     runs {
-        create("client") { client() }
-        create("server") { server(); programArgument("--nogui") }
-        create("data") {
+        create("client", Action<RunModel> {
+            client()
+        })
+        create("server", Action<RunModel> {
+            server()
+            programArgument("--nogui")
+        })
+        create("data", Action<RunModel> {
             data()
             programArguments.addAll(
                 "--mod", modId,
                 "--all", "--output", file("src/generated/resources/").absolutePath,
                 "--existing", file("src/main/resources/").absolutePath,
             )
-        }
+        })
         configureEach {
             systemProperty("forge.logging.markers", "REGISTRIES")
             systemProperty("neoforge.enabledGameTestNamespaces", modId)
@@ -51,10 +62,12 @@ neoForge {
 repositories {
     maven("https://thedarkcolour.github.io/KotlinForForge/") // Kotlin for Forge
     maven("https://maven.terraformersmc.com/") // EMI
+    maven("https://maven.minecraftforge.net/") // TerraBlender
 }
 
 dependencies {
     implementation(libs.kotlinForForge)
+    implementation(libs.terraBlender)
     implementation(libs.emi)
 }
 
@@ -66,13 +79,14 @@ idea {
 }
 
 tasks.withType<ProcessResources>().configureEach {
-    val ver = libs.versions
+    val versions = libs.versions
     val replaceProperties = mapOf(
-        "minecraft_version" to ver.minecraft,
-        "minecraft_version_range" to ver.minecraftRange,
-        "neo_version" to ver.neoForge,
-        "neo_version_range" to ver.neoForgeRange,
-        "loader_version_range" to ver.neoForgeLoaderRange,
+        "minecraft_version" to versions.minecraft,
+        "minecraft_version_range" to versions.minecraftRange,
+        "neo_version" to versions.neoForge,
+        "neo_version_range" to versions.neoForgeRange,
+        "loader_version_range" to versions.neoForgeLoaderRange,
+        "terra_blender_version_range" to versions.terraBlenderRange,
         "mod_id" to modId,
         "mod_name" to modName,
         "mod_license" to modLicense,

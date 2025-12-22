@@ -1,8 +1,8 @@
 package concerrox.ported.mixin;
 
+import concerrox.ported.content.bundlesofbravery.bundle.BundleContentsMutableExtensionsKt;
 import concerrox.ported.mixininterface.BundleContentsExtensions;
 import concerrox.ported.mixininterface.BundleContentsMutableExtensions;
-import concerrox.ported.util.BundleContentsMutableExtensionsKt;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.BundleContents;
 import org.apache.commons.lang3.math.Fraction;

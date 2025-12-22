@@ -1,6 +1,6 @@
 package concerrox.ported.mixininterface
 
-import concerrox.ported.entity.SalmonVariant
+import concerrox.ported.content.bundlesofbravery.salmon.SalmonVariant
 import net.minecraft.network.syncher.EntityDataAccessor
 import net.minecraft.network.syncher.EntityDataSerializers
 import net.minecraft.network.syncher.SynchedEntityData

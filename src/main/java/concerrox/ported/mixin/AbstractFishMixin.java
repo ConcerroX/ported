@@ -1,6 +1,6 @@
 package concerrox.ported.mixin;
 
-import concerrox.ported.entity.SalmonVariant;
+import concerrox.ported.content.bundlesofbravery.salmon.SalmonVariant;
 import concerrox.ported.mixininterface.SalmonExtensions;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
