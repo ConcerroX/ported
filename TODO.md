@@ -32,3 +32,6 @@
 - [x] Bees get withered when fed wither roses, and poisoned by open eyeblossoms;
 - [ ] Changed durations of the suspicious stew effects to match Bedrock Edition;
 - [ ] Water Breathing and Conduit Power effects now increase the oxygen while underwater instead of only preventing it from decreasing;
+- [ ] Bell, lanterns, metal doors, pressure plates and brewing stand now drop when broken with any tool.
+- [ ] Ender chest now drops obsidian when mined with an incorrect tool;
+- [ ] Experience orbs are now bouncy when falling from a height;

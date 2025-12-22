@@ -20,6 +20,7 @@
     "content.thegardenawakens.BeeBeePollinateGoalMixin"
   ],
   "client": [
+    "TitleScreenMixin",
     "client.AbstractContainerScreenMixin",
     "client.ClientBundleTooltipMixin",
     "client.CreativeModeInventoryScreenMixin",
