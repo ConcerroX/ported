@@ -1,6 +1,5 @@
 package concerrox.ported
 
-import com.google.common.collect.ImmutableList
 import com.mojang.datafixers.util.Pair
 import com.mojang.logging.LogUtils
 import concerrox.ported.registry.*
@@ -10,17 +9,24 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.biome.Biome
 import net.minecraft.world.level.biome.Biomes
 import net.minecraft.world.level.biome.Climate
+import net.minecraft.world.level.biome.Climate.ParameterPoint
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.FlowerPotBlock
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.config.ModConfig
-import net.neoforged.neoforge.internal.BrandingControl
+import terrablender.api.ParameterUtils
+import terrablender.api.ParameterUtils.Continentalness
+import terrablender.api.ParameterUtils.Depth
+import terrablender.api.ParameterUtils.Erosion
+import terrablender.api.ParameterUtils.ParameterPointListBuilder
+import terrablender.api.ParameterUtils.Weirdness
 import terrablender.api.Region
 import terrablender.api.RegionType
 import terrablender.api.Regions
 import java.util.function.Consumer
+
 
 internal fun res(path: String) = ResourceLocation.fromNamespaceAndPath(Ported.MOD_ID, path)
 
@@ -54,22 +60,35 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
         potBlock.addPlant(ModBlocks.CLOSED_EYEBLOSSOM.id, ModBlocks.POTTED_CLOSED_EYEBLOSSOM)
         potBlock.addPlant(ModBlocks.OPEN_EYEBLOSSOM.id, ModBlocks.POTTED_OPEN_EYEBLOSSOM)
 
-        Regions.register(object : Region(res("pale_garden"), RegionType.OVERWORLD, 1) {
+        Regions.register(object : Region(res("ported"), RegionType.OVERWORLD, 1) {
             override fun addBiomes(
                 registry: Registry<Biome>, mapper: Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>>
             ) {
                 addModifiedVanillaOverworldBiomes(mapper) { builder ->
                     builder.replaceBiome(Biomes.DARK_FOREST, ModBiomes.PALE_GARDEN)
-                    // TODO: fix this
-//                    val frozenPeaksPoints =
-//                        ParameterPointListBuilder().temperature(Temperature.NEUTRAL).humidity(Humidity.HUMID)
-//                            .continentalness(
-//                                Continentalness.span(Continentalness.COAST, Continentalness.FAR_INLAND),
-//                                Continentalness.span(Continentalness.MID_INLAND, Continentalness.FAR_INLAND)
-//                            ).build()
-//                    frozenPeaksPoints.forEach {
-//                        builder.replaceBiome(it, TestBiomes.COLD_BLUE)
-//                    }
+
+//                    val plateauPoints: MutableList<ParameterPoint> = ParameterPointListBuilder()
+//                        .temperature(ParameterUtils.Temperature.NEUTRAL)
+//                        .humidity(ParameterUtils.Humidity.HUMID)
+//                        .continentalness(
+//                            Continentalness.span(Continentalness.COAST, Continentalness.FAR_INLAND),
+//                            Continentalness.span(Continentalness.MID_INLAND, Continentalness.FAR_INLAND)
+//                        )
+//                        .erosion(Erosion.EROSION_0, Erosion.EROSION_1)
+//                        .depth(Depth.SURFACE, Depth.FLOOR)
+//                        .weirdness(
+//                            Weirdness.HIGH_SLICE_VARIANT_ASCENDING,
+//                            Weirdness.PEAK_VARIANT,
+//                            Weirdness.HIGH_SLICE_VARIANT_DESCENDING
+//                        )
+//                        .build()
+//
+//                    frozenPeaksPoints.forEach(Consumer { point: ParameterPoint? ->
+//                        builder.replaceBiome(
+//                            point,
+//                            TestBiomes.COLD_BLUE
+//                        )
+//                    })
                 }
             }
         })

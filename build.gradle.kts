@@ -12,7 +12,7 @@ val modName = "Ported"
 val modLicense = "MIT License"
 val modAuthors = "ConcerroX"
 val modDescription = "Hello world!"
-version = "1.1.0"
+version = "1.2.0"
 group = "concerrox.ported"
 base.archivesName = modId + "-neoforge-" + libs.versions.minecraft.get()
 
