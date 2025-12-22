@@ -28,7 +28,7 @@
 - [x] Woodland mansions loot chests can now contain resin clumps;
 - [x] Elytra flying subtitle (fix MC-277984);
 - [x] New texture for nether bricks;
-- [ ] Baby cats and wolves get a collar with the color that is a mix between the parents';
+- [x] Baby cats and wolves get a collar with the color that is a mix between the parents';
 - [x] Bees get withered when fed wither roses, and poisoned by open eyeblossoms;
 - [ ] Changed durations of the suspicious stew effects to match Bedrock Edition;
 - [ ] Water Breathing and Conduit Power effects now increase the oxygen while underwater instead of only preventing it from decreasing;

@@ -14,7 +14,7 @@ public class TitleScreenMixin {
 
     @WrapOperation(method = "lambda$render$13", at = @At(value = "INVOKE",
             target = "Lnet/minecraft/client/gui/GuiGraphics;drawString(Lnet/minecraft/client/gui/Font;Ljava/lang/String;III)I"))
-    public int a(GuiGraphics instance, Font font, String text, int x, int y, int color, Operation<Integer> original) {
+    public int injectBranding(GuiGraphics instance, Font font, String text, int x, int y, int color, Operation<Integer> original) {
         if (text.startsWith("Minecraft")) text += " - Ported to " + Ported.PORTED_TARGET_VERSION;
         return original.call(instance, font, text, x, y, color);
     }

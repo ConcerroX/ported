@@ -17,7 +17,9 @@
     "SmithingTemplateItemMixin",
     "SpawnerBlockMixin",
     "content.thegardenawakens.AnimalMixin",
-    "content.thegardenawakens.BeeBeePollinateGoalMixin"
+    "content.thegardenawakens.BeeBeePollinateGoalMixin",
+    "content.thegardenawakens.CatMixin",
+    "content.thegardenawakens.WolfMixin"
   ],
   "client": [
     "TitleScreenMixin",
