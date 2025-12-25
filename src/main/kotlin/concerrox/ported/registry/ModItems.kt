@@ -179,8 +179,9 @@ object ModItems {
     val CREAKING_SPAWN_EGG =
         new("creaking_spawn_egg") { SpawnEggItem(ModEntityTypes.CREAKING.get(), 6250335, 16545810, newProperties {}) }
 
+    // 1.21.5
     val LEAF_LITTER = blockItem(ModBlocks.LEAF_LITTER)
-
+    val WILDFLOWERS = blockItem(ModBlocks.WILDFLOWERS)
 
     val GLOWING_OBSIDIAN = portedBlockItem(ModBlocks.GLOWING_OBSIDIAN)
     val NETHER_REACTOR_CORE = portedBlockItem(ModBlocks.NETHER_REACTOR_CORE)

@@ -3,6 +3,7 @@ package concerrox.ported.registry
 import concerrox.ported.Ported
 import concerrox.ported.content.removedfeatures.netherreactorcore.NetherReactorCoreBlock
 import concerrox.ported.content.springtolife.leaflitter.LeafLitterBlock
+import concerrox.ported.content.springtolife.wildflowers.FlowerBedBlock
 import concerrox.ported.content.thegardenawakens.creakingheart.CreakingHeartBlock
 import concerrox.ported.content.thegardenawakens.eyeblossom.EyeblossomBlock
 import concerrox.ported.content.thegardenawakens.eyeblossom.EyeblossomFlowerPotBlock
@@ -300,12 +301,21 @@ object ModBlocks {
         )
     }
 
+    // 1.21.5
     val LEAF_LITTER = new("leaf_litter") {
         LeafLitterBlock(newProperties {
             mapColor(MapColor.COLOR_BROWN)
             replaceable()
             noCollission()
             sound(ModSoundTypes.LEAF_LITTER)
+            pushReaction(PushReaction.DESTROY)
+        })
+    }
+    val WILDFLOWERS = new("wildflowers") {
+        FlowerBedBlock(newProperties {
+            mapColor(MapColor.PLANT)
+            noCollission()
+            sound(SoundType.PINK_PETALS)
             pushReaction(PushReaction.DESTROY)
         })
     }

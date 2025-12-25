@@ -12,6 +12,7 @@ import concerrox.ported.registry.*
 import net.minecraft.client.Minecraft
 import net.minecraft.client.model.BoatModel
 import net.minecraft.client.model.ChestBoatModel
+import net.minecraft.client.renderer.BiomeColors
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer
 import net.minecraft.client.renderer.blockentity.SignRenderer
 import net.minecraft.client.resources.model.ModelResourceLocation
@@ -20,6 +21,7 @@ import net.minecraft.core.registries.Registries
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.ColorResolver
+import net.minecraft.world.level.GrassColor
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.api.distmarker.OnlyIn
 import net.neoforged.bus.api.SubscribeEvent
@@ -77,10 +79,26 @@ object ClientModEventHandler {
     fun onRegisterBlockColorHandlers(event: RegisterColorHandlersEvent.Block) {
         event.register(
             { _, level, pos, _ ->
-                if (level != null && pos != null) level.getBlockTint(pos, DRY_FOLIAGE_COLOR_RESOLVER)
-                else -10732494
+                if (level != null && pos != null) {
+                    level.getBlockTint(pos, DRY_FOLIAGE_COLOR_RESOLVER)
+                } else {
+                    -10732494
+                }
             }, ModBlocks.LEAF_LITTER.get()
         )
+
+        event.register(
+            { _, level, pos, p276244 ->
+                if (p276244 == 0) {
+                    -1
+                } else if (level != null && pos != null) {
+                    BiomeColors.getAverageGrassColor(level, pos)
+                } else {
+                    GrassColor.getDefaultColor()
+                }
+            }, ModBlocks.WILDFLOWERS.get()
+        )
+
     }
 
     private val minecraft = Minecraft.getInstance()

@@ -168,6 +168,24 @@ object ModPlacedFeatureProvider {
                 .toTypedArray())
         )
 
+        register(
+            ModPlacedFeatures.WILDFLOWERS_BIRCH_FOREST,
+            ModConfiguredFeatures.WILDFLOWERS_BIRCH_FOREST,
+            CountPlacement.of(3),
+            RarityFilter.onAverageOnceEvery(2),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        )
+        register(
+            ModPlacedFeatures.WILDFLOWERS_MEADOW,
+            ModConfiguredFeatures.WILDFLOWERS_MEADOW,
+            NoiseThresholdCountPlacement.of(-0.8, 5, 10),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        )
+
     }
 
 }

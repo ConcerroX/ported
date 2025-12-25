@@ -5,6 +5,7 @@ import concerrox.ported.content.springtolife.fallentree.AttachedToLogsDecorator
 import concerrox.ported.content.springtolife.fallentree.FallenTreeConfiguration
 import concerrox.ported.content.springtolife.leaflitter.LeafLitterBlock
 import concerrox.ported.content.springtolife.leaflitter.PlaceOnGroundDecorator
+import concerrox.ported.content.springtolife.wildflowers.FlowerBedBlock
 import concerrox.ported.content.thegardenawakens.creakingheart.CreakingHeartDecorator
 import concerrox.ported.content.thegardenawakens.palemoss.PaleMossDecorator
 import concerrox.ported.registry.ModBlocks
@@ -32,8 +33,11 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature
 import net.minecraft.world.level.levelgen.feature.Feature
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature
-import net.minecraft.world.level.levelgen.feature.configurations.*
+import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder
+import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration
 import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize
 import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider
@@ -465,6 +469,28 @@ object ModConfiguredFeatureProvider {
             )
         )
 
+        context.register(
+            ModConfiguredFeatures.WILDFLOWERS_BIRCH_FOREST, ConfiguredFeature(
+                Feature.FLOWER, RandomPatchConfiguration(
+                    64, 6, 2, PlacementUtils.onlyWhenEmpty(
+                        Feature.SIMPLE_BLOCK, SimpleBlockConfiguration(
+                            WeightedStateProvider(flowerBedPatchBuilder(ModBlocks.WILDFLOWERS.get()))
+                        )
+                    )
+                )
+            )
+        )
+        context.register(
+            ModConfiguredFeatures.WILDFLOWERS_MEADOW, ConfiguredFeature(
+                Feature.FLOWER, RandomPatchConfiguration(
+                    8, 6, 2, PlacementUtils.onlyWhenEmpty(
+                        Feature.SIMPLE_BLOCK, SimpleBlockConfiguration(
+                            WeightedStateProvider(flowerBedPatchBuilder(ModBlocks.WILDFLOWERS.get()))
+                        )
+                    )
+                )
+            )
+        )
     }
 
     private fun createDarkOak(): TreeConfigurationBuilder {
@@ -481,6 +507,10 @@ object ModConfiguredFeatureProvider {
         return segmentedBlockPatchBuilder(
             ModBlocks.LEAF_LITTER.get(), minAmount, maxAmount, LeafLitterBlock.AMOUNT, LeafLitterBlock.FACING
         )
+    }
+
+    private fun flowerBedPatchBuilder(block: Block): SimpleWeightedRandomList.Builder<BlockState> {
+        return segmentedBlockPatchBuilder(block, 1, 4, FlowerBedBlock.AMOUNT, FlowerBedBlock.FACING)
     }
 
     private fun segmentedBlockPatchBuilder(

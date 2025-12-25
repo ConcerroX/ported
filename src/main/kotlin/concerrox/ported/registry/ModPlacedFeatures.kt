@@ -31,6 +31,9 @@ object ModPlacedFeatures {
     val FALLEN_BIRCH_TREE = create("fallen_birch_tree")
     val FALLEN_SUPER_BIRCH_TREE = create("fallen_super_birch_tree")
 
+    val WILDFLOWERS_BIRCH_FOREST = create("wildflowers_birch_forest")
+    val WILDFLOWERS_MEADOW = create("wildflowers_meadow")
+
     private fun create(path: String): ResourceKey<PlacedFeature> =
         ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.withDefaultNamespace(path))
 

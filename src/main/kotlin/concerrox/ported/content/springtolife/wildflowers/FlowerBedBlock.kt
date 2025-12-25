@@ -1,25 +1,33 @@
-package concerrox.ported.content.springtolife.leaflitter
+package concerrox.ported.content.springtolife.wildflowers
 
 import com.google.common.collect.ImmutableMap
 import com.mojang.serialization.MapCodec
+import concerrox.ported.content.springtolife.leaflitter.SegmentableBlock
+import concerrox.ported.content.springtolife.leaflitter.VegetationBlock
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
+import net.minecraft.server.level.ServerLevel
+import net.minecraft.util.RandomSource
+import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.context.BlockPlaceContext
 import net.minecraft.world.level.BlockGetter
+import net.minecraft.world.level.Level
 import net.minecraft.world.level.LevelAccessor
 import net.minecraft.world.level.LevelReader
 import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.block.BonemealableBlock
 import net.minecraft.world.level.block.Mirror
 import net.minecraft.world.level.block.Rotation
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.StateDefinition
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import net.minecraft.world.level.block.state.properties.EnumProperty
+import net.minecraft.world.level.block.state.properties.IntegerProperty
 import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.VoxelShape
 import java.util.function.Function
 
-class LeafLitterBlock(properties: Properties) : VegetationBlock(properties), SegmentableBlock {
+class FlowerBedBlock(properties: Properties) : VegetationBlock(properties), BonemealableBlock, SegmentableBlock {
 
     init {
         registerDefaultState(
@@ -29,8 +37,14 @@ class LeafLitterBlock(properties: Properties) : VegetationBlock(properties), Seg
 
     private val shapes: Function<BlockState, VoxelShape> = makeShapes()
 
+    override fun getShapeHeight() = 3.0
+    override fun codec(): MapCodec<FlowerBedBlock> = simpleCodec(::FlowerBedBlock)
+    override fun getSegmentAmountProperty() = AMOUNT
+
     private fun makeShapes(): Function<BlockState, VoxelShape> {
-        return getShapeForEachStateFunction(getShapeCalculator(FACING, getSegmentAmountProperty()))
+        return getShapeForEachStateFunction(
+            getShapeCalculator(FACING, getSegmentAmountProperty())
+        )
     }
 
     private fun getShapeForEachStateFunction(shapeGetter: Function<BlockState, VoxelShape>): Function<BlockState, VoxelShape> {
@@ -39,10 +53,10 @@ class LeafLitterBlock(properties: Properties) : VegetationBlock(properties), Seg
         return Function { key -> map.get(key)!! }
     }
 
-    override fun codec(): MapCodec<out VegetationBlock> = simpleCodec(::LeafLitterBlock)
-
     override fun rotate(state: BlockState, level: LevelAccessor, pos: BlockPos, direction: Rotation): BlockState {
-        return state.setValue(FACING, direction.rotate(state.getValue(FACING)))
+        return state.setValue(
+            FACING, direction.rotate(state.getValue(FACING))
+        )
     }
 
     @Suppress("DEPRECATION")
@@ -52,11 +66,6 @@ class LeafLitterBlock(properties: Properties) : VegetationBlock(properties), Seg
 
     override fun canBeReplaced(state: BlockState, useContext: BlockPlaceContext): Boolean {
         return super<SegmentableBlock>.canBeReplaced(state, useContext, getSegmentAmountProperty())
-    }
-
-    override fun canSurvive(state: BlockState, level: LevelReader, pos: BlockPos): Boolean {
-        val below = pos.below()
-        return level.getBlockState(below).isFaceSturdy(level, below, Direction.UP)
     }
 
     override fun getShape(state: BlockState, level: BlockGetter, pos: BlockPos, context: CollisionContext): VoxelShape {
@@ -73,6 +82,25 @@ class LeafLitterBlock(properties: Properties) : VegetationBlock(properties), Seg
         builder.add(FACING, getSegmentAmountProperty())
     }
 
+    override fun isValidBonemealTarget(level: LevelReader, pos: BlockPos, state: BlockState): Boolean {
+        return true
+    }
+
+    override fun isBonemealSuccess(level: Level, random: RandomSource, pos: BlockPos, state: BlockState): Boolean {
+        return true
+    }
+
+    override fun performBonemeal(
+        level: ServerLevel, random: RandomSource, pos: BlockPos, state: BlockState
+    ) {
+        val i = state.getValue(getSegmentAmountProperty()) as Int
+        if (i < 4) {
+            level.setBlock(pos, state.setValue(getSegmentAmountProperty(), i + 1), 2)
+        } else {
+            popResource(level, pos, ItemStack(this))
+        }
+    }
+
     override fun getFlammability(state: BlockState, level: BlockGetter, pos: BlockPos, direction: Direction): Int {
         return 100
     }
@@ -83,7 +111,7 @@ class LeafLitterBlock(properties: Properties) : VegetationBlock(properties), Seg
 
     companion object {
         val FACING: EnumProperty<Direction> = BlockStateProperties.HORIZONTAL_FACING
-        val AMOUNT = SegmentableBlock.AMOUNT
+        val AMOUNT: IntegerProperty = BlockStateProperties.FLOWER_AMOUNT
     }
 
 }

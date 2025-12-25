@@ -162,8 +162,9 @@ class ModLootTableProvider(
                 createSingleItemTableWithSilkTouch(it, Blocks.OBSIDIAN, ConstantValue.exactly(8f))
             }
 
+            // 1.21.5
             add(ModBlocks.LEAF_LITTER.get(), ::createSegmentedBlockDrops)
-
+            add(ModBlocks.WILDFLOWERS.get(), ::createSegmentedBlockDrops)
 
             // Ported
             dropSelf(ModBlocks.GLOWING_OBSIDIAN.get())

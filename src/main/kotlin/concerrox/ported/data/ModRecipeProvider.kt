@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.Blocks
 import java.util.concurrent.CompletableFuture
 
 class ModRecipeProvider(
-    private val output: PackOutput, registries: CompletableFuture<HolderLookup.Provider>
+    output: PackOutput, registries: CompletableFuture<HolderLookup.Provider>
 ) : RecipeProvider(output, registries) {
 
     override fun buildRecipes(recipeOutput: RecipeOutput) {
@@ -92,10 +92,11 @@ class ModRecipeProvider(
         oneToOneConversionRecipe(recipeOutput, Items.ORANGE_DYE, ModBlocks.OPEN_EYEBLOSSOM, "orange_dye")
         oneToOneConversionRecipe(recipeOutput, Items.GRAY_DYE, ModBlocks.CLOSED_EYEBLOSSOM, "gray_dye")
 
+        // 1.21.5
         SimpleCookingRecipeBuilder.smelting(
             tag(ItemTags.LEAVES), RecipeCategory.MISC, ModBlocks.LEAF_LITTER, 0.1f, 200
         ).unlockedBy("has_leaves", has(ItemTags.LEAVES)).save(recipeOutput)
-
+        oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, ModBlocks.WILDFLOWERS, "yellow_dye")
 
         // Ported
         shaped(RecipeCategory.MISC, ModItems.NETHER_REACTOR_CORE).pattern("IDI").pattern("IDI").pattern("IDI")

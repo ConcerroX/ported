@@ -43,6 +43,23 @@ object ModBiomeModifierProvider {
             )
         )
 
+        context.register(
+            key("add_wildflowers_birch_forest"), BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(
+                    biomes.getOrThrow(Biomes.BIRCH_FOREST), biomes.getOrThrow(Biomes.OLD_GROWTH_BIRCH_FOREST)
+                ),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.WILDFLOWERS_BIRCH_FOREST)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+            )
+        )
+        context.register(
+            key("add_wildflowers_meadow"), BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.MEADOW)),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.WILDFLOWERS_MEADOW)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+            )
+        )
+
     }
 
 }

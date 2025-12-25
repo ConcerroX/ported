@@ -38,7 +38,7 @@
 
 # 1.21.5 Spring to Life
 - [x] Leaf litter;
-- [ ] Wildflowers; (bee)
+- [x] Wildflowers;
 - [ ] Bush and Firefly bush;
 - [ ] Cactus flower; (bee)
 - [ ] Dry grass;

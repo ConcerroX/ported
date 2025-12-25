@@ -67,6 +67,8 @@ class ModItemTagsProvider(
         copy(BlockTags.WOODEN_SLABS, ItemTags.WOODEN_SLABS)
 
         copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS)
+
+        copy(BlockTags.FLOWERS, ItemTags.FLOWERS)
     }
 
 }

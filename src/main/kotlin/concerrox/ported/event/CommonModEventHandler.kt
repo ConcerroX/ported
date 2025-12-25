@@ -149,6 +149,12 @@ object CommonModEventHandler {
                     ModItems.LEAF_LITTER.toStack(),
                     CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
                 )
+                event.insertAfter(
+                    Items.PINK_PETALS.defaultInstance,
+                    ModItems.WILDFLOWERS.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+
             }
 
             ModCreativeModeTabs.BACKPORTED.key -> {
@@ -165,17 +171,5 @@ object CommonModEventHandler {
     fun onCreateEntityAttribute(event: EntityAttributeCreationEvent) {
         event.put(ModEntityTypes.CREAKING.get(), Creaking.createAttributes().build())
     }
-
-//
-//    private fun increaseAirSupply(entity: LivingEntity, currentAir: Int): Int {
-//        return min(currentAir + 4, entity.maxAirSupply)
-//    }
-
-//    @SubscribeEvent
-//    fun onLoadLootTable(event: LootTableLoadEvent) {
-//        if (event.key == BuiltInLootTables.WOODLAND_MANSION) {
-//            print("DAMN" + event.table)
-//        }
-//    }
 
 }

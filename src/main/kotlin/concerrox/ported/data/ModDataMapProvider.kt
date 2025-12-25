@@ -18,7 +18,8 @@ class ModDataMapProvider(
             .add(ModItems.PALE_MOSS_CARPET, Compostable(0.3f), false)
             .add(ModItems.OPEN_EYEBLOSSOM, Compostable(0.65f), false)
             .add(ModItems.CLOSED_EYEBLOSSOM, Compostable(0.65f), false)
-            .add(ModItems.LEAF_LITTER, Compostable(0.30f), false)
+            .add(ModItems.LEAF_LITTER, Compostable(0.3f), false)
+            .add(ModItems.WILDFLOWERS, Compostable(0.3f), false)
 
         builder(NeoForgeDataMaps.FURNACE_FUELS)
             .add(ModItems.LEAF_LITTER, FurnaceFuel(100), false)
