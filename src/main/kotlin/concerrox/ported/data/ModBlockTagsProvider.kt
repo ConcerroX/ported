@@ -43,7 +43,10 @@ class ModBlockTagsProvider(
         tag(BlockTags.DIRT).add(ModBlocks.PALE_MOSS_BLOCK.get())
 
         tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(ModBlocks.PALE_OAK_LOG.get())
-        tag(BlockTags.REPLACEABLE_BY_TREES).add(ModBlocks.PALE_MOSS_CARPET.get())
+        tag(BlockTags.REPLACEABLE).add(ModBlocks.LEAF_LITTER.get())
+        tag(BlockTags.REPLACEABLE_BY_TREES).add(ModBlocks.PALE_MOSS_CARPET.get(), ModBlocks.LEAF_LITTER.get())
+        tag(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(ModBlocks.LEAF_LITTER.get())
+        tag(BlockTags.ENCHANTMENT_POWER_TRANSMITTER).add(ModBlocks.LEAF_LITTER.get())
         tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(ModBlocks.PALE_MOSS_CARPET.get())
         tag(BlockTags.FLOWER_POTS).add(ModBlocks.POTTED_PALE_OAK_SAPLING.get())
         tag(BlockTags.WALL_SIGNS).add(ModBlocks.PALE_OAK_WALL_SIGN.get())

@@ -1,5 +1,7 @@
 package concerrox.ported.registry
 
+import concerrox.ported.content.springtolife.fallentree.AttachedToLogsDecorator
+import concerrox.ported.content.springtolife.leaflitter.PlaceOnGroundDecorator
 import concerrox.ported.content.thegardenawakens.creakingheart.CreakingHeartDecorator
 import concerrox.ported.content.thegardenawakens.palemoss.PaleMossDecorator
 import concerrox.ported.util.new
@@ -18,6 +20,12 @@ object ModTreeDecoratorTypes {
     }
     val CREAKING_HEART = TREE_DECORATOR_TYPES.new("creaking_heart") {
         TreeDecoratorType(CreakingHeartDecorator.CODEC)
+    }
+    val PLACE_ON_GROUND = TREE_DECORATOR_TYPES.new("place_on_ground") {
+        TreeDecoratorType(PlaceOnGroundDecorator.CODEC)
+    }
+    val ATTACHED_TO_LOGS = TREE_DECORATOR_TYPES.new("attached_to_logs") {
+        TreeDecoratorType(AttachedToLogsDecorator.CODEC)
     }
 
 }

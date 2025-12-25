@@ -2,8 +2,6 @@ package concerrox.ported.data
 
 import concerrox.ported.registry.ModBiomes
 import concerrox.ported.registry.ModPlacedFeatures
-import concerrox.ported.registry.ModSoundEvents
-import net.minecraft.core.Holder
 import net.minecraft.core.HolderGetter
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BiomeDefaultFeatures

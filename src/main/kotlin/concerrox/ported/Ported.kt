@@ -9,19 +9,12 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.biome.Biome
 import net.minecraft.world.level.biome.Biomes
 import net.minecraft.world.level.biome.Climate
-import net.minecraft.world.level.biome.Climate.ParameterPoint
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.FlowerPotBlock
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.config.ModConfig
-import terrablender.api.ParameterUtils
-import terrablender.api.ParameterUtils.Continentalness
-import terrablender.api.ParameterUtils.Depth
-import terrablender.api.ParameterUtils.Erosion
-import terrablender.api.ParameterUtils.ParameterPointListBuilder
-import terrablender.api.ParameterUtils.Weirdness
 import terrablender.api.Region
 import terrablender.api.RegionType
 import terrablender.api.Regions
@@ -41,6 +34,7 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
         ModItems.PORTED_ITEMS.register(modEventBus)
         ModBlocks.BLOCKS.register(modEventBus)
         ModBlocks.PORTED_BLOCKS.register(modEventBus)
+        ModFeatures.FEATURES.register(modEventBus)
         ModEntityTypes.ENTITY_TYPES.register(modEventBus)
         ModParticleTypes.PARTICLE_TYPES.register(modEventBus)
         ModDataComponents.DATA_COMPONENTS.register(modEventBus)

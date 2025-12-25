@@ -46,5 +46,15 @@ object ModSoundTypes {
         ModSoundEvents.RESIN_BRICKS_FALL
     )
 
+    val LEAF_LITTER = SoundType(
+        1f,
+        1f,
+        ModSoundEvents.LEAF_LITTER_BREAK,
+        ModSoundEvents.LEAF_LITTER_STEP,
+        ModSoundEvents.LEAF_LITTER_PLACE,
+        ModSoundEvents.LEAF_LITTER_HIT,
+        ModSoundEvents.LEAF_LITTER_FALL
+    )
+
 
 }

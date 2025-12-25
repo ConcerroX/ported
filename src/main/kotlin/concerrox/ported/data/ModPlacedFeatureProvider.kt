@@ -6,7 +6,9 @@ import concerrox.ported.registry.ModPlacedFeatures
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstrapContext
 import net.minecraft.data.worldgen.placement.PlacementUtils
+import net.minecraft.data.worldgen.placement.VegetationPlacements
 import net.minecraft.resources.ResourceKey
+import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.levelgen.Heightmap
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature
 import net.minecraft.world.level.levelgen.placement.*
@@ -70,6 +72,100 @@ object ModPlacedFeatureProvider {
             ModPlacedFeatures.PALE_OAK_CHECKED,
             ModConfiguredFeatures.PALE_OAK,
             PlacementUtils.filteredByBlockSurvival(ModBlocks.PALE_OAK_SAPLING.get())
+        )
+
+        register(
+            ModPlacedFeatures.OAK_BEES_0002_LEAF_LITTER,
+            ModConfiguredFeatures.OAK_BEES_0002_LEAF_LITTER,
+            PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.BIRCH_BEES_0002_LEAF_LITTER,
+            ModConfiguredFeatures.BIRCH_BEES_0002_LEAF_LITTER,
+            PlacementUtils.filteredByBlockSurvival(Blocks.BIRCH_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.FANCY_OAK_BEES_0002_LEAF_LITTER,
+            ModConfiguredFeatures.FANCY_OAK_BEES_0002_LEAF_LITTER,
+            PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.OAK_LEAF_LITTER,
+            ModConfiguredFeatures.OAK_LEAF_LITTER,
+            PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.DARK_OAK_LEAF_LITTER,
+            ModConfiguredFeatures.DARK_OAK_LEAF_LITTER,
+            PlacementUtils.filteredByBlockSurvival(Blocks.DARK_OAK_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.BIRCH_LEAF_LITTER,
+            ModConfiguredFeatures.BIRCH_LEAF_LITTER,
+            PlacementUtils.filteredByBlockSurvival(Blocks.BIRCH_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.FANCY_OAK_LEAF_LITTER,
+            ModConfiguredFeatures.FANCY_OAK_LEAF_LITTER,
+            PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)
+        )
+
+        register(
+            ModPlacedFeatures.PATCH_LEAF_LITTER,
+            ModConfiguredFeatures.PATCH_LEAF_LITTER,
+            *VegetationPlacements.worldSurfaceSquaredWithCount(2).toTypedArray()
+        )
+        register(
+            ModPlacedFeatures.TREES_BIRCH_AND_OAK_LEAF_LITTER,
+            ModConfiguredFeatures.TREES_BIRCH_AND_OAK_LEAF_LITTER,
+            *VegetationPlacements.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)).toTypedArray()
+        )
+        register(
+            VegetationPlacements.TREES_BADLANDS,
+            ModConfiguredFeatures.TREES_BADLANDS,
+            *VegetationPlacements.treePlacement(
+                PlacementUtils.countExtra(5, 0.1f, 1),
+                Blocks.OAK_SAPLING,
+            ).toTypedArray()
+        )
+
+        register(
+            ModPlacedFeatures.FALLEN_OAK_TREE,
+            ModConfiguredFeatures.FALLEN_OAK_TREE,
+            PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.FALLEN_BIRCH_TREE,
+            ModConfiguredFeatures.FALLEN_BIRCH_TREE,
+            PlacementUtils.filteredByBlockSurvival(Blocks.BIRCH_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.FALLEN_SUPER_BIRCH_TREE,
+            ModConfiguredFeatures.FALLEN_SUPER_BIRCH_TREE,
+            PlacementUtils.filteredByBlockSurvival(Blocks.BIRCH_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.FALLEN_SPRUCE_TREE,
+            ModConfiguredFeatures.FALLEN_SPRUCE_TREE,
+            PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING)
+        )
+        register(
+            ModPlacedFeatures.FALLEN_JUNGLE_TREE,
+            ModConfiguredFeatures.FALLEN_JUNGLE_TREE,
+            PlacementUtils.filteredByBlockSurvival(Blocks.JUNGLE_SAPLING)
+        )
+
+        register(
+            VegetationPlacements.TREES_BIRCH,
+            ModConfiguredFeatures.TREES_BIRCH,
+            *(VegetationPlacements.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1), Blocks.BIRCH_SAPLING)
+                .toTypedArray())
+        )
+        register(
+            VegetationPlacements.TREES_SNOWY,
+            ModConfiguredFeatures.TREES_SNOWY,
+            *(VegetationPlacements.treePlacement(PlacementUtils.countExtra(0, 0.1F, 1), Blocks.SPRUCE_SAPLING)
+                .toTypedArray())
         )
 
     }

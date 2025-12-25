@@ -1,6 +1,7 @@
 package concerrox.ported.event
 
 import concerrox.ported.Ported
+import concerrox.ported.content.springtolife.leaflitter.DryFoliageColors
 import concerrox.ported.content.thegardenawakens.creaking.CreakingModel
 import concerrox.ported.content.thegardenawakens.creaking.CreakingRenderer
 import concerrox.ported.content.thegardenawakens.creaking.particle.TerrainParticleCrumblingProvider
@@ -18,14 +19,12 @@ import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.Item
+import net.minecraft.world.level.ColorResolver
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.api.distmarker.OnlyIn
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
-import net.neoforged.neoforge.client.event.ClientTickEvent
-import net.neoforged.neoforge.client.event.EntityRenderersEvent
-import net.neoforged.neoforge.client.event.ModelEvent
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent
+import net.neoforged.neoforge.client.event.*
 
 
 @OnlyIn(Dist.CLIENT)
@@ -67,11 +66,20 @@ object ClientModEventHandler {
         event.registerLayerDefinition(ModModelLayers.PALE_OAK_CHEST_BOAT, ChestBoatModel::createBodyModel)
     }
 
+    val DRY_FOLIAGE_COLOR_RESOLVER = ColorResolver { biome, _, _ -> DryFoliageColors.getDryFoliageColor(biome) }
+
     @SubscribeEvent
-    fun onRegisterParticleProviders(event: RegisterParticleProvidersEvent) {
-        event.registerSpriteSet(ModParticleTypes.TRAIL.get(), TrailParticle::Provider)
-        event.registerSpecial(
-            ModParticleTypes.BLOCK_CRUMBLE.get(), TerrainParticleCrumblingProvider::createTerrainParticle
+    fun onRegisterColorResolverColorHandlers(event: RegisterColorHandlersEvent.ColorResolvers) {
+        event.register(DRY_FOLIAGE_COLOR_RESOLVER)
+    }
+
+    @SubscribeEvent
+    fun onRegisterBlockColorHandlers(event: RegisterColorHandlersEvent.Block) {
+        event.register(
+            { _, level, pos, _ ->
+                if (level != null && pos != null) level.getBlockTint(pos, DRY_FOLIAGE_COLOR_RESOLVER)
+                else -10732494
+            }, ModBlocks.LEAF_LITTER.get()
         )
     }
 
@@ -85,6 +93,14 @@ object ClientModEventHandler {
         if (biome == level.registryAccess().registryOrThrow(Registries.BIOME).get(ModBiomes.PALE_GARDEN)) {
             minecraft.musicManager.stopPlaying()
         }
+    }
+
+    @SubscribeEvent
+    fun onRegisterParticleProviders(event: RegisterParticleProvidersEvent) {
+        event.registerSpriteSet(ModParticleTypes.TRAIL.get(), TrailParticle::Provider)
+        event.registerSpecial(
+            ModParticleTypes.BLOCK_CRUMBLE.get(), TerrainParticleCrumblingProvider::createTerrainParticle
+        )
     }
 
 }

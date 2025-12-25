@@ -63,12 +63,14 @@ repositories {
     maven("https://thedarkcolour.github.io/KotlinForForge/") // Kotlin for Forge
     maven("https://maven.terraformersmc.com/") // EMI
     maven("https://maven.minecraftforge.net/") // TerraBlender
+    maven("https://cursemaven.com/") // Cyanide
 }
 
 dependencies {
     implementation(libs.kotlinForForge)
     implementation(libs.terraBlender)
     implementation(libs.emi)
+    implementation(libs.cyanide)
 }
 
 idea {

@@ -174,8 +174,13 @@ object ModItems {
 
     val RESIN_CLUMP = blockItem(ModBlocks.RESIN_CLUMP)
     val RESIN_BRICK = item("resin_brick")
+
+    @Suppress("DEPRECATION")
     val CREAKING_SPAWN_EGG =
         new("creaking_spawn_egg") { SpawnEggItem(ModEntityTypes.CREAKING.get(), 6250335, 16545810, newProperties {}) }
+
+    val LEAF_LITTER = blockItem(ModBlocks.LEAF_LITTER)
+
 
     val GLOWING_OBSIDIAN = portedBlockItem(ModBlocks.GLOWING_OBSIDIAN)
     val NETHER_REACTOR_CORE = portedBlockItem(ModBlocks.NETHER_REACTOR_CORE)

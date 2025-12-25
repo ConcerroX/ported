@@ -2,7 +2,6 @@ package concerrox.ported.registry
 
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.sounds.SoundEvent
-import net.minecraft.sounds.SoundEvents
 
 object ModSoundEvents {
 
@@ -53,6 +52,12 @@ object ModSoundEvents {
     val EYEBLOSSOM_CLOSE_LONG = variableRange("block.eyeblossom.close_long")
     val EYEBLOSSOM_CLOSE = variableRange("block.eyeblossom.close")
     val EYEBLOSSOM_IDLE = variableRange("block.eyeblossom.idle")
+
+    val LEAF_LITTER_BREAK= variableRange("block.leaf_litter.break")
+    val LEAF_LITTER_STEP= variableRange("block.leaf_litter.step")
+    val LEAF_LITTER_PLACE= variableRange("block.leaf_litter.place")
+    val LEAF_LITTER_HIT= variableRange("block.leaf_litter.hit")
+    val LEAF_LITTER_FALL= variableRange("block.leaf_litter.fall")
 
     private fun variableRange(name: String): SoundEvent =
         SoundEvent.createVariableRangeEvent(ResourceLocation.withDefaultNamespace(name))

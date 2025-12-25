@@ -35,3 +35,34 @@
 - [ ] Bell, lanterns, metal doors, pressure plates and brewing stand now drop when broken with any tool.
 - [x] Ender chest now drops obsidian when mined with an incorrect tool;
 - [ ] Experience orbs are now bouncy when falling from a height;
+
+# 1.21.5 Spring to Life
+- [x] Leaf litter;
+- [ ] Wildflowers; (bee)
+- [ ] Bush and Firefly bush;
+- [ ] Cactus flower; (bee)
+- [ ] Dry grass;
+- [ ] Test block and Test instance block;
+- [ ] Blue egg and Brown egg; (cake)
+- [ ] New variants of pig, cow, chicken and wolf;
+- [x] Fallen tree;
+- [ ] Dead bush ambient sounds;
+- [ ] /test command;
+- [ ] Sand, red sand and terracotta ambient sounds;
+- [ ] Falling leaf particles;
+- [ ] Dead bush can now be placed on farmland;
+- [ ] Beacons and their beams now render beyond 16 chunks up to the client render distance;
+- [ ] Lodestone changed crafting recipe and can now be found in ruined portal chests.;
+- [ ] Iron bars, iron block, iron trapdoor, iron door, and heavy weighted pressure plate added new sounds;
+- [ ] Bundle can now be found in some of the chests in villages;
+- [ ] Changed the visuals of all spawn eggs;
+- [ ] Farm animals can now spawn in badlands;
+- [ ] Camel now spawns in deserts;
+- [ ] Textures and models of Cow and Mooshroom have been changed;
+- [ ] Changed the rules for sheep coloring to be based on which biome they spawn in;
+- [ ] The changes to cartographer and wandering trader trades are now available during normal gameplay;
+- [ ] The "Country Lode, Take Me Home" advancement has been moved from the Nether category to the Adventure category;
+- [ ] The tab icon for the Spawn Eggs inventory tab has changed from the pig spawn egg to the creeper spawn egg;
+- [ ] Crossbows will now show all charged projectiles in their tooltip instead of just the first; 
+- [ ] Tooltips for fireworks and crossbows now show a compact form of multiple repeated stars or projectiles that are identical;
+- [x] Woodland Mansions can now generate in Pale Garden biome.[ ] 

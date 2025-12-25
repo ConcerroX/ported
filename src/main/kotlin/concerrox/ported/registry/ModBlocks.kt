@@ -2,6 +2,7 @@ package concerrox.ported.registry
 
 import concerrox.ported.Ported
 import concerrox.ported.content.removedfeatures.netherreactorcore.NetherReactorCoreBlock
+import concerrox.ported.content.springtolife.leaflitter.LeafLitterBlock
 import concerrox.ported.content.thegardenawakens.creakingheart.CreakingHeartBlock
 import concerrox.ported.content.thegardenawakens.eyeblossom.EyeblossomBlock
 import concerrox.ported.content.thegardenawakens.eyeblossom.EyeblossomFlowerPotBlock
@@ -299,6 +300,17 @@ object ModBlocks {
         )
     }
 
+    val LEAF_LITTER = new("leaf_litter") {
+        LeafLitterBlock(newProperties {
+            mapColor(MapColor.COLOR_BROWN)
+            replaceable()
+            noCollission()
+            sound(ModSoundTypes.LEAF_LITTER)
+            pushReaction(PushReaction.DESTROY)
+        })
+    }
+
+    // Ported
     val GLOWING_OBSIDIAN = portedBlock("glowing_obsidian", copyProperties(Blocks.OBSIDIAN) {
         lightLevel { 12 }
     })

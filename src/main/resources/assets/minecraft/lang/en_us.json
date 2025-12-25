@@ -129,5 +129,7 @@
   "subtitles.block.eyeblossom.idle": "Eyeblossom whispers",
   "subtitles.block.eyeblossom.open": "Eyeblossom opens",
 
-  "subtitles.item.elytra.flying": "Swoosh"
+  "subtitles.item.elytra.flying": "Swoosh",
+
+  "block.minecraft.leaf_litter": "Leaf Litter"
 }

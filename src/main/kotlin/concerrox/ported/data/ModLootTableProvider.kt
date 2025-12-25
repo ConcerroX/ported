@@ -1,5 +1,6 @@
 package concerrox.ported.data
 
+import concerrox.ported.content.springtolife.leaflitter.SegmentableBlock
 import concerrox.ported.content.thegardenawakens.palemoss.PaleMossCarpetBlock
 import concerrox.ported.registry.ModBlocks
 import concerrox.ported.registry.ModItems
@@ -16,6 +17,7 @@ import net.minecraft.resources.ResourceKey
 import net.minecraft.world.flag.FeatureFlags
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.enchantment.Enchantments
+import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.MultifaceBlock
 import net.minecraft.world.level.storage.loot.IntRange
@@ -33,6 +35,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator
 import java.util.concurrent.CompletableFuture
 import java.util.function.BiConsumer
+import java.util.stream.IntStream
 
 class ModLootTableProvider(
     output: PackOutput, lookupProvider: CompletableFuture<HolderLookup.Provider>
@@ -159,6 +162,8 @@ class ModLootTableProvider(
                 createSingleItemTableWithSilkTouch(it, Blocks.OBSIDIAN, ConstantValue.exactly(8f))
             }
 
+            add(ModBlocks.LEAF_LITTER.get(), ::createSegmentedBlockDrops)
+
 
             // Ported
             dropSelf(ModBlocks.GLOWING_OBSIDIAN.get())
@@ -190,6 +195,25 @@ class ModLootTableProvider(
 
         private fun hasShearsOrSilkTouch(): LootItemCondition.Builder {
             return hasShears().or(hasSilkTouch())
+        }
+
+        private fun createSegmentedBlockDrops(block: Block): LootTable.Builder {
+            if (block !is SegmentableBlock) return noDrop()
+            return LootTable.lootTable().withPool(
+                LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).add(
+                    applyExplosionDecay(
+                        block, LootItem.lootTableItem(block).apply(
+                            IntStream.rangeClosed(1, 4).boxed().toList()
+                        ) {
+                            SetItemCountFunction.setCount(ConstantValue.exactly(it.toFloat())).`when`(
+                                LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(
+                                    StatePropertiesPredicate.Builder.properties()
+                                        .hasProperty(block.getSegmentAmountProperty(), it)
+                                )
+                            )
+                        })
+                )
+            )
         }
 
     }
