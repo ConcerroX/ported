@@ -9,6 +9,7 @@ import net.minecraft.core.HolderLookup
 import net.minecraft.data.BlockFamily
 import net.minecraft.data.PackOutput
 import net.minecraft.data.recipes.*
+import net.minecraft.tags.ItemTags
 import net.minecraft.tags.TagKey
 import net.minecraft.world.flag.FeatureFlags
 import net.minecraft.world.item.DyeColor
@@ -40,7 +41,6 @@ class ModRecipeProvider(
         woodFromLogs(recipeOutput, ModBlocks.PALE_OAK_WOOD, ModBlocks.PALE_OAK_LOG)
         woodFromLogs(recipeOutput, ModBlocks.STRIPPED_PALE_OAK_WOOD, ModBlocks.STRIPPED_PALE_OAK_LOG)
         planksFromLog(recipeOutput, ModBlocks.PALE_OAK_PLANKS, ModItemTags.PALE_OAK_LOGS, 4)
-        //TODO:boat
         generateRecipes(
             recipeOutput,
             BlockFamily.Builder(ModBlocks.PALE_OAK_PLANKS.get()).stairs(ModBlocks.PALE_OAK_STAIRS.get())
@@ -92,6 +92,12 @@ class ModRecipeProvider(
         oneToOneConversionRecipe(recipeOutput, Items.ORANGE_DYE, ModBlocks.OPEN_EYEBLOSSOM, "orange_dye")
         oneToOneConversionRecipe(recipeOutput, Items.GRAY_DYE, ModBlocks.CLOSED_EYEBLOSSOM, "gray_dye")
 
+        SimpleCookingRecipeBuilder.smelting(
+            tag(ItemTags.LEAVES), RecipeCategory.MISC, ModBlocks.LEAF_LITTER, 0.1f, 200
+        ).unlockedBy("has_leaves", has(ItemTags.LEAVES)).save(recipeOutput)
+
+
+        // Ported
         shaped(RecipeCategory.MISC, ModItems.NETHER_REACTOR_CORE).pattern("IDI").pattern("IDI").pattern("IDI")
             .define('I', Items.IRON_INGOT).define('D', Items.DIAMOND).unlockedBy("has_diamond", has(Items.DIAMOND))
             .save(recipeOutput)
