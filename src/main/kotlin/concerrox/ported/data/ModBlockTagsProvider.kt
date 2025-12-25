@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup
 import net.minecraft.data.PackOutput
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.tags.BlockTags
+import net.neoforged.neoforge.common.Tags
 import net.neoforged.neoforge.common.data.BlockTagsProvider
 import net.neoforged.neoforge.common.data.ExistingFileHelper
 import java.util.concurrent.CompletableFuture
@@ -77,6 +78,8 @@ class ModBlockTagsProvider(
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.GLOWING_OBSIDIAN.get())
         tag(BlockTags.DRAGON_IMMUNE).add(ModBlocks.GLOWING_OBSIDIAN.get())
+
+        tag(BlockTags.DEAD_BUSH_MAY_PLACE_ON).addTag(Tags.Blocks.VILLAGER_FARMLANDS)
     }
 
 }

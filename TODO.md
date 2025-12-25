@@ -50,7 +50,7 @@
 - [ ] /test command;
 - [ ] Sand, red sand and terracotta ambient sounds;
 - [ ] Falling leaf particles;
-- [ ] Dead bush can now be placed on farmland;
+- [x] Dead bush can now be placed on farmland;
 - [ ] Beacons and their beams now render beyond 16 chunks up to the client render distance;
 - [ ] Lodestone changed crafting recipe and can now be found in ruined portal chests.;
 - [ ] Iron bars, iron block, iron trapdoor, iron door, and heavy weighted pressure plate added new sounds;
