@@ -17,7 +17,7 @@ abstract class VegetationBlock(properties: Properties) : Block(properties) {
 
     abstract override fun codec(): MapCodec<out VegetationBlock>
 
-    protected fun mayPlaceOn(state: BlockState, level: BlockGetter, pos: BlockPos): Boolean {
+    protected open fun mayPlaceOn(state: BlockState, level: BlockGetter, pos: BlockPos): Boolean {
         return state.`is`(BlockTags.DIRT) || state.block is FarmBlock
     }
 

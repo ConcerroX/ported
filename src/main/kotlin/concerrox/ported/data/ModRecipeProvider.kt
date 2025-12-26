@@ -97,6 +97,7 @@ class ModRecipeProvider(
             tag(ItemTags.LEAVES), RecipeCategory.MISC, ModBlocks.LEAF_LITTER, 0.1f, 200
         ).unlockedBy("has_leaves", has(ItemTags.LEAVES)).save(recipeOutput)
         oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, ModBlocks.WILDFLOWERS, "yellow_dye")
+        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, ModBlocks.CACTUS_FLOWER, "pink_dye")
 
         // Ported
         shaped(RecipeCategory.MISC, ModItems.NETHER_REACTOR_CORE).pattern("IDI").pattern("IDI").pattern("IDI")

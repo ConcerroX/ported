@@ -40,7 +40,7 @@
 - [x] Leaf litter;
 - [x] Wildflowers;
 - [x] Bush and Firefly bush;
-- [ ] Cactus flower; (bee)
+- [x] Cactus flower;
 - [ ] Dry grass;
 - [ ] Test block and Test instance block;
 - [ ] Blue egg and Brown egg; (cake)
@@ -67,3 +67,6 @@
 - [ ] Tooltips for fireworks and crossbows now show a compact form of multiple repeated stars or projectiles that are identical;
 - [x] Woodland Mansions can now generate in Pale Garden biome;
 - [x] Fix MC-259651: updateSkyBrightness() is not used client-side, causing multiple issues;
+
+
+3dex

@@ -168,6 +168,7 @@ class ModLootTableProvider(
             add(ModBlocks.WILDFLOWERS.get(), ::createSegmentedBlockDrops)
             add(ModBlocks.BUSH.get(), ::createShearsOrSilkTouchOnlyDrop)
             dropSelf(ModBlocks.FIREFLY_BUSH.get())
+            dropSelf(ModBlocks.CACTUS_FLOWER.get())
 
             // Ported
             dropSelf(ModBlocks.GLOWING_OBSIDIAN.get())

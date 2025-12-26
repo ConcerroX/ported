@@ -62,7 +62,7 @@ class ModBlockTagsProvider(
         tag(BlockTags.ENCHANTMENT_POWER_TRANSMITTER).add(ModBlocks.LEAF_LITTER.get())
         tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(ModBlocks.PALE_MOSS_CARPET.get())
 
-        tag(BlockTags.FLOWERS).add(ModBlocks.WILDFLOWERS.get())
+        tag(BlockTags.FLOWERS).add(ModBlocks.WILDFLOWERS.get(), ModBlocks.CACTUS_FLOWER.get())
 
         tag(BlockTags.FLOWER_POTS).add(ModBlocks.POTTED_PALE_OAK_SAPLING.get())
         tag(BlockTags.WALL_SIGNS).add(ModBlocks.PALE_OAK_WALL_SIGN.get())
@@ -96,6 +96,9 @@ class ModBlockTagsProvider(
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.GLOWING_OBSIDIAN.get())
         tag(BlockTags.DRAGON_IMMUNE).add(ModBlocks.GLOWING_OBSIDIAN.get())
+
+        tag(BlockTags.WALL_POST_OVERRIDE).add(ModBlocks.CACTUS_FLOWER.get())
+        tag(BlockTags.ENDERMAN_HOLDABLE).add(ModBlocks.CACTUS_FLOWER.get())
 
         tag(BlockTags.DEAD_BUSH_MAY_PLACE_ON).addTag(Tags.Blocks.VILLAGER_FARMLANDS)
     }

@@ -22,6 +22,7 @@ class ModDataMapProvider(
             .add(ModItems.WILDFLOWERS, Compostable(0.3f), false)
             .add(ModItems.BUSH, Compostable(0.3f), false)
             .add(ModItems.FIREFLY_BUSH, Compostable(0.3f), false)
+            .add(ModItems.CACTUS_FLOWER, Compostable(0.3f), false)
 
         builder(NeoForgeDataMaps.FURNACE_FUELS)
             .add(ModItems.LEAF_LITTER, FurnaceFuel(100), false)

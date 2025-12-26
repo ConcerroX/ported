@@ -53,13 +53,16 @@ object ModSoundEvents {
     val EYEBLOSSOM_CLOSE = variableRange("block.eyeblossom.close")
     val EYEBLOSSOM_IDLE = variableRange("block.eyeblossom.idle")
 
-    val LEAF_LITTER_BREAK= variableRange("block.leaf_litter.break")
-    val LEAF_LITTER_STEP= variableRange("block.leaf_litter.step")
-    val LEAF_LITTER_PLACE= variableRange("block.leaf_litter.place")
-    val LEAF_LITTER_HIT= variableRange("block.leaf_litter.hit")
-    val LEAF_LITTER_FALL= variableRange("block.leaf_litter.fall")
+    val LEAF_LITTER_BREAK = variableRange("block.leaf_litter.break")
+    val LEAF_LITTER_STEP = variableRange("block.leaf_litter.step")
+    val LEAF_LITTER_PLACE = variableRange("block.leaf_litter.place")
+    val LEAF_LITTER_HIT = variableRange("block.leaf_litter.hit")
+    val LEAF_LITTER_FALL = variableRange("block.leaf_litter.fall")
 
     val FIREFLY_BUSH_IDLE = variableRange("block.firefly_bush.idle")
+
+    val CACTUS_FLOWER_BREAK = variableRange("block.cactus_flower.break")
+    val CACTUS_FLOWER_PLACE = variableRange("block.cactus_flower.place")
 
     private fun variableRange(name: String): SoundEvent =
         SoundEvent.createVariableRangeEvent(ResourceLocation.withDefaultNamespace(name))

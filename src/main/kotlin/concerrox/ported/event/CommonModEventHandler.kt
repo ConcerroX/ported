@@ -165,6 +165,11 @@ object CommonModEventHandler {
                     ModItems.FIREFLY_BUSH.toStack(),
                     CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
                 )
+                event.insertAfter(
+                    Items.TORCHFLOWER.defaultInstance,
+                    ModItems.CACTUS_FLOWER.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
 
             }
 

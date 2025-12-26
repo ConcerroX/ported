@@ -12,6 +12,7 @@ import concerrox.ported.registry.ModBlocks
 import concerrox.ported.registry.ModConfiguredFeatures
 import concerrox.ported.registry.ModFeatures
 import concerrox.ported.registry.ModPlacedFeatures
+import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstrapContext
@@ -22,8 +23,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils
 import net.minecraft.data.worldgen.placement.TreePlacements
 import net.minecraft.tags.BlockTags
 import net.minecraft.util.random.SimpleWeightedRandomList
-import net.minecraft.util.valueproviders.ConstantInt
-import net.minecraft.util.valueproviders.UniformInt
+import net.minecraft.util.valueproviders.*
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.state.BlockState
@@ -33,11 +33,8 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature
 import net.minecraft.world.level.levelgen.feature.Feature
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature
-import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration
+import net.minecraft.world.level.levelgen.feature.configurations.*
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder
-import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration
 import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize
 import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider
@@ -45,6 +42,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator
 import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter
 import net.minecraft.world.level.levelgen.placement.CaveSurface
 import java.util.*
 
@@ -507,6 +505,38 @@ object ModConfiguredFeatureProvider {
                     20, 4, 3, PlacementUtils.onlyWhenEmpty(
                         Feature.SIMPLE_BLOCK,
                         SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.FIREFLY_BUSH.get()))
+                    )
+                )
+            )
+        )
+
+        context.register(
+            VegetationFeatures.PATCH_CACTUS, ConfiguredFeature(
+                Feature.RANDOM_PATCH, FeatureUtils.simpleRandomPatchConfiguration(
+                    10, PlacementUtils.inlinePlaced(
+                        Feature.BLOCK_COLUMN, BlockColumnConfiguration(
+                            listOf(
+                                BlockColumnConfiguration.layer(
+                                    BiasedToBottomInt.of(1, 3),
+                                    BlockStateProvider.simple(Blocks.CACTUS),
+                                ),
+                                BlockColumnConfiguration.layer(
+                                    WeightedListInt(
+                                        SimpleWeightedRandomList.builder<IntProvider>().add(ConstantInt.of(0), 3)
+                                            .add(ConstantInt.of(1), 1).build()
+                                    ),
+                                    BlockStateProvider.simple(ModBlocks.CACTUS_FLOWER.get()),
+                                ),
+                            ),
+                            Direction.UP,
+                            BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                            false,
+                        ), BlockPredicateFilter.forPredicate(
+                            BlockPredicate.allOf(
+                                BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                                BlockPredicate.wouldSurvive(Blocks.CACTUS.defaultBlockState(), BlockPos.ZERO)
+                            )
+                        )
                     )
                 )
             )

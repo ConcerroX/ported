@@ -3,6 +3,7 @@ package concerrox.ported.registry
 import concerrox.ported.Ported
 import concerrox.ported.content.removedfeatures.netherreactorcore.NetherReactorCoreBlock
 import concerrox.ported.content.springtolife.bush.BushBlock
+import concerrox.ported.content.springtolife.cactusflower.CactusFlowerBlock
 import concerrox.ported.content.springtolife.firefly.FireflyBushBlock
 import concerrox.ported.content.springtolife.leaflitter.LeafLitterBlock
 import concerrox.ported.content.springtolife.wildflowers.FlowerBedBlock
@@ -340,6 +341,16 @@ object ModBlocks {
             noCollission()
             instabreak()
             sound(SoundType.SWEET_BERRY_BUSH)
+            pushReaction(PushReaction.DESTROY)
+        })
+    }
+    val CACTUS_FLOWER = new("cactus_flower") {
+        CactusFlowerBlock(newProperties {
+            mapColor(MapColor.COLOR_PINK)
+            noCollission()
+            instabreak()
+            ignitedByLava()
+            sound(ModSoundTypes.CACTUS_FLOWER)
             pushReaction(PushReaction.DESTROY)
         })
     }

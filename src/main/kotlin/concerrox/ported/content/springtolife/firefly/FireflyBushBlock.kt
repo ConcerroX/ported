@@ -32,13 +32,11 @@ class FireflyBushBlock(properties: Properties) : VegetationBlock(properties), Bo
             level.playLocalSound(pos, ModSoundEvents.FIREFLY_BUSH_IDLE, SoundSource.AMBIENT, 1f, 1f, false)
         }
 
-        println(level.getMaxLocalRawBrightness(pos).toString() + " " + pos)
         if (level.getMaxLocalRawBrightness(pos) <= FIREFLY_SPAWN_MAX_BRIGHTNESS_LEVEL && random.nextDouble() <= FIREFLY_CHANCE_PER_TICK) {
             val d0 = pos.x.toDouble() + random.nextDouble() * FIREFLY_HORIZONTAL_RANGE - FIREFLY_VERTICAL_RANGE
             val d1 = pos.y.toDouble() + random.nextDouble() * FIREFLY_VERTICAL_RANGE
             val d2 = pos.z.toDouble() + random.nextDouble() * FIREFLY_HORIZONTAL_RANGE - FIREFLY_VERTICAL_RANGE
             level.addParticle(ModParticleTypes.FIREFLY.get(), d0, d1, d2, 0.0, 0.0, 0.0)
-            println("Firefly")
         }
     }
 
