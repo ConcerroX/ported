@@ -138,7 +138,21 @@
   "block.minecraft.cactus_flower": "Cactus Flower",
   "block.minecraft.short_dry_grass": "Short Dry Grass",
   "block.minecraft.tall_dry_grass": "Tall Dry Grass",
-  "subtitles.block.dry_grass.ambient": "Windy sounds",
+  "block.minecraft.test_block": "Test Block",
 
-  "subtitles.block.firefly_bush.idle": "Fireflies buzz"
+  "subtitles.block.dry_grass.ambient": "Windy sounds",
+  "subtitles.block.firefly_bush.idle": "Fireflies buzz",
+
+  "test_block.error.missing": "Test structure missing %s block",
+  "test_block.error.too_many": "Too many %s blocks",
+  "test_block.invalid_timeout": "Invalid timeout (%s) - must be a positive number of ticks",
+  "test_block.message": "Message:",
+  "test_block.mode_info.accept": "Accept Mode - Accept success for (part of) a test",
+  "test_block.mode_info.fail": "Fail Mode - Fail the test",
+  "test_block.mode_info.log": "Log Mode - Log a message",
+  "test_block.mode_info.start": "Start Mode - The starting point for a test",
+  "test_block.mode.accept": "Accept",
+  "test_block.mode.fail": "Fail",
+  "test_block.mode.log": "Log",
+  "test_block.mode.start": "Start"
 }

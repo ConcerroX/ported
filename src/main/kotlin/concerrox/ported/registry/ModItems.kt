@@ -2,18 +2,22 @@ package concerrox.ported.registry
 
 import concerrox.ported.Ported
 import concerrox.ported.content.removedfeatures.netherreactorcore.ArmorStandWithArmsItem
+import concerrox.ported.content.springtolife.testblock.TestBlock
+import concerrox.ported.content.springtolife.testblock.TestBlockMode
 import concerrox.ported.content.thegardenawakens.paleoak.PaleOakBoatItem
 import net.minecraft.core.Holder
 import net.minecraft.core.component.DataComponents
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.*
+import net.minecraft.world.item.component.BlockItemStateProperties
 import net.minecraft.world.item.component.BundleContents
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.neoforged.neoforge.registries.DeferredItem
 import net.neoforged.neoforge.registries.DeferredRegister
 import java.util.function.Supplier
+
 
 object ModItems {
 
@@ -187,6 +191,15 @@ object ModItems {
     val CACTUS_FLOWER = blockItem(ModBlocks.CACTUS_FLOWER)
     val SHORT_DRY_GRASS = blockItem(ModBlocks.SHORT_DRY_GRASS)
     val DRY_TALL_GRASS = blockItem(ModBlocks.TALL_DRY_GRASS)
+
+    val TEST_BLOCK = new("test_block") {
+        GameMasterBlockItem(ModBlocks.TEST_BLOCK.get(), newProperties {
+            rarity(Rarity.EPIC)
+            component(
+                DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(TestBlock.MODE, TestBlockMode.START)
+            )
+        })
+    }
 
     // Ported
     val GLOWING_OBSIDIAN = portedBlockItem(ModBlocks.GLOWING_OBSIDIAN)

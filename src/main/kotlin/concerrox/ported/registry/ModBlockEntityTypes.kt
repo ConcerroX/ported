@@ -1,6 +1,7 @@
 package concerrox.ported.registry
 
 import concerrox.ported.Ported
+import concerrox.ported.content.springtolife.testblock.TestBlockEntity
 import concerrox.ported.content.thegardenawakens.creakingheart.CreakingHeartBlockEntity
 import concerrox.ported.content.thegardenawakens.paleoak.PaleOakHangingSignBlockEntity
 import concerrox.ported.content.thegardenawakens.paleoak.PaleOakSignBlockEntity
@@ -21,6 +22,11 @@ object ModBlockEntityTypes {
     val CREAKING_HEART = BLOCK_ENTITY_TYPES.new("creaking_heart") {
         BlockEntityType.Builder.of(::CreakingHeartBlockEntity, ModBlocks.CREAKING_HEART.get()).build(null)
     }
+    val TEST_BLOCK = BLOCK_ENTITY_TYPES.new("test_block") {
+        BlockEntityType.Builder.of(::TestBlockEntity, ModBlocks.TEST_BLOCK.get(),).build(null)
+    }
+
+
 
     val PORTED_BLOCK_ENTITY_TYPES: DeferredRegister<BlockEntityType<*>> =
         DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, Ported.MOD_ID)
