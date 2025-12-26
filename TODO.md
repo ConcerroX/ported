@@ -41,7 +41,7 @@
 - [x] Wildflowers;
 - [x] Bush and Firefly bush;
 - [x] Cactus flower;
-- [ ] Dry grass;
+- [x] Dry grass;
 - [ ] Test block and Test instance block;
 - [ ] Blue egg and Brown egg; (cake)
 - [ ] New variants of pig, cow, chicken and wolf;

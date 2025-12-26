@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup
 import net.minecraft.data.PackOutput
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.tags.BlockTags
+import net.minecraft.world.level.block.Blocks
 import net.neoforged.neoforge.common.Tags
 import net.neoforged.neoforge.common.data.BlockTagsProvider
 import net.neoforged.neoforge.common.data.ExistingFileHelper
@@ -54,6 +55,8 @@ class ModBlockTagsProvider(
             ModBlocks.LEAF_LITTER.get(),
             ModBlocks.BUSH.get(),
             ModBlocks.FIREFLY_BUSH.get(),
+            ModBlocks.SHORT_DRY_GRASS.get(),
+            ModBlocks.TALL_DRY_GRASS.get()
         )
         tag(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(
             ModBlocks.LEAF_LITTER.get(),
@@ -101,6 +104,12 @@ class ModBlockTagsProvider(
         tag(BlockTags.ENDERMAN_HOLDABLE).add(ModBlocks.CACTUS_FLOWER.get())
 
         tag(BlockTags.DEAD_BUSH_MAY_PLACE_ON).addTag(Tags.Blocks.VILLAGER_FARMLANDS)
+        tag(ModBlockTags.DRY_VEGETATION_MAY_PLACE_ON).addTag(BlockTags.SAND).addTag(BlockTags.TERRACOTTA)
+            .addTag(BlockTags.DIRT).add(Blocks.FARMLAND)
+        tag(ModBlockTags.TRIGGERS_AMBIENT_DESERT_DRY_VEGETATION_BLOCK_SOUNDS).addTag(BlockTags.TERRACOTTA)
+            .add(Blocks.SAND, Blocks.RED_SAND)
+        tag(ModBlockTags.EDIBLE_FOR_SHEEP).add(Blocks.SHORT_GRASS).add(ModBlocks.SHORT_DRY_GRASS.get())
+            .add(ModBlocks.TALL_DRY_GRASS.get()).add(Blocks.FERN)
     }
 
 }

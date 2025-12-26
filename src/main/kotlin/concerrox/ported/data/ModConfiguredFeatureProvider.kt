@@ -542,6 +542,24 @@ object ModConfiguredFeatureProvider {
             )
         )
 
+        context.register(
+            ModConfiguredFeatures.PATCH_DRY_GRASS, ConfiguredFeature(
+                Feature.RANDOM_PATCH, grassPatch(
+                    WeightedStateProvider(
+                        SimpleWeightedRandomList.builder<BlockState>()
+                            .add(ModBlocks.SHORT_DRY_GRASS.get().defaultBlockState(), 1)
+                            .add(ModBlocks.TALL_DRY_GRASS.get().defaultBlockState(), 1)
+                    ), 64
+                )
+            )
+        )
+
+    }
+
+    private fun grassPatch(stateProvider: BlockStateProvider, tries: Int): RandomPatchConfiguration {
+        return FeatureUtils.simpleRandomPatchConfiguration(
+            tries, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, SimpleBlockConfiguration(stateProvider))
+        )
     }
 
     private fun createDarkOak(): TreeConfigurationBuilder {

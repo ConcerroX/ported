@@ -64,6 +64,9 @@ object ModSoundEvents {
     val CACTUS_FLOWER_BREAK = variableRange("block.cactus_flower.break")
     val CACTUS_FLOWER_PLACE = variableRange("block.cactus_flower.place")
 
+    val DRY_GRASS = variableRange("block.dry_grass.ambient")
+    val DEAD_BUSH_IDLE = variableRange("block.deadbush.idle")
+
     private fun variableRange(name: String): SoundEvent =
         SoundEvent.createVariableRangeEvent(ResourceLocation.withDefaultNamespace(name))
 

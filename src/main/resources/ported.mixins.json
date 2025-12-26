@@ -17,6 +17,7 @@
     "SmithingTemplateItemMixin",
     "SpawnerBlockMixin",
     "content.springtolife.CactusBlockMixin",
+    "content.springtolife.EatBlockGoalMixin",
     "content.thegardenawakens.AnimalMixin",
     "content.thegardenawakens.BeeBeePollinateGoalMixin",
     "content.thegardenawakens.CatMixin",

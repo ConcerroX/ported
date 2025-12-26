@@ -169,6 +169,8 @@ class ModLootTableProvider(
             add(ModBlocks.BUSH.get(), ::createShearsOrSilkTouchOnlyDrop)
             dropSelf(ModBlocks.FIREFLY_BUSH.get())
             dropSelf(ModBlocks.CACTUS_FLOWER.get())
+            add(ModBlocks.SHORT_DRY_GRASS.get(), ::createShearsOrSilkTouchOnlyDrop)
+            add(ModBlocks.TALL_DRY_GRASS.get(), ::createShearsOrSilkTouchOnlyDrop)
 
             // Ported
             dropSelf(ModBlocks.GLOWING_OBSIDIAN.get())

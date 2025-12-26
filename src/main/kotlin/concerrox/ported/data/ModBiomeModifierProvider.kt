@@ -148,6 +148,25 @@ object ModBiomeModifierProvider {
             )
         )
 
+        context.register(
+            key("add_patch_dry_grass_desert"), BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.DESERT)),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PATCH_DRY_GRASS_DESERT)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+            )
+        )
+        context.register(
+            key("add_patch_dry_grass_badlands"), BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(
+                    biomes.getOrThrow(Biomes.BADLANDS),
+                    biomes.getOrThrow(Biomes.ERODED_BADLANDS),
+                    biomes.getOrThrow(Biomes.WOODED_BADLANDS),
+                ),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PATCH_DRY_GRASS_BADLANDS)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+            )
+        )
+
     }
 
 }

@@ -5,6 +5,7 @@ import com.mojang.math.OctahedralGroup
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList
 import it.unimi.dsi.fastutil.doubles.DoubleList
 import net.minecraft.core.Direction
+import net.minecraft.world.level.block.Block.box
 import net.minecraft.world.phys.Vec3
 import net.minecraft.world.phys.shapes.*
 import java.util.Map
@@ -12,6 +13,16 @@ import java.util.Map
 object ShapeUtils {
 
     private val BLOCK_CENTER = Vec3(0.5, 0.5, 0.5)
+
+    fun column(size: Double, y1: Double, y2: Double): VoxelShape {
+        return column(size, size, y1, y2)
+    }
+
+    private fun column(xSize: Double, zSize: Double, y1: Double, y2: Double): VoxelShape {
+        val d0 = xSize / 2.0
+        val d1 = zSize / 2.0
+        return box(8.0 - d0, y1, 8.0 - d1, 8.0 + d0, y2, 8.0 + d1)
+    }
 
     fun rotateHorizontal(shape: VoxelShape): MutableMap<Direction, VoxelShape> {
         return rotateHorizontal(shape, OctahedralGroup.IDENTITY, BLOCK_CENTER)

@@ -224,6 +224,22 @@ object ModPlacedFeatureProvider {
             PlacementUtils.HEIGHTMAP,
             BiomeFilter.biome()
         )
+        register(
+            ModPlacedFeatures.PATCH_DRY_GRASS_BADLANDS,
+            ModConfiguredFeatures.PATCH_DRY_GRASS,
+            RarityFilter.onAverageOnceEvery(6),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        )
+        register(
+            ModPlacedFeatures.PATCH_DRY_GRASS_DESERT,
+            ModConfiguredFeatures.PATCH_DRY_GRASS,
+            RarityFilter.onAverageOnceEvery(3),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        )
 
     }
 

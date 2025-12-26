@@ -53,6 +53,19 @@ object CommonModEventHandler {
                 }
             }
 
+            CreativeModeTabs.FUNCTIONAL_BLOCKS -> {
+                event.insertAfter(
+                    Items.CHERRY_HANGING_SIGN.defaultInstance,
+                    ModItems.PALE_OAK_HANGING_SIGN.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+                event.insertAfter(
+                    Items.CHERRY_HANGING_SIGN.defaultInstance,
+                    ModItems.PALE_OAK_SIGN.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+            }
+
             CreativeModeTabs.SPAWN_EGGS -> {
                 event.insertAfter(
                     Items.TRIAL_SPAWNER.defaultInstance,
@@ -161,6 +174,11 @@ object CommonModEventHandler {
                     CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
                 )
                 event.insertAfter(
+                    Items.FERN.defaultInstance,
+                    ModItems.SHORT_DRY_GRASS.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+                event.insertAfter(
                     Items.SPORE_BLOSSOM.defaultInstance,
                     ModItems.FIREFLY_BUSH.toStack(),
                     CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
@@ -168,6 +186,11 @@ object CommonModEventHandler {
                 event.insertAfter(
                     Items.TORCHFLOWER.defaultInstance,
                     ModItems.CACTUS_FLOWER.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+                event.insertAfter(
+                    Items.LARGE_FERN.defaultInstance,
+                    ModItems.DRY_TALL_GRASS.toStack(),
                     CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
                 )
 

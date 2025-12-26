@@ -185,6 +185,8 @@ object ModItems {
     val BUSH = blockItem(ModBlocks.BUSH)
     val FIREFLY_BUSH = blockItem(ModBlocks.FIREFLY_BUSH)
     val CACTUS_FLOWER = blockItem(ModBlocks.CACTUS_FLOWER)
+    val SHORT_DRY_GRASS = blockItem(ModBlocks.SHORT_DRY_GRASS)
+    val DRY_TALL_GRASS = blockItem(ModBlocks.TALL_DRY_GRASS)
 
     // Ported
     val GLOWING_OBSIDIAN = portedBlockItem(ModBlocks.GLOWING_OBSIDIAN)

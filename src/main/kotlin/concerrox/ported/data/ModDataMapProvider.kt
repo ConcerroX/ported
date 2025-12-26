@@ -23,9 +23,11 @@ class ModDataMapProvider(
             .add(ModItems.BUSH, Compostable(0.3f), false)
             .add(ModItems.FIREFLY_BUSH, Compostable(0.3f), false)
             .add(ModItems.CACTUS_FLOWER, Compostable(0.3f), false)
+            .add(ModItems.SHORT_DRY_GRASS, Compostable(0.3f), false)
 
         builder(NeoForgeDataMaps.FURNACE_FUELS)
             .add(ModItems.LEAF_LITTER, FurnaceFuel(100), false)
+            .add(ModItems.SHORT_DRY_GRASS, FurnaceFuel(100), false)
 
         // TODO: flammable
     }

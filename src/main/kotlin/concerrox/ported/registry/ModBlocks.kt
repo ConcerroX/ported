@@ -4,6 +4,8 @@ import concerrox.ported.Ported
 import concerrox.ported.content.removedfeatures.netherreactorcore.NetherReactorCoreBlock
 import concerrox.ported.content.springtolife.bush.BushBlock
 import concerrox.ported.content.springtolife.cactusflower.CactusFlowerBlock
+import concerrox.ported.content.springtolife.drygrass.ShortDryGrassBlock
+import concerrox.ported.content.springtolife.drygrass.TallDryGrassBlock
 import concerrox.ported.content.springtolife.firefly.FireflyBushBlock
 import concerrox.ported.content.springtolife.leaflitter.LeafLitterBlock
 import concerrox.ported.content.springtolife.wildflowers.FlowerBedBlock
@@ -351,6 +353,30 @@ object ModBlocks {
             instabreak()
             ignitedByLava()
             sound(ModSoundTypes.CACTUS_FLOWER)
+            pushReaction(PushReaction.DESTROY)
+        })
+    }
+    val SHORT_DRY_GRASS = new("short_dry_grass") {
+        ShortDryGrassBlock(newProperties {
+            mapColor(MapColor.COLOR_YELLOW)
+            replaceable()
+            noCollission()
+            instabreak()
+            sound(SoundType.GRASS)
+            ignitedByLava()
+            offsetType(BlockBehaviour.OffsetType.XYZ)
+            pushReaction(PushReaction.DESTROY)
+        })
+    }
+    val TALL_DRY_GRASS = new("tall_dry_grass") {
+        TallDryGrassBlock(newProperties {
+            mapColor(MapColor.COLOR_YELLOW)
+            replaceable()
+            noCollission()
+            instabreak()
+            sound(SoundType.GRASS)
+            ignitedByLava()
+            offsetType(BlockBehaviour.OffsetType.XYZ)
             pushReaction(PushReaction.DESTROY)
         })
     }

@@ -136,6 +136,9 @@
   "block.minecraft.bush": "Bush",
   "block.minecraft.firefly_bush": "Firefly Bush",
   "block.minecraft.cactus_flower": "Cactus Flower",
+  "block.minecraft.short_dry_grass": "Short Dry Grass",
+  "block.minecraft.tall_dry_grass": "Tall Dry Grass",
+  "subtitles.block.dry_grass.ambient": "Windy sounds",
 
   "subtitles.block.firefly_bush.idle": "Fireflies buzz"
 }
