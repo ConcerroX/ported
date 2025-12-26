@@ -155,6 +155,17 @@ object CommonModEventHandler {
                     CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
                 )
 
+                event.insertAfter(
+                    Items.FERN.defaultInstance,
+                    ModItems.BUSH.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+                event.insertAfter(
+                    Items.SPORE_BLOSSOM.defaultInstance,
+                    ModItems.FIREFLY_BUSH.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+
             }
 
             ModCreativeModeTabs.BACKPORTED.key -> {

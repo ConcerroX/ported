@@ -4,6 +4,7 @@ import concerrox.ported.content.thegardenawakens.creaking.particle.TrailParticle
 import concerrox.ported.util.new
 import net.minecraft.core.particles.BlockParticleOption
 import net.minecraft.core.particles.ParticleType
+import net.minecraft.core.particles.SimpleParticleType
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.ResourceLocation
 import net.neoforged.neoforge.registries.DeferredRegister
@@ -19,12 +20,14 @@ object ModParticleTypes {
             override fun streamCodec() = BlockParticleOption.streamCodec(this)
         }
     }
-
     val TRAIL = PARTICLE_TYPES.new("trail") {
         object : ParticleType<TrailParticleOption>(false) {
             override fun codec() = TrailParticleOption.CODEC
             override fun streamCodec() = TrailParticleOption.STREAM_CODEC
         }
+    }
+    val FIREFLY = PARTICLE_TYPES.new("firefly") {
+        SimpleParticleType(false)
     }
 
 }

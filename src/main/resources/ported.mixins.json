@@ -29,6 +29,7 @@
     "client.CreativeModeInventoryScreenMixin",
     "client.GuiGraphicsMixin",
     "client.GuiMixin",
+    "content.springtolife.ClientLevelMixin",
     "content.thegardenawakens.ElytraOnPlayerSoundInstanceMixin",
     "content.thegardenawakens.MinecraftMixin",
     "content.thegardenawakens.ModelManagerMixin"

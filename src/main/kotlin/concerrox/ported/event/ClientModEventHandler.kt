@@ -1,6 +1,7 @@
 package concerrox.ported.event
 
 import concerrox.ported.Ported
+import concerrox.ported.content.springtolife.firefly.FireflyParticle
 import concerrox.ported.content.springtolife.leaflitter.DryFoliageColors
 import concerrox.ported.content.thegardenawakens.creaking.CreakingModel
 import concerrox.ported.content.thegardenawakens.creaking.CreakingRenderer
@@ -99,6 +100,21 @@ object ClientModEventHandler {
             }, ModBlocks.WILDFLOWERS.get()
         )
 
+        event.register(
+            { _, level, pos, _ ->
+                if (level != null && pos != null) {
+                    BiomeColors.getAverageGrassColor(level, pos)
+                } else {
+                    GrassColor.getDefaultColor()
+                }
+            }, ModBlocks.BUSH.get()
+        )
+
+    }
+
+    @SubscribeEvent
+    fun onRegisterItemColorHandlers(event: RegisterColorHandlersEvent.Item) {
+        event.register({ _, _ -> GrassColor.getDefaultColor() }, ModBlocks.BUSH.get())
     }
 
     private val minecraft = Minecraft.getInstance()
@@ -116,6 +132,7 @@ object ClientModEventHandler {
     @SubscribeEvent
     fun onRegisterParticleProviders(event: RegisterParticleProvidersEvent) {
         event.registerSpriteSet(ModParticleTypes.TRAIL.get(), TrailParticle::Provider)
+        event.registerSpriteSet(ModParticleTypes.FIREFLY.get(), FireflyParticle::FireflyProvider)
         event.registerSpecial(
             ModParticleTypes.BLOCK_CRUMBLE.get(), TerrainParticleCrumblingProvider::createTerrainParticle
         )

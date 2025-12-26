@@ -17,6 +17,7 @@ import net.minecraft.resources.ResourceKey
 import net.minecraft.world.flag.FeatureFlags
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.enchantment.Enchantments
+import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.MultifaceBlock
@@ -165,6 +166,8 @@ class ModLootTableProvider(
             // 1.21.5
             add(ModBlocks.LEAF_LITTER.get(), ::createSegmentedBlockDrops)
             add(ModBlocks.WILDFLOWERS.get(), ::createSegmentedBlockDrops)
+            add(ModBlocks.BUSH.get(), ::createShearsOrSilkTouchOnlyDrop)
+            dropSelf(ModBlocks.FIREFLY_BUSH.get())
 
             // Ported
             dropSelf(ModBlocks.GLOWING_OBSIDIAN.get())
@@ -214,6 +217,13 @@ class ModLootTableProvider(
                             )
                         })
                 )
+            )
+        }
+
+        private fun createShearsOrSilkTouchOnlyDrop(item: ItemLike): LootTable.Builder {
+            return LootTable.lootTable().withPool(
+                LootPool.lootPool().setRolls(ConstantValue.exactly(1f)).`when`(hasShearsOrSilkTouch())
+                    .add(LootItem.lootTableItem(item))
             )
         }
 

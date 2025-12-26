@@ -41,6 +41,9 @@ object ModConfiguredFeatures {
     val WILDFLOWERS_BIRCH_FOREST = create("wildflowers_birch_forest")
     val WILDFLOWERS_MEADOW = create("wildflowers_meadow")
 
+    val PATCH_BUSH = create("patch_bush")
+    val PATCH_FIREFLY_BUSH = create("patch_firefly_bush")
+
     private fun create(path: String): ResourceKey<ConfiguredFeature<*, *>> =
         ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.withDefaultNamespace(path))
 

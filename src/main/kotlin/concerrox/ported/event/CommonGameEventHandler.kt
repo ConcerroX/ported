@@ -27,6 +27,7 @@ object CommonGameEventHandler {
 
         // 1.21.5
         event.genericTrades += VillagerTrades.ItemsForEmeralds(ModItems.WILDFLOWERS.get(), 1, 1, 12, 1)
+        event.genericTrades += VillagerTrades.ItemsForEmeralds(ModItems.FIREFLY_BUSH.get(), 3, 1, 12, 1)
     }
 
 }

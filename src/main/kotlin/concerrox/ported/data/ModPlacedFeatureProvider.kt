@@ -3,15 +3,19 @@ package concerrox.ported.data
 import concerrox.ported.registry.ModBlocks
 import concerrox.ported.registry.ModConfiguredFeatures
 import concerrox.ported.registry.ModPlacedFeatures
+import net.minecraft.core.BlockPos
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstrapContext
 import net.minecraft.data.worldgen.placement.PlacementUtils
 import net.minecraft.data.worldgen.placement.VegetationPlacements
 import net.minecraft.resources.ResourceKey
+import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.levelgen.Heightmap
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature
 import net.minecraft.world.level.levelgen.placement.*
+import net.minecraft.world.level.material.Fluids
 
 object ModPlacedFeatureProvider {
 
@@ -186,6 +190,54 @@ object ModPlacedFeatureProvider {
             BiomeFilter.biome()
         )
 
+        register(
+            ModPlacedFeatures.PATCH_BUSH,
+            ModConfiguredFeatures.PATCH_BUSH,
+            RarityFilter.onAverageOnceEvery(4),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        )
+        register(
+            ModPlacedFeatures.PATCH_FIREFLY_BUSH_NEAR_WATER,
+            ModConfiguredFeatures.PATCH_FIREFLY_BUSH,
+            CountPlacement.of(2),
+            InSquarePlacement.spread(),
+            HEIGHTMAP_NO_LEAVES,
+            BiomeFilter.biome(),
+            nearWaterPredicate(ModBlocks.FIREFLY_BUSH.get())
+        )
+        register(
+            ModPlacedFeatures.PATCH_FIREFLY_BUSH_NEAR_WATER_SWAMP,
+            ModConfiguredFeatures.PATCH_FIREFLY_BUSH,
+            CountPlacement.of(3),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            nearWaterPredicate(ModBlocks.FIREFLY_BUSH.get())
+        )
+        register(
+            ModPlacedFeatures.PATCH_FIREFLY_BUSH_SWAMP,
+            ModConfiguredFeatures.PATCH_FIREFLY_BUSH,
+            RarityFilter.onAverageOnceEvery(8),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        )
+
     }
+
+    private fun nearWaterPredicate(block: Block) = BlockPredicateFilter.forPredicate(
+        BlockPredicate.allOf(
+            BlockPredicate.ONLY_IN_AIR_PREDICATE,
+            BlockPredicate.wouldSurvive(block.defaultBlockState(), BlockPos.ZERO),
+            BlockPredicate.anyOf(
+                BlockPredicate.matchesFluids(BlockPos(1, -1, 0), Fluids.WATER, Fluids.FLOWING_WATER),
+                BlockPredicate.matchesFluids(BlockPos(-1, -1, 0), Fluids.WATER, Fluids.FLOWING_WATER),
+                BlockPredicate.matchesFluids(BlockPos(0, -1, 1), Fluids.WATER, Fluids.FLOWING_WATER),
+                BlockPredicate.matchesFluids(BlockPos(0, -1, -1), Fluids.WATER, Fluids.FLOWING_WATER)
+            )
+        )
+    )
 
 }

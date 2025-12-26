@@ -182,6 +182,8 @@ object ModItems {
     // 1.21.5
     val LEAF_LITTER = blockItem(ModBlocks.LEAF_LITTER)
     val WILDFLOWERS = blockItem(ModBlocks.WILDFLOWERS)
+    val BUSH = blockItem(ModBlocks.BUSH)
+    val FIREFLY_BUSH = blockItem(ModBlocks.FIREFLY_BUSH)
 
     val GLOWING_OBSIDIAN = portedBlockItem(ModBlocks.GLOWING_OBSIDIAN)
     val NETHER_REACTOR_CORE = portedBlockItem(ModBlocks.NETHER_REACTOR_CORE)

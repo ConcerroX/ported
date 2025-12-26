@@ -1,5 +1,6 @@
 package concerrox.ported.data
 
+import concerrox.ported.registry.ModBiomes
 import concerrox.ported.registry.ModPlacedFeatures
 import concerrox.ported.res
 import net.minecraft.core.HolderSet
@@ -56,6 +57,93 @@ object ModBiomeModifierProvider {
             key("add_wildflowers_meadow"), BiomeModifiers.AddFeaturesBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.MEADOW)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.WILDFLOWERS_MEADOW)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+            )
+        )
+
+        context.register(
+            key("add_patch_bush"), BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(
+                    biomes.getOrThrow(Biomes.WINDSWEPT_HILLS),
+                    biomes.getOrThrow(Biomes.WINDSWEPT_GRAVELLY_HILLS),
+                    biomes.getOrThrow(Biomes.WINDSWEPT_FOREST),
+                    biomes.getOrThrow(Biomes.PLAINS),
+                    biomes.getOrThrow(Biomes.FOREST),
+                    biomes.getOrThrow(Biomes.BIRCH_FOREST),
+                    biomes.getOrThrow(Biomes.OLD_GROWTH_BIRCH_FOREST),
+                    biomes.getOrThrow(Biomes.RIVER),
+                    biomes.getOrThrow(Biomes.FROZEN_RIVER)
+                ),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PATCH_BUSH)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+            )
+        )
+        context.register(
+            key("add_patch_firefly_bush_near_water"), BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(
+                    biomes.getOrThrow(Biomes.MUSHROOM_FIELDS),
+                    biomes.getOrThrow(Biomes.BADLANDS),
+                    biomes.getOrThrow(Biomes.ERODED_BADLANDS),
+                    biomes.getOrThrow(Biomes.WOODED_BADLANDS),
+                    biomes.getOrThrow(Biomes.MANGROVE_SWAMP),
+
+                    biomes.getOrThrow(Biomes.OLD_GROWTH_PINE_TAIGA),
+                    biomes.getOrThrow(Biomes.OLD_GROWTH_SPRUCE_TAIGA),
+                    biomes.getOrThrow(Biomes.JUNGLE),
+                    biomes.getOrThrow(Biomes.SPARSE_JUNGLE),
+                    biomes.getOrThrow(Biomes.BAMBOO_JUNGLE),
+                    biomes.getOrThrow(Biomes.WINDSWEPT_HILLS),
+                    biomes.getOrThrow(Biomes.WINDSWEPT_GRAVELLY_HILLS),
+                    biomes.getOrThrow(Biomes.WINDSWEPT_FOREST),
+                    biomes.getOrThrow(Biomes.PLAINS),
+                    biomes.getOrThrow(Biomes.SNOWY_PLAINS),
+                    biomes.getOrThrow(Biomes.SUNFLOWER_PLAINS),
+                    biomes.getOrThrow(Biomes.ICE_SPIKES),
+                    biomes.getOrThrow(Biomes.SAVANNA),
+                    biomes.getOrThrow(Biomes.SAVANNA_PLATEAU),
+                    biomes.getOrThrow(Biomes.WINDSWEPT_SAVANNA),
+                    biomes.getOrThrow(Biomes.WARM_OCEAN),
+                    biomes.getOrThrow(Biomes.LUKEWARM_OCEAN),
+                    biomes.getOrThrow(Biomes.DEEP_LUKEWARM_OCEAN),
+                    biomes.getOrThrow(Biomes.OCEAN),
+                    biomes.getOrThrow(Biomes.DEEP_OCEAN),
+                    biomes.getOrThrow(Biomes.COLD_OCEAN),
+                    biomes.getOrThrow(Biomes.DEEP_COLD_OCEAN),
+                    biomes.getOrThrow(Biomes.FROZEN_OCEAN),
+                    biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN),
+                    biomes.getOrThrow(Biomes.FOREST),
+                    biomes.getOrThrow(Biomes.FLOWER_FOREST),
+                    biomes.getOrThrow(Biomes.BIRCH_FOREST),
+                    biomes.getOrThrow(Biomes.OLD_GROWTH_BIRCH_FOREST),
+                    biomes.getOrThrow(Biomes.TAIGA),
+                    biomes.getOrThrow(Biomes.SNOWY_TAIGA),
+                    biomes.getOrThrow(Biomes.DARK_FOREST),
+                    biomes.getOrThrow(ModBiomes.PALE_GARDEN),
+                    biomes.getOrThrow(Biomes.RIVER),
+                    biomes.getOrThrow(Biomes.FROZEN_RIVER),
+                    biomes.getOrThrow(Biomes.BEACH),
+                    biomes.getOrThrow(Biomes.SNOWY_BEACH),
+                    biomes.getOrThrow(Biomes.STONY_SHORE),
+                ),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PATCH_FIREFLY_BUSH_NEAR_WATER)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+            )
+        )
+        context.register(
+            key("add_patch_firefly_bush_swamp"), BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(
+                    biomes.getOrThrow(Biomes.SWAMP),
+                ),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PATCH_FIREFLY_BUSH_SWAMP)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+            )
+        )
+        context.register(
+            key("add_patch_firefly_bush_near_water_swamp"), BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(
+                    biomes.getOrThrow(Biomes.SWAMP),
+                ),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PATCH_FIREFLY_BUSH_NEAR_WATER_SWAMP)),
                 GenerationStep.Decoration.VEGETAL_DECORATION
             )
         )

@@ -59,6 +59,8 @@ object ModSoundEvents {
     val LEAF_LITTER_HIT= variableRange("block.leaf_litter.hit")
     val LEAF_LITTER_FALL= variableRange("block.leaf_litter.fall")
 
+    val FIREFLY_BUSH_IDLE = variableRange("block.firefly_bush.idle")
+
     private fun variableRange(name: String): SoundEvent =
         SoundEvent.createVariableRangeEvent(ResourceLocation.withDefaultNamespace(name))
 

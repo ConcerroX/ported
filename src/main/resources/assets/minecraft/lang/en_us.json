@@ -132,5 +132,9 @@
   "subtitles.item.elytra.flying": "Swoosh",
 
   "block.minecraft.leaf_litter": "Leaf Litter",
-  "block.minecraft.wildflowers": "Wildflowers"
+  "block.minecraft.wildflowers": "Wildflowers",
+  "block.minecraft.bush": "Bush",
+  "block.minecraft.firefly_bush": "Firefly Bush",
+
+  "subtitles.block.firefly_bush.idle": "Fireflies buzz"
 }

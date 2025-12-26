@@ -45,9 +45,20 @@ class ModBlockTagsProvider(
 
         tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(ModBlocks.PALE_OAK_LOG.get())
 
-        tag(BlockTags.REPLACEABLE).add(ModBlocks.LEAF_LITTER.get())
-        tag(BlockTags.REPLACEABLE_BY_TREES).add(ModBlocks.PALE_MOSS_CARPET.get(), ModBlocks.LEAF_LITTER.get())
-        tag(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(ModBlocks.LEAF_LITTER.get(), ModBlocks.WILDFLOWERS.get())
+        tag(BlockTags.REPLACEABLE).add(
+            ModBlocks.RESIN_CLUMP.get(),
+            ModBlocks.LEAF_LITTER.get(),
+        )
+        tag(BlockTags.REPLACEABLE_BY_TREES).add(
+            ModBlocks.PALE_MOSS_CARPET.get(),
+            ModBlocks.LEAF_LITTER.get(),
+            ModBlocks.BUSH.get(),
+            ModBlocks.FIREFLY_BUSH.get(),
+        )
+        tag(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(
+            ModBlocks.LEAF_LITTER.get(),
+            ModBlocks.WILDFLOWERS.get(),
+        )
         tag(BlockTags.ENCHANTMENT_POWER_TRANSMITTER).add(ModBlocks.LEAF_LITTER.get())
         tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(ModBlocks.PALE_MOSS_CARPET.get())
 
@@ -57,7 +68,8 @@ class ModBlockTagsProvider(
         tag(BlockTags.WALL_SIGNS).add(ModBlocks.PALE_OAK_WALL_SIGN.get())
         tag(BlockTags.WALL_HANGING_SIGNS).add(ModBlocks.PALE_OAK_WALL_HANGING_SIGN.get())
         tag(BlockTags.COMBINATION_STEP_SOUND_BLOCKS).add(
-            ModBlocks.PALE_MOSS_CARPET.get(), ModBlocks.RESIN_CLUMP.get()
+            ModBlocks.PALE_MOSS_CARPET.get(),
+            ModBlocks.RESIN_CLUMP.get(),
         )
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
             ModBlocks.RESIN_BRICKS.get(),
@@ -69,12 +81,18 @@ class ModBlockTagsProvider(
             ModBlocks.NETHER_REACTOR_CORE.get(),
             ModBlocks.STONECUTTER.get()
         )
-        tag(BlockTags.MINEABLE_WITH_HOE).add(ModBlocks.PALE_MOSS_BLOCK.get(), ModBlocks.PALE_MOSS_CARPET.get())
+        tag(BlockTags.MINEABLE_WITH_HOE).add(
+            ModBlocks.PALE_MOSS_BLOCK.get(), ModBlocks.PALE_MOSS_CARPET.get()
+        )
         tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.CREAKING_HEART.get())
-        tag(BlockTags.REPLACEABLE).add(ModBlocks.RESIN_CLUMP.get())
 
-        tag(BlockTags.FLOWER_POTS).add(ModBlocks.POTTED_CLOSED_EYEBLOSSOM.get(), ModBlocks.POTTED_OPEN_EYEBLOSSOM.get())
-        tag(BlockTags.SMALL_FLOWERS).add(ModBlocks.OPEN_EYEBLOSSOM.get(), ModBlocks.CLOSED_EYEBLOSSOM.get())
+        tag(BlockTags.FLOWER_POTS).add(
+            ModBlocks.POTTED_CLOSED_EYEBLOSSOM.get(), ModBlocks.POTTED_OPEN_EYEBLOSSOM.get()
+        )
+        tag(BlockTags.SMALL_FLOWERS).add(
+            ModBlocks.OPEN_EYEBLOSSOM.get(),
+            ModBlocks.CLOSED_EYEBLOSSOM.get(),
+        )
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.GLOWING_OBSIDIAN.get())
         tag(BlockTags.DRAGON_IMMUNE).add(ModBlocks.GLOWING_OBSIDIAN.get())

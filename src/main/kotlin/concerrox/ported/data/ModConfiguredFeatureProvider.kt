@@ -491,6 +491,27 @@ object ModConfiguredFeatureProvider {
                 )
             )
         )
+
+        context.register(
+            ModConfiguredFeatures.PATCH_BUSH, ConfiguredFeature(
+                Feature.RANDOM_PATCH, RandomPatchConfiguration(
+                    24, 5, 3, PlacementUtils.onlyWhenEmpty(
+                        Feature.SIMPLE_BLOCK, SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.BUSH.get()))
+                    )
+                )
+            )
+        )
+        context.register(
+            ModConfiguredFeatures.PATCH_FIREFLY_BUSH, ConfiguredFeature(
+                Feature.RANDOM_PATCH, RandomPatchConfiguration(
+                    20, 4, 3, PlacementUtils.onlyWhenEmpty(
+                        Feature.SIMPLE_BLOCK,
+                        SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.FIREFLY_BUSH.get()))
+                    )
+                )
+            )
+        )
+
     }
 
     private fun createDarkOak(): TreeConfigurationBuilder {

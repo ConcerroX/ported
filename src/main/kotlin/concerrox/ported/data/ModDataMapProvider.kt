@@ -20,9 +20,13 @@ class ModDataMapProvider(
             .add(ModItems.CLOSED_EYEBLOSSOM, Compostable(0.65f), false)
             .add(ModItems.LEAF_LITTER, Compostable(0.3f), false)
             .add(ModItems.WILDFLOWERS, Compostable(0.3f), false)
+            .add(ModItems.BUSH, Compostable(0.3f), false)
+            .add(ModItems.FIREFLY_BUSH, Compostable(0.3f), false)
 
         builder(NeoForgeDataMaps.FURNACE_FUELS)
             .add(ModItems.LEAF_LITTER, FurnaceFuel(100), false)
+
+        // TODO: flammable
     }
 
 }

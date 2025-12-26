@@ -39,7 +39,7 @@
 # 1.21.5 Spring to Life
 - [x] Leaf litter;
 - [x] Wildflowers;
-- [ ] Bush and Firefly bush;
+- [x] Bush and Firefly bush;
 - [ ] Cactus flower; (bee)
 - [ ] Dry grass;
 - [ ] Test block and Test instance block;
@@ -65,4 +65,5 @@
 - [ ] The tab icon for the Spawn Eggs inventory tab has changed from the pig spawn egg to the creeper spawn egg;
 - [ ] Crossbows will now show all charged projectiles in their tooltip instead of just the first; 
 - [ ] Tooltips for fireworks and crossbows now show a compact form of multiple repeated stars or projectiles that are identical;
-- [x] Woodland Mansions can now generate in Pale Garden biome.[ ] 
+- [x] Woodland Mansions can now generate in Pale Garden biome;
+- [x] Fix MC-259651: updateSkyBrightness() is not used client-side, causing multiple issues;

@@ -34,6 +34,11 @@ object ModPlacedFeatures {
     val WILDFLOWERS_BIRCH_FOREST = create("wildflowers_birch_forest")
     val WILDFLOWERS_MEADOW = create("wildflowers_meadow")
 
+    val PATCH_BUSH = create("patch_bush")
+    val PATCH_FIREFLY_BUSH_SWAMP = create("patch_firefly_bush_swamp")
+    val PATCH_FIREFLY_BUSH_NEAR_WATER_SWAMP = create("patch_firefly_bush_near_water_swamp")
+    val PATCH_FIREFLY_BUSH_NEAR_WATER = create("patch_firefly_bush_near_water")
+
     private fun create(path: String): ResourceKey<PlacedFeature> =
         ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.withDefaultNamespace(path))
 

@@ -2,6 +2,8 @@ package concerrox.ported.registry
 
 import concerrox.ported.Ported
 import concerrox.ported.content.removedfeatures.netherreactorcore.NetherReactorCoreBlock
+import concerrox.ported.content.springtolife.bush.BushBlock
+import concerrox.ported.content.springtolife.firefly.FireflyBushBlock
 import concerrox.ported.content.springtolife.leaflitter.LeafLitterBlock
 import concerrox.ported.content.springtolife.wildflowers.FlowerBedBlock
 import concerrox.ported.content.thegardenawakens.creakingheart.CreakingHeartBlock
@@ -316,6 +318,28 @@ object ModBlocks {
             mapColor(MapColor.PLANT)
             noCollission()
             sound(SoundType.PINK_PETALS)
+            pushReaction(PushReaction.DESTROY)
+        })
+    }
+    val BUSH = new("bush") {
+        BushBlock(newProperties {
+            mapColor(MapColor.PLANT)
+            replaceable()
+            noCollission()
+            instabreak()
+            sound(SoundType.GRASS)
+            ignitedByLava()
+            pushReaction(PushReaction.DESTROY)
+        })
+    }
+    val FIREFLY_BUSH = new("firefly_bush") {
+        FireflyBushBlock(newProperties {
+            mapColor(MapColor.PLANT)
+            ignitedByLava()
+            lightLevel { 2 }
+            noCollission()
+            instabreak()
+            sound(SoundType.SWEET_BERRY_BUSH)
             pushReaction(PushReaction.DESTROY)
         })
     }
