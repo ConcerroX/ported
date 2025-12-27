@@ -4,6 +4,9 @@ import concerrox.ported.Ported
 import concerrox.ported.content.springtolife.firefly.FireflyParticle
 import concerrox.ported.content.springtolife.leaflitter.DryFoliageColors
 import concerrox.ported.content.springtolife.mobvariant.model.ColdChickenModel
+import concerrox.ported.content.springtolife.mobvariant.model.ColdCowModel
+import concerrox.ported.content.springtolife.mobvariant.model.ColdPigModel
+import concerrox.ported.content.springtolife.mobvariant.model.CowModel
 import concerrox.ported.content.thegardenawakens.creaking.CreakingModel
 import concerrox.ported.content.thegardenawakens.creaking.CreakingRenderer
 import concerrox.ported.content.thegardenawakens.creaking.particle.TerrainParticleCrumblingProvider
@@ -70,16 +73,11 @@ object ClientModEventHandler {
         event.registerLayerDefinition(ModModelLayers.PALE_OAK_CHEST_BOAT, ChestBoatModel::createBodyModel)
 
         event.registerLayerDefinition(ModModelLayers.COLD_CHICKEN, ColdChickenModel::createBodyLayer)
+        event.registerLayerDefinition(ModModelLayers.COLD_PIG, ColdPigModel::createBodyLayer)
+        event.registerLayerDefinition(ModModelLayers.COW_NEW) { CowModel.createBodyLayer() }
+        event.registerLayerDefinition(ModModelLayers.COLD_COW, ColdCowModel::createBodyLayer)
+        event.registerLayerDefinition(ModModelLayers.MOOSHROOM_NEW) { CowModel.createBodyLayer() }
     }
-
-//    @SubscribeEvent
-//    fun onRegisterEntityLayerDefinitions(event: EntityRenderersEvent.AddLayers) {
-//        event.registerLayerDefinition(ModModelLayers.CREAKING, CreakingModel::createBodyLayer)
-//        event.registerLayerDefinition(ModModelLayers.PALE_OAK_BOAT, BoatModel::createBodyModel)
-//        event.registerLayerDefinition(ModModelLayers.PALE_OAK_CHEST_BOAT, ChestBoatModel::createBodyModel)
-//
-//        event.entityTypes(ModModelLayers.COLD_CHICKEN, ColdChickenModel::createBodyLayer)
-//    }
 
     val DRY_FOLIAGE_COLOR_RESOLVER = ColorResolver { biome, _, _ -> DryFoliageColors.getDryFoliageColor(biome) }
 

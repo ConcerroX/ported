@@ -46,7 +46,8 @@
 - [x] Dry grass;
 - [ ] Test block and Test instance block;
 - [x] Blue egg and Brown egg;
-- [ ] New variants of pig, cow, chicken and wolf;
+- [x] New variants of pig, cow and chicken;
+- [ ] New sound variants of wolf;
 - [x] Fallen tree;
 - [ ] Dead bush ambient sounds;
 - [ ] /test command;
@@ -60,7 +61,7 @@
 - [ ] Changed the visuals of all spawn eggs;
 - [ ] Farm animals can now spawn in badlands;
 - [ ] Camel now spawns in deserts;
-- [ ] Textures and models of Cow and Mooshroom have been changed;
+- [x] Textures and models of Cow and Mooshroom have been changed;
 - [ ] Changed the rules for sheep coloring to be based on which biome they spawn in;
 - [ ] The changes to cartographer and wandering trader trades are now available during normal gameplay;
 - [ ] The "Country Lode, Take Me Home" advancement has been moved from the Nether category to the Adventure category;

@@ -73,7 +73,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
         return ported$bakedModels.computeIfAbsent(location, (loc) -> constructor.invoke(context.bakeLayer(location)));
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "SuspiciousMethodCalls"})
     @Inject(method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V",
             at = @At("HEAD"))
     private void beforeRender(T entity, float entityYaw, float partialTicks, PoseStack poseStack,
@@ -81,7 +81,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
         var variantAttachment = ModAttachmentTypes.INSTANCE.getMOB_VARIANT();
         if (entity.hasData(variantAttachment)) {
             model = (M) ported$variantToBakedModels.get(entity.getData(variantAttachment)).getModel(entity.isBaby());
-        } else {
+        } else if (MobVariantManager.INSTANCE.getKeyToVariant$ported_neoforge_1_21_1().containsKey(entity.getType())) {
             model = ported$originalModel;
         }
     }

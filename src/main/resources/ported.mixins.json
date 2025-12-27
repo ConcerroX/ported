@@ -38,6 +38,7 @@
     "client.GuiMixin",
     "content.springtolife.ClientLevelMixin",
     "content.springtolife.LivingEntityRendererMixin",
+    "content.springtolife.MushroomCowRendererMixin",
     "content.thegardenawakens.ElytraOnPlayerSoundInstanceMixin",
     "content.thegardenawakens.MinecraftMixin",
     "content.thegardenawakens.ModelManagerMixin"
