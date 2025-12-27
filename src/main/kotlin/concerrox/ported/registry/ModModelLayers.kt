@@ -10,6 +10,8 @@ object ModModelLayers {
     val PALE_OAK_BOAT = PaleOakBoatRenderer.createBoatModelName()
     val PALE_OAK_CHEST_BOAT = PaleOakBoatRenderer.createChestBoatModelName()
 
+    val COLD_CHICKEN = new("cold_chicken")
+
     private fun new(path: String) = ModelLayerLocation(ResourceLocation.withDefaultNamespace(path), "main")
 
 }

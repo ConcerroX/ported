@@ -19,6 +19,8 @@
 - [x] Smithing templates are named after their template type;
 - [ ] Updated trial chambers;
 - [x] Empty state for air bubbles in the oxygen bar and bubble pop sound;
+- [ ] Wolves can now be fed using all types of fish and rabbit stew;
+- [ ] Wolf armor now shows the enchantment glint on wolves when enchanted.
 
 # 1.21.4 The Garden Awakens
 - [x] Creaking;
@@ -43,7 +45,7 @@
 - [x] Cactus flower;
 - [x] Dry grass;
 - [ ] Test block and Test instance block;
-- [ ] Blue egg and Brown egg; (cake)
+- [x] Blue egg and Brown egg;
 - [ ] New variants of pig, cow, chicken and wolf;
 - [x] Fallen tree;
 - [ ] Dead bush ambient sounds;

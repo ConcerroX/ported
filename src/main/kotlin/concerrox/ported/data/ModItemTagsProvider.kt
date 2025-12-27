@@ -10,6 +10,7 @@ import net.minecraft.tags.BlockTags
 import net.minecraft.tags.ItemTags
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.Block
+import net.neoforged.neoforge.common.Tags
 import java.util.concurrent.CompletableFuture
 
 class ModItemTagsProvider(
@@ -69,6 +70,8 @@ class ModItemTagsProvider(
         copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS)
 
         copy(BlockTags.FLOWERS, ItemTags.FLOWERS)
+
+        tag(Tags.Items.EGGS).add(ModItems.BROWN_EGG.get(), ModItems.BLUE_EGG.get())
     }
 
 }

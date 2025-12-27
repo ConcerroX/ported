@@ -154,5 +154,8 @@
   "test_block.mode.accept": "Accept",
   "test_block.mode.fail": "Fail",
   "test_block.mode.log": "Log",
-  "test_block.mode.start": "Start"
+  "test_block.mode.start": "Start",
+
+  "item.minecraft.blue_egg": "Blue Egg",
+  "item.minecraft.brown_egg": "Brown Egg"
 }

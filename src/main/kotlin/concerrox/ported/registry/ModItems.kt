@@ -192,6 +192,17 @@ object ModItems {
     val SHORT_DRY_GRASS = blockItem(ModBlocks.SHORT_DRY_GRASS)
     val DRY_TALL_GRASS = blockItem(ModBlocks.TALL_DRY_GRASS)
 
+    val BLUE_EGG = new("blue_egg") {
+        EggItem(newProperties {
+            stacksTo(16)
+        })
+    }
+    val BROWN_EGG = new("brown_egg") {
+        EggItem(newProperties {
+            stacksTo(16)
+        })
+    }
+
     val TEST_BLOCK = new("test_block") {
         GameMasterBlockItem(ModBlocks.TEST_BLOCK.get(), newProperties {
             rarity(Rarity.EPIC)

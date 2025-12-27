@@ -42,22 +42,15 @@ class ModLootTableProvider(
     output: PackOutput, lookupProvider: CompletableFuture<HolderLookup.Provider>
 ) : LootTableProvider(
     output, setOf(), listOf(
-        SubProviderEntry(::ModChestLootSubProvider, LootContextParamSets.CHEST),
+        SubProviderEntry(::ModGiftLootSubProvider, LootContextParamSets.CHEST),
         SubProviderEntry(::ModBlockLootSubProvider, LootContextParamSets.BLOCK)
     ), lookupProvider
 ) {
 
-    class ModChestLootSubProvider(@Suppress("unused") lookupProvider: HolderLookup.Provider) : LootTableSubProvider {
+    class ModGiftLootSubProvider(lookupProvider: HolderLookup.Provider) : LootTableSubProvider {
 
         override fun generate(output: BiConsumer<ResourceKey<LootTable>, LootTable.Builder>) {
-//            output.accept(
-//                ModLootTables.WOODLAND_MANSION_MODIFIER, LootTable.lootTable().withPool(
-//                    LootPool.lootPool().setRolls(UniformGenerator.between(1f, 4f)).add(
-//                        LootItem.lootTableItem(ModItems.RESIN_CLUMP).setWeight(50)
-//                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(2f, 4f)))
-//                    )
-//                )
-//            )
+
         }
 
     }

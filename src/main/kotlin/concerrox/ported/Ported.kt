@@ -2,6 +2,7 @@ package concerrox.ported
 
 import com.mojang.datafixers.util.Pair
 import com.mojang.logging.LogUtils
+import concerrox.ported.content.springtolife.mobvariant.VanillaMobVariants
 import concerrox.ported.registry.*
 import net.minecraft.core.Registry
 import net.minecraft.resources.ResourceKey
@@ -10,11 +11,13 @@ import net.minecraft.world.level.biome.Biome
 import net.minecraft.world.level.biome.Biomes
 import net.minecraft.world.level.biome.Climate
 import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.DispenserBlock
 import net.minecraft.world.level.block.FlowerPotBlock
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.config.ModConfig
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 import terrablender.api.Region
 import terrablender.api.RegionType
 import terrablender.api.Regions
@@ -37,8 +40,8 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
         ModFeatures.FEATURES.register(modEventBus)
         ModEntityTypes.ENTITY_TYPES.register(modEventBus)
         ModParticleTypes.PARTICLE_TYPES.register(modEventBus)
-        ModDataComponents.DATA_COMPONENTS.register(modEventBus)
-        ModAttachmentTypes.ATTACHMENT_TYPES.register(modEventBus)
+        ModDataComponents.DATA_COMPONENTS_PORTED.register(modEventBus)
+        ModAttachmentTypes.ATTACHMENT_TYPES_PORTED.register(modEventBus)
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus)
         ModBlockEntityTypes.PORTED_BLOCK_ENTITY_TYPES.register(modEventBus) // Signs
         ModCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus)
@@ -49,48 +52,30 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
         modEventBus.addListener(ModPacketTypes::register)
         modContainer.registerConfig(ModConfig.Type.COMMON, PortedConfig.SPEC)
 
-        val potBlock = Blocks.FLOWER_POT as FlowerPotBlock
-        potBlock.addPlant(ModBlocks.PALE_OAK_SAPLING.id, ModBlocks.POTTED_PALE_OAK_SAPLING)
-        potBlock.addPlant(ModBlocks.CLOSED_EYEBLOSSOM.id, ModBlocks.POTTED_CLOSED_EYEBLOSSOM)
-        potBlock.addPlant(ModBlocks.OPEN_EYEBLOSSOM.id, ModBlocks.POTTED_OPEN_EYEBLOSSOM)
-
         Regions.register(object : Region(res("ported"), RegionType.OVERWORLD, 1) {
             override fun addBiomes(
                 registry: Registry<Biome>, mapper: Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>>
             ) {
-                addModifiedVanillaOverworldBiomes(mapper) { builder ->
-                    builder.replaceBiome(Biomes.DARK_FOREST, ModBiomes.PALE_GARDEN)
-
-//                    val plateauPoints: MutableList<ParameterPoint> = ParameterPointListBuilder()
-//                        .temperature(ParameterUtils.Temperature.NEUTRAL)
-//                        .humidity(ParameterUtils.Humidity.HUMID)
-//                        .continentalness(
-//                            Continentalness.span(Continentalness.COAST, Continentalness.FAR_INLAND),
-//                            Continentalness.span(Continentalness.MID_INLAND, Continentalness.FAR_INLAND)
-//                        )
-//                        .erosion(Erosion.EROSION_0, Erosion.EROSION_1)
-//                        .depth(Depth.SURFACE, Depth.FLOOR)
-//                        .weirdness(
-//                            Weirdness.HIGH_SLICE_VARIANT_ASCENDING,
-//                            Weirdness.PEAK_VARIANT,
-//                            Weirdness.HIGH_SLICE_VARIANT_DESCENDING
-//                        )
-//                        .build()
-//
-//                    frozenPeaksPoints.forEach(Consumer { point: ParameterPoint? ->
-//                        builder.replaceBiome(
-//                            point,
-//                            TestBiomes.COLD_BLUE
-//                        )
-//                    })
-                }
+                addModifiedVanillaOverworldBiomes(mapper) { it.replaceBiome(Biomes.DARK_FOREST, ModBiomes.PALE_GARDEN) }
             }
         })
+
+        modEventBus.addListener { event: FMLCommonSetupEvent ->
+            val potBlock = Blocks.FLOWER_POT as FlowerPotBlock
+            potBlock.addPlant(ModBlocks.PALE_OAK_SAPLING.id, ModBlocks.POTTED_PALE_OAK_SAPLING)
+            potBlock.addPlant(ModBlocks.CLOSED_EYEBLOSSOM.id, ModBlocks.POTTED_CLOSED_EYEBLOSSOM)
+            potBlock.addPlant(ModBlocks.OPEN_EYEBLOSSOM.id, ModBlocks.POTTED_OPEN_EYEBLOSSOM)
+
+            VanillaMobVariants.register()
+            DispenserBlock.registerProjectileBehavior(ModItems.BLUE_EGG)
+            DispenserBlock.registerProjectileBehavior(ModItems.BROWN_EGG)
+        }
+
     }
 
     companion object {
         const val MOD_ID = "ported"
-        const val PORTED_TARGET_VERSION = "1.21.4"
+        const val PORTED_TARGET_VERSION = "1.21.5"
         internal val LOGGER = LogUtils.getLogger()
     }
 

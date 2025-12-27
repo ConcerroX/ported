@@ -21,7 +21,19 @@ object CommonModEventHandler {
     fun onBuildCreativeModeTabContents(event: BuildCreativeModeTabContentsEvent) {
         when (event.tabKey) {
 
-            //TODO:check
+            CreativeModeTabs.COMBAT -> {
+                event.insertAfter(
+                    Items.EGG.defaultInstance,
+                    ModItems.BLUE_EGG.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+                event.insertAfter(
+                    Items.EGG.defaultInstance,
+                    ModItems.BROWN_EGG.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+            }
+
             CreativeModeTabs.INGREDIENTS -> {
                 event.insertAfter(
                     Items.PHANTOM_MEMBRANE.defaultInstance,
@@ -41,6 +53,17 @@ object CommonModEventHandler {
                 event.insertAfter(
                     Items.NETHER_BRICK.defaultInstance,
                     ModItems.RESIN_BRICK.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+
+                event.insertAfter(
+                    Items.EGG.defaultInstance,
+                    ModItems.BLUE_EGG.toStack(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                )
+                event.insertAfter(
+                    Items.EGG.defaultInstance,
+                    ModItems.BROWN_EGG.toStack(),
                     CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
                 )
             }
