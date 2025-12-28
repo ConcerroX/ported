@@ -119,6 +119,250 @@ class ModLootTableProvider(
                         )
                 )
             )
+            output.accept(
+                BuiltInLootTables.VILLAGE_WEAPONSMITH, LootTable.lootTable().withPool(
+                    LootPool.lootPool().setRolls(UniformGenerator.between(3.0f, 8.0f)).add(
+                        LootItem.lootTableItem(Items.DIAMOND).setWeight(3)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                    ).add(
+                        LootItem.lootTableItem(Items.IRON_INGOT).setWeight(10)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 5.0f)))
+                    ).add(
+                        LootItem.lootTableItem(Items.GOLD_INGOT).setWeight(5)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                    ).add(
+                        LootItem.lootTableItem(Items.BREAD).setWeight(15)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                    ).add(
+                        LootItem.lootTableItem(Items.APPLE).setWeight(15)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                    ).add(LootItem.lootTableItem(Items.IRON_PICKAXE).setWeight(5))
+                        .add(LootItem.lootTableItem(Items.IRON_SWORD).setWeight(5))
+//                        .add(LootItem.lootTableItem(Items.IRON_SPEAR).setWeight(5)) // TODO: spear
+//                        .add(LootItem.lootTableItem(Items.COPPER_SPEAR).setWeight(7))
+                        .add(LootItem.lootTableItem(Items.IRON_CHESTPLATE).setWeight(5))
+                        .add(LootItem.lootTableItem(Items.IRON_HELMET).setWeight(5))
+                        .add(LootItem.lootTableItem(Items.IRON_LEGGINGS).setWeight(5))
+                        .add(LootItem.lootTableItem(Items.IRON_BOOTS).setWeight(5)).add(
+                            LootItem.lootTableItem(Blocks.OBSIDIAN).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0f, 7.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Blocks.OAK_SAPLING).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0f, 7.0f)))
+                        ).add(LootItem.lootTableItem(Items.SADDLE).setWeight(3))
+                        //.add(LootItem.lootTableItem(Items.COPPER_HORSE_ARMOR)) TODO: fix this
+                        .add(LootItem.lootTableItem(Items.IRON_HORSE_ARMOR))
+                        .add(LootItem.lootTableItem(Items.GOLDEN_HORSE_ARMOR))
+                        .add(LootItem.lootTableItem(Items.DIAMOND_HORSE_ARMOR))
+                ).withPool(
+                    LootPool.lootPool().setRolls(
+                        ConstantValue.exactly(1.0f)
+                    ).add(
+                        LootItem.lootTableItem(Items.BUNDLE).setWeight(1).apply(
+                            SetItemCountFunction.setCount(
+                                ConstantValue.exactly(1.0f)
+                            )
+                        )
+                    ).add(EmptyLootItem.emptyItem().setWeight(2))
+                )
+            )
+            output.accept(
+                BuiltInLootTables.VILLAGE_CARTOGRAPHER, LootTable.lootTable().withPool(
+                    LootPool.lootPool().setRolls(UniformGenerator.between(1.0f, 5.0f)).add(
+                        LootItem.lootTableItem(Items.MAP).setWeight(10)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                    ).add(
+                        LootItem.lootTableItem(Items.PAPER).setWeight(15)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 5.0f)))
+                    ).add(LootItem.lootTableItem(Items.COMPASS).setWeight(5)).add(
+                        LootItem.lootTableItem(Items.BREAD).setWeight(15)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                    ).add(
+                        LootItem.lootTableItem(Items.STICK).setWeight(5)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 2.0f)))
+                    )
+                ).withPool(
+                    LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).add(
+                        LootItem.lootTableItem(Items.BUNDLE).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
+                    ).add(EmptyLootItem.emptyItem().setWeight(2))
+                )
+            )
+            output.accept(
+                BuiltInLootTables.VILLAGE_TANNERY, LootTable.lootTable().withPool(
+                    LootPool.lootPool().setRolls(UniformGenerator.between(1.0f, 5.0f)).add(
+                        LootItem.lootTableItem(Items.LEATHER).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                    ).add(LootItem.lootTableItem(Items.LEATHER_CHESTPLATE).setWeight(2))
+                        .add(LootItem.lootTableItem(Items.LEATHER_BOOTS).setWeight(2))
+                        .add(LootItem.lootTableItem(Items.LEATHER_HELMET).setWeight(2)).add(
+                            LootItem.lootTableItem(Items.BREAD).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(LootItem.lootTableItem(Items.LEATHER_LEGGINGS).setWeight(2))
+                        .add(LootItem.lootTableItem(Items.SADDLE).setWeight(1)).add(
+                            LootItem.lootTableItem(Items.EMERALD).setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        )
+                ).withPool(
+                    LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).add(
+                        LootItem.lootTableItem(Items.BUNDLE).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
+                    ).add(EmptyLootItem.emptyItem().setWeight(2))
+                )
+            )
+            output.accept(
+                BuiltInLootTables.VILLAGE_PLAINS_HOUSE, LootTable.lootTable().withPool(
+                    LootPool.lootPool().setRolls(UniformGenerator.between(3.0f, 8.0f)).add(
+                        LootItem.lootTableItem(Items.GOLD_NUGGET).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                    ).add(LootItem.lootTableItem(Items.DANDELION).setWeight(2))
+                        .add(LootItem.lootTableItem(Items.POPPY).setWeight(1)).add(
+                            LootItem.lootTableItem(Items.POTATO).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 7.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.BREAD).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.APPLE).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 5.0f)))
+                        ).add(LootItem.lootTableItem(Items.BOOK).setWeight(1))
+                        .add(LootItem.lootTableItem(Items.FEATHER).setWeight(1)).add(
+                            LootItem.lootTableItem(Items.EMERALD).setWeight(2)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Blocks.OAK_SAPLING).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 2.0f)))
+                        )
+                ).withPool(
+                    LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).add(
+                        LootItem.lootTableItem(Items.BUNDLE).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
+                    ).add(EmptyLootItem.emptyItem().setWeight(2))
+                )
+            )
+            output.accept(
+                BuiltInLootTables.VILLAGE_TAIGA_HOUSE, LootTable.lootTable().withPool(
+                    LootPool.lootPool().setRolls(UniformGenerator.between(3.0f, 8.0f)).add(
+                        LootItem.lootTableItem(Items.IRON_NUGGET).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 5.0f)))
+                    ).add(LootItem.lootTableItem(Items.FERN).setWeight(2))
+                        .add(LootItem.lootTableItem(Items.LARGE_FERN).setWeight(2)).add(
+                            LootItem.lootTableItem(Items.POTATO).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 7.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.SWEET_BERRIES).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 7.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.BREAD).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.PUMPKIN_SEEDS).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 5.0f)))
+                        ).add(LootItem.lootTableItem(Items.PUMPKIN_PIE).setWeight(1)).add(
+                            LootItem.lootTableItem(Items.EMERALD).setWeight(2)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Blocks.SPRUCE_SAPLING).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 5.0f)))
+                        ).add(LootItem.lootTableItem(Items.SPRUCE_SIGN).setWeight(1)).add(
+                            LootItem.lootTableItem(Items.SPRUCE_LOG).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 5.0f)))
+                        )
+                ).withPool(
+                    LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).add(
+                        LootItem.lootTableItem(Items.BUNDLE).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
+                    ).add(EmptyLootItem.emptyItem().setWeight(2))
+                )
+            )
+            output.accept(
+                BuiltInLootTables.VILLAGE_SAVANNA_HOUSE, LootTable.lootTable().withPool(
+                    LootPool.lootPool().setRolls(UniformGenerator.between(3.0f, 8.0f)).add(
+                        LootItem.lootTableItem(Items.GOLD_NUGGET).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                    ).add(LootItem.lootTableItem(Items.SHORT_GRASS).setWeight(5))
+                        .add(LootItem.lootTableItem(Items.TALL_GRASS).setWeight(5)).add(
+                            LootItem.lootTableItem(Items.BREAD).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.WHEAT_SEEDS).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 5.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.EMERALD).setWeight(2)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Blocks.ACACIA_SAPLING).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 2.0f)))
+                        ).add(LootItem.lootTableItem(Items.SADDLE).setWeight(1)).add(
+                            LootItem.lootTableItem(Blocks.TORCH).setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 2.0f)))
+                        ).add(LootItem.lootTableItem(Items.BUCKET).setWeight(1))
+                ).withPool(
+                    LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).add(
+                        LootItem.lootTableItem(Items.BUNDLE).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
+                    ).add(EmptyLootItem.emptyItem().setWeight(2))
+                )
+            )
+            output.accept(
+                BuiltInLootTables.VILLAGE_SNOWY_HOUSE, LootTable.lootTable().withPool(
+                    LootPool.lootPool().setRolls(UniformGenerator.between(3.0f, 8.0f))
+                        .add(LootItem.lootTableItem(Blocks.BLUE_ICE).setWeight(1))
+                        .add(LootItem.lootTableItem(Blocks.SNOW_BLOCK).setWeight(4)).add(
+                            LootItem.lootTableItem(Items.POTATO).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 7.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.BREAD).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.BEETROOT_SEEDS).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 5.0f)))
+                        ).add(LootItem.lootTableItem(Items.BEETROOT_SOUP).setWeight(1))
+                        .add(LootItem.lootTableItem(Items.FURNACE).setWeight(1)).add(
+                            LootItem.lootTableItem(Items.EMERALD).setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.SNOWBALL).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 7.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.COAL).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        )
+                ).withPool(
+                    LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).add(
+                        LootItem.lootTableItem(Items.BUNDLE).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
+                    ).add(EmptyLootItem.emptyItem().setWeight(2))
+                )
+            )
+            output.accept(
+                BuiltInLootTables.VILLAGE_DESERT_HOUSE, LootTable.lootTable().withPool(
+                    LootPool.lootPool().setRolls(UniformGenerator.between(3.0f, 8.0f))
+                        .add(LootItem.lootTableItem(Items.CLAY_BALL).setWeight(1))
+                        .add(LootItem.lootTableItem(Items.GREEN_DYE).setWeight(1)).add(
+                            LootItem.lootTableItem(Blocks.CACTUS).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.WHEAT).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 7.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.BREAD).setWeight(10)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                        ).add(LootItem.lootTableItem(Items.BOOK).setWeight(1)).add(
+                            LootItem.lootTableItem(Blocks.DEAD_BUSH).setWeight(2)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.EMERALD).setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+                        )
+                ).withPool(
+                    LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).add(
+                        LootItem.lootTableItem(Items.BUNDLE).setWeight(1)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
+                    ).add(EmptyLootItem.emptyItem().setWeight(2))
+                )
+            )
+
         }
 
     }
