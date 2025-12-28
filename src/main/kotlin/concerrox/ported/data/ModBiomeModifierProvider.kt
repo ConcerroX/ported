@@ -184,6 +184,14 @@ object ModBiomeModifierProvider {
                 )
             )
         )
+
+        context.register(
+            key("add_animals_to_desert"), BiomeModifiers.AddSpawnsBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.DESERT)),
+                listOf(SpawnerData(EntityType.RABBIT, 8, 2, 3), SpawnerData(EntityType.CAMEL, 1, 1, 1))
+            )
+        )
+
     }
 
 }

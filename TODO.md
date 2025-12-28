@@ -59,8 +59,8 @@
 - [ ] Iron bars, iron block, iron trapdoor, iron door, and heavy weighted pressure plate added new sounds;
 - [x] Bundle can now be found in some of the chests in villages;
 - [x] Changed the visuals of all spawn eggs;
-- [ ] Farm animals can now spawn in badlands;
-- [ ] Camel now spawns in deserts;
+- [x] Farm animals can now spawn in badlands;
+- [x] Camel now spawns in deserts;
 - [x] Textures and models of Cow and Mooshroom have been changed;
 - [ ] Changed the rules for sheep coloring to be based on which biome they spawn in;
 - [ ] The changes to cartographer and wandering trader trades are now available during normal gameplay;
