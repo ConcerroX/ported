@@ -52,7 +52,7 @@
 - [x] Dead bush ambient sounds;
 - [ ] /test command;
 - [x] Sand, red sand and terracotta ambient sounds;
-- [ ] Falling leaf particles;
+- [x] Falling leaf particles;
 - [x] Dead bush can now be placed on farmland;
 - [ ] Beacons and their beams now render beyond 16 chunks up to the client render distance;
 - [ ] Lodestone changed crafting recipe and can now be found in ruined portal chests.;

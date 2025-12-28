@@ -22,6 +22,7 @@
     "content.springtolife.ChickenMixin",
     "content.springtolife.EatBlockGoalMixin",
     "content.springtolife.FallingBlockMixin",
+    "content.springtolife.LeavesBlockMixin",
     "content.springtolife.MobMixin",
     "content.springtolife.SpawnEggItemMixin",
     "content.springtolife.ThrownEggMixin",

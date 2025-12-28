@@ -1,6 +1,7 @@
 package concerrox.ported.event
 
 import concerrox.ported.Ported
+import concerrox.ported.content.springtolife.fallingleaves.FallingLeavesParticle
 import concerrox.ported.content.springtolife.firefly.FireflyParticle
 import concerrox.ported.content.springtolife.leaflitter.DryFoliageColors
 import concerrox.ported.content.springtolife.mobvariant.model.ColdChickenModel
@@ -143,6 +144,8 @@ object ClientModEventHandler {
     fun onRegisterParticleProviders(event: RegisterParticleProvidersEvent) {
         event.registerSpriteSet(ModParticleTypes.TRAIL.get(), TrailParticle::Provider)
         event.registerSpriteSet(ModParticleTypes.FIREFLY.get(), FireflyParticle::FireflyProvider)
+        event.registerSpriteSet(ModParticleTypes.TINTED_LEAVES.get(), FallingLeavesParticle::TintedLeavesProvider)
+        event.registerSpriteSet(ModParticleTypes.PALE_OAK_LEAVES.get(), FallingLeavesParticle::PaleOakProvider)
         event.registerSpecial(
             ModParticleTypes.BLOCK_CRUMBLE.get(), TerrainParticleCrumblingProvider::createTerrainParticle
         )

@@ -94,7 +94,7 @@ object ModBlocks {
             ignitedByLava()
             pushReaction(PushReaction.DESTROY)
             isRedstoneConductor { _, _, _ -> false }
-        }) //TODO:particle
+        })
     }
     val PALE_OAK_SAPLING = new("pale_oak_sapling") {
         SaplingBlock(
