@@ -57,8 +57,8 @@
 - [ ] Beacons and their beams now render beyond 16 chunks up to the client render distance;
 - [x] Lodestone changed crafting recipe and can now be found in ruined portal chests;
 - [ ] Iron bars, iron block, iron trapdoor, iron door, and heavy weighted pressure plate added new sounds;
-- [ ] Bundle can now be found in some of the chests in villages;
-- [ ] Changed the visuals of all spawn eggs;
+- [x] Bundle can now be found in some of the chests in villages;
+- [x] Changed the visuals of all spawn eggs;
 - [ ] Farm animals can now spawn in badlands;
 - [ ] Camel now spawns in deserts;
 - [x] Textures and models of Cow and Mooshroom have been changed;
