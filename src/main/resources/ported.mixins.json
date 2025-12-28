@@ -25,6 +25,7 @@
     "content.springtolife.FallingBlockMixin",
     "content.springtolife.LeavesBlockMixin",
     "content.springtolife.MobMixin",
+    "content.springtolife.SheepMixin",
     "content.springtolife.SpawnEggItemMixin",
     "content.springtolife.ThrownEggMixin",
     "content.springtolife.WolfMixin",
