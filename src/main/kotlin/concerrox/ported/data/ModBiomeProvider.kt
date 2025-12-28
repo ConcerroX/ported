@@ -30,7 +30,6 @@ object ModBiomeProvider {
             addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.PALE_MOSS_PATCH)
             addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.PALE_GARDEN_FLOWERS)
             addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_PALE_GARDEN)
-            addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.PATCH_FIREFLY_BUSH_NEAR_WATER)
         }
 
         val mobSpawning = MobSpawnSettings.Builder()

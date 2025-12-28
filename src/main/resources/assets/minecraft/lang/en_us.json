@@ -142,6 +142,8 @@
 
   "subtitles.block.dry_grass.ambient": "Windy sounds",
   "subtitles.block.firefly_bush.idle": "Fireflies buzz",
+  "subtitles.block.sand.idle": "Sandy sounds",
+  "subtitles.block.deadbush.idle": "Dry sounds",
 
   "test_block.error.missing": "Test structure missing %s block",
   "test_block.error.too_many": "Too many %s blocks",

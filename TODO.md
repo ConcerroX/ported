@@ -49,9 +49,9 @@
 - [x] New variants of pig, cow and chicken;
 - [x] New sound variants for wolf;
 - [x] Fallen tree;
-- [ ] Dead bush ambient sounds;
+- [x] Dead bush ambient sounds;
 - [ ] /test command;
-- [ ] Sand, red sand and terracotta ambient sounds;
+- [x] Sand, red sand and terracotta ambient sounds;
 - [ ] Falling leaf particles;
 - [x] Dead bush can now be placed on farmland;
 - [ ] Beacons and their beams now render beyond 16 chunks up to the client render distance;

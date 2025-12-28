@@ -110,6 +110,7 @@ class ModBlockTagsProvider(
             .add(Blocks.SAND, Blocks.RED_SAND)
         tag(ModBlockTags.EDIBLE_FOR_SHEEP).add(Blocks.SHORT_GRASS).add(ModBlocks.SHORT_DRY_GRASS.get())
             .add(ModBlocks.TALL_DRY_GRASS.get()).add(Blocks.FERN)
+        tag(ModBlockTags.TRIGGERS_AMBIENT_DESERT_SAND_BLOCK_SOUNDS).add(Blocks.SAND, Blocks.RED_SAND)
     }
 
 }

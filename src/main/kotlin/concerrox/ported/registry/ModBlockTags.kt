@@ -9,9 +9,11 @@ object ModBlockTags {
 
     val PALE_OAK_LOGS = create("pale_oak_logs")
     val DRY_VEGETATION_MAY_PLACE_ON = create("dry_vegetation_may_place_on")
+    val EDIBLE_FOR_SHEEP = create("edible_for_sheep")
+
     val TRIGGERS_AMBIENT_DESERT_DRY_VEGETATION_BLOCK_SOUNDS =
         create("triggers_ambient_desert_dry_vegetation_block_sounds")
-    val EDIBLE_FOR_SHEEP = create("edible_for_sheep")
+    val TRIGGERS_AMBIENT_DESERT_SAND_BLOCK_SOUNDS = create("triggers_ambient_desert_sand_block_sounds")
 
     private fun create(path: String): TagKey<Block> =
         TagKey.create(Registries.BLOCK, ResourceLocation.withDefaultNamespace(path))

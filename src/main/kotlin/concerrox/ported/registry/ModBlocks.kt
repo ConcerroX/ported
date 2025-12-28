@@ -383,9 +383,6 @@ object ModBlocks {
     }
 
 
-
-
-
     val TEST_BLOCK = new("test_block") {
         TestBlock(newProperties {
             mapColor(MapColor.COLOR_LIGHT_GRAY)

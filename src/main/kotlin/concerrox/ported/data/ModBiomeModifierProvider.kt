@@ -1,5 +1,6 @@
 package concerrox.ported.data
 
+import concerrox.ported.registry.ModBiomes
 import concerrox.ported.registry.ModPlacedFeatures
 import concerrox.ported.res
 import net.minecraft.core.HolderSet
@@ -122,6 +123,8 @@ object ModBiomeModifierProvider {
                     biomes.getOrThrow(Biomes.BEACH),
                     biomes.getOrThrow(Biomes.SNOWY_BEACH),
                     biomes.getOrThrow(Biomes.STONY_SHORE),
+
+                    biomes.getOrThrow(ModBiomes.PALE_GARDEN),
                 ),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PATCH_FIREFLY_BUSH_NEAR_WATER)),
                 GenerationStep.Decoration.VEGETAL_DECORATION

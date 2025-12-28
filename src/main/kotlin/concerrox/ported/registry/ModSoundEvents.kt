@@ -71,6 +71,7 @@ object ModSoundEvents {
 
     val DRY_GRASS = variableRange("block.dry_grass.ambient")
     val DEAD_BUSH_IDLE = variableRange("block.deadbush.idle")
+    val SAND_IDLE = variableRange("block.sand.idle")
 
     val WOLF_SOUNDS = registerWolfSoundVariants()
 
