@@ -8,7 +8,9 @@ import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstrapContext
 import net.minecraft.data.worldgen.placement.VegetationPlacements
 import net.minecraft.resources.ResourceKey
+import net.minecraft.world.entity.EntityType
 import net.minecraft.world.level.biome.Biomes
+import net.minecraft.world.level.biome.MobSpawnSettings.SpawnerData
 import net.minecraft.world.level.levelgen.GenerationStep
 import net.neoforged.neoforge.common.world.BiomeModifier
 import net.neoforged.neoforge.common.world.BiomeModifiers
@@ -168,6 +170,20 @@ object ModBiomeModifierProvider {
             )
         )
 
+        context.register(
+            key("add_farm_animals_to_badlands"), BiomeModifiers.AddSpawnsBiomeModifier(
+                HolderSet.direct(
+                    biomes.getOrThrow(Biomes.BADLANDS),
+                    biomes.getOrThrow(Biomes.ERODED_BADLANDS),
+                    biomes.getOrThrow(Biomes.WOODED_BADLANDS),
+                ), listOf(
+                    SpawnerData(EntityType.SHEEP, 12, 4, 4),
+                    SpawnerData(EntityType.PIG, 10, 4, 4),
+                    SpawnerData(EntityType.CHICKEN, 10, 4, 4),
+                    SpawnerData(EntityType.COW, 8, 4, 4)
+                )
+            )
+        )
     }
 
 }
