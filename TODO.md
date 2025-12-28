@@ -55,7 +55,7 @@
 - [x] Falling leaf particles;
 - [x] Dead bush can now be placed on farmland;
 - [ ] Beacons and their beams now render beyond 16 chunks up to the client render distance;
-- [ ] Lodestone changed crafting recipe and can now be found in ruined portal chests.;
+- [x] Lodestone changed crafting recipe and can now be found in ruined portal chests;
 - [ ] Iron bars, iron block, iron trapdoor, iron door, and heavy weighted pressure plate added new sounds;
 - [ ] Bundle can now be found in some of the chests in villages;
 - [ ] Changed the visuals of all spawn eggs;

@@ -98,6 +98,11 @@ class ModRecipeProvider(
         ).unlockedBy("has_leaves", has(ItemTags.LEAVES)).save(recipeOutput)
         oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, ModBlocks.WILDFLOWERS, "yellow_dye")
         oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, ModBlocks.CACTUS_FLOWER, "pink_dye")
+        shaped(RecipeCategory.DECORATIONS, Blocks.LODESTONE).define('S', Items.CHISELED_STONE_BRICKS)
+            .define('#', Items.IRON_INGOT).pattern("SSS").pattern("S#S").pattern("SSS")
+            .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).unlockedBy("has_lodestone", has(Items.LODESTONE))
+            .save(recipeOutput)
+
 
         // Ported
         shaped(RecipeCategory.MISC, ModItems.NETHER_REACTOR_CORE).pattern("IDI").pattern("IDI").pattern("IDI")

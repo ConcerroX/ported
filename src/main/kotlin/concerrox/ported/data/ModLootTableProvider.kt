@@ -21,11 +21,14 @@ import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.MultifaceBlock
+import net.minecraft.world.level.storage.loot.BuiltInLootTables
 import net.minecraft.world.level.storage.loot.IntRange
 import net.minecraft.world.level.storage.loot.LootPool
 import net.minecraft.world.level.storage.loot.LootTable
+import net.minecraft.world.level.storage.loot.entries.EmptyLootItem
 import net.minecraft.world.level.storage.loot.entries.LootItem
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount
+import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction
 import net.minecraft.world.level.storage.loot.functions.LimitCount
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets
@@ -42,15 +45,80 @@ class ModLootTableProvider(
     output: PackOutput, lookupProvider: CompletableFuture<HolderLookup.Provider>
 ) : LootTableProvider(
     output, setOf(), listOf(
-        SubProviderEntry(::ModGiftLootSubProvider, LootContextParamSets.CHEST),
+        SubProviderEntry(::ModChestLootSubProvider, LootContextParamSets.CHEST),
         SubProviderEntry(::ModBlockLootSubProvider, LootContextParamSets.BLOCK)
     ), lookupProvider
 ) {
 
-    class ModGiftLootSubProvider(lookupProvider: HolderLookup.Provider) : LootTableSubProvider {
+    class ModChestLootSubProvider(private val registries: HolderLookup.Provider) : LootTableSubProvider {
 
         override fun generate(output: BiConsumer<ResourceKey<LootTable>, LootTable.Builder>) {
-
+            output.accept(
+                BuiltInLootTables.RUINED_PORTAL, LootTable.lootTable().withPool(
+                    LootPool.lootPool().setRolls(UniformGenerator.between(4.0f, 8.0f)).add(
+                        LootItem.lootTableItem(Items.OBSIDIAN).setWeight(40)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 2.0f)))
+                    ).add(
+                        LootItem.lootTableItem(Items.FLINT).setWeight(40)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+                    ).add(
+                        LootItem.lootTableItem(Items.IRON_NUGGET).setWeight(40)
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(9.0f, 18.0f)))
+                    ).add(LootItem.lootTableItem(Items.FLINT_AND_STEEL).setWeight(40))
+                        .add(LootItem.lootTableItem(Items.FIRE_CHARGE).setWeight(40))
+                        .add(LootItem.lootTableItem(Items.GOLDEN_APPLE).setWeight(15)).add(
+                            LootItem.lootTableItem(Items.GOLD_NUGGET).setWeight(15)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0f, 24.0f)))
+                        ).add(
+                            LootItem.lootTableItem(Items.GOLDEN_SWORD).setWeight(15)
+                                .apply(EnchantRandomlyFunction.randomApplicableEnchantment(this.registries))
+                        ).add(
+                            LootItem.lootTableItem(Items.GOLDEN_AXE).setWeight(15)
+                                .apply(EnchantRandomlyFunction.randomApplicableEnchantment(this.registries))
+                        ).add(
+                            LootItem.lootTableItem(Items.GOLDEN_HOE).setWeight(15)
+                                .apply(EnchantRandomlyFunction.randomApplicableEnchantment(this.registries))
+                        ).add(
+                            LootItem.lootTableItem(Items.GOLDEN_SHOVEL).setWeight(15)
+                                .apply(EnchantRandomlyFunction.randomApplicableEnchantment(this.registries))
+                        ).add(
+                            LootItem.lootTableItem(Items.GOLDEN_PICKAXE).setWeight(15)
+                                .apply(EnchantRandomlyFunction.randomApplicableEnchantment(this.registries))
+                        ).add(
+                            LootItem.lootTableItem(Items.GOLDEN_BOOTS).setWeight(15)
+                                .apply(EnchantRandomlyFunction.randomApplicableEnchantment(this.registries))
+                        ).add(
+                            LootItem.lootTableItem(Items.GOLDEN_CHESTPLATE).setWeight(15)
+                                .apply(EnchantRandomlyFunction.randomApplicableEnchantment(this.registries))
+                        ).add(
+                            LootItem.lootTableItem(Items.GOLDEN_HELMET).setWeight(15)
+                                .apply(EnchantRandomlyFunction.randomApplicableEnchantment(this.registries))
+                        ).add(
+                            LootItem.lootTableItem(Items.GOLDEN_LEGGINGS).setWeight(15)
+                                .apply(EnchantRandomlyFunction.randomApplicableEnchantment(this.registries))
+                        ).add(
+                            LootItem.lootTableItem(Items.GLISTERING_MELON_SLICE).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0f, 12.0f)))
+                        ).add(LootItem.lootTableItem(Items.GOLDEN_HORSE_ARMOR).setWeight(5))
+                        .add(LootItem.lootTableItem(Items.LIGHT_WEIGHTED_PRESSURE_PLATE).setWeight(5)).add(
+                            LootItem.lootTableItem(Items.GOLDEN_CARROT).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0f, 12.0f)))
+                        ).add(LootItem.lootTableItem(Items.CLOCK).setWeight(5)).add(
+                            LootItem.lootTableItem(Items.GOLD_INGOT).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0f, 8.0f)))
+                        ).add(LootItem.lootTableItem(Items.BELL).setWeight(1))
+                        .add(LootItem.lootTableItem(Items.ENCHANTED_GOLDEN_APPLE).setWeight(1)).add(
+                            LootItem.lootTableItem(Items.GOLD_BLOCK).setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 2.0f)))
+                        )
+                ).withPool(
+                    LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+                        .add(EmptyLootItem.emptyItem().setWeight(1)).add(
+                            LootItem.lootTableItem(Items.LODESTONE).setWeight(2)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 2.0f)))
+                        )
+                )
+            )
         }
 
     }
