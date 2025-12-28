@@ -42,6 +42,7 @@
     "client.CreativeModeInventoryScreenMixin",
     "client.GuiGraphicsMixin",
     "client.GuiMixin",
+    "content.springtolife.BeaconRendererMixin",
     "content.springtolife.ClientLevelMixin",
     "content.springtolife.LivingEntityRendererMixin",
     "content.springtolife.MushroomCowRendererMixin",
