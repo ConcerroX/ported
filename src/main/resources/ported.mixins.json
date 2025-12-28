@@ -20,6 +20,7 @@
     "content.springtolife.BlockMixin",
     "content.springtolife.CactusBlockMixin",
     "content.springtolife.ChickenMixin",
+    "content.springtolife.CreativeModeTabsMixin",
     "content.springtolife.EatBlockGoalMixin",
     "content.springtolife.FallingBlockMixin",
     "content.springtolife.LeavesBlockMixin",

@@ -65,7 +65,7 @@
 - [ ] Changed the rules for sheep coloring to be based on which biome they spawn in;
 - [ ] The changes to cartographer and wandering trader trades are now available during normal gameplay;
 - [ ] The "Country Lode, Take Me Home" advancement has been moved from the Nether category to the Adventure category;
-- [ ] The tab icon for the Spawn Eggs inventory tab has changed from the pig spawn egg to the creeper spawn egg;
+- [x] The tab icon for the Spawn Eggs inventory tab has changed to the creeper spawn egg;
 - [ ] Crossbows will now show all charged projectiles in their tooltip instead of just the first; 
 - [ ] Tooltips for fireworks and crossbows now show a compact form of multiple repeated stars or projectiles that are identical;
 - [x] Woodland Mansions can now generate in Pale Garden biome;
