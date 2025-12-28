@@ -30,7 +30,7 @@ object ModBiomeProvider {
             addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.PALE_MOSS_PATCH)
             addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.PALE_GARDEN_FLOWERS)
             addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_PALE_GARDEN)
-            // TODO: firefly bush addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_FIREFLY_BUSH_NEAR_WATER)
+            addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.PATCH_FIREFLY_BUSH_NEAR_WATER)
         }
 
         val mobSpawning = MobSpawnSettings.Builder()
@@ -58,7 +58,6 @@ object ModBiomeProvider {
                     skyColor(12171705)
                     grassColorOverride(7832178)
                     foliageColorOverride(8883574)
-                    // TODO: litter dryFoliageColorOverride(10528412)
                     ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                     backgroundMusic(null)
                 }.build()

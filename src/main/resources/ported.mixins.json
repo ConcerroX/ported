@@ -27,6 +27,7 @@
     "content.thegardenawakens.BeeBeePollinateGoalMixin",
     "content.thegardenawakens.CatMixin",
     "content.thegardenawakens.FlowerBlockMixin",
+    "content.thegardenawakens.OverworldBiomeBuilderMixin",
     "content.thegardenawakens.WolfMixin"
   ],
   "client": [

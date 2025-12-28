@@ -37,10 +37,3 @@ type = "required"
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
-
-[[dependencies.${ mod_id }]]
-modId = "terrablender"
-type = "required"
-versionRange = "${terra_blender_version_range}"
-ordering = "NONE"
-side = "BOTH"

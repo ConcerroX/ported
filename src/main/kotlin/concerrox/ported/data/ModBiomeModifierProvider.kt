@@ -1,6 +1,5 @@
 package concerrox.ported.data
 
-import concerrox.ported.registry.ModBiomes
 import concerrox.ported.registry.ModPlacedFeatures
 import concerrox.ported.res
 import net.minecraft.core.HolderSet
@@ -118,7 +117,6 @@ object ModBiomeModifierProvider {
                     biomes.getOrThrow(Biomes.TAIGA),
                     biomes.getOrThrow(Biomes.SNOWY_TAIGA),
                     biomes.getOrThrow(Biomes.DARK_FOREST),
-                    biomes.getOrThrow(ModBiomes.PALE_GARDEN),
                     biomes.getOrThrow(Biomes.RIVER),
                     biomes.getOrThrow(Biomes.FROZEN_RIVER),
                     biomes.getOrThrow(Biomes.BEACH),

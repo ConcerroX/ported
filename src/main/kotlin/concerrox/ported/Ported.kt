@@ -1,15 +1,10 @@
 package concerrox.ported
 
-import com.mojang.datafixers.util.Pair
 import com.mojang.logging.LogUtils
 import concerrox.ported.content.springtolife.mobvariant.VanillaMobVariants
+import concerrox.ported.content.thegardenawakens.palegarden.PaleGardenCreator
 import concerrox.ported.registry.*
-import net.minecraft.core.Registry
-import net.minecraft.resources.ResourceKey
 import net.minecraft.resources.ResourceLocation
-import net.minecraft.world.level.biome.Biome
-import net.minecraft.world.level.biome.Biomes
-import net.minecraft.world.level.biome.Climate
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.DispenserBlock
 import net.minecraft.world.level.block.FlowerPotBlock
@@ -18,11 +13,6 @@ import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.config.ModConfig
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
-import terrablender.api.Region
-import terrablender.api.RegionType
-import terrablender.api.Regions
-import java.util.function.Consumer
-
 
 internal fun res(path: String) = ResourceLocation.fromNamespaceAndPath(Ported.MOD_ID, path)
 
@@ -52,15 +42,7 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
         modEventBus.addListener(ModPacketTypes::register)
         modContainer.registerConfig(ModConfig.Type.COMMON, PortedConfig.SPEC)
 
-        Regions.register(object : Region(res("ported"), RegionType.OVERWORLD, 1) {
-            override fun addBiomes(
-                registry: Registry<Biome>, mapper: Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>>
-            ) {
-                addModifiedVanillaOverworldBiomes(mapper) { it.replaceBiome(Biomes.DARK_FOREST, ModBiomes.PALE_GARDEN) }
-            }
-        })
-
-        modEventBus.addListener { event: FMLCommonSetupEvent ->
+        modEventBus.addListener { _: FMLCommonSetupEvent ->
             val potBlock = Blocks.FLOWER_POT as FlowerPotBlock
             potBlock.addPlant(ModBlocks.PALE_OAK_SAPLING.id, ModBlocks.POTTED_PALE_OAK_SAPLING)
             potBlock.addPlant(ModBlocks.CLOSED_EYEBLOSSOM.id, ModBlocks.POTTED_CLOSED_EYEBLOSSOM)
@@ -69,6 +51,8 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
             VanillaMobVariants.register()
             DispenserBlock.registerProjectileBehavior(ModItems.BLUE_EGG)
             DispenserBlock.registerProjectileBehavior(ModItems.BROWN_EGG)
+
+            PaleGardenCreator.isBiomeRegistered = true
         }
 
     }

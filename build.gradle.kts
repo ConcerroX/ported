@@ -68,7 +68,6 @@ repositories {
 
 dependencies {
     implementation(libs.kotlinForForge)
-    implementation(libs.terraBlender)
     implementation(libs.emi)
     implementation(libs.cyanide)
 }
