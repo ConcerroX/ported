@@ -3,7 +3,9 @@ package concerrox.ported.registry
 import concerrox.ported.Ported
 import concerrox.ported.content.bundlesofbravery.salmon.SalmonVariant
 import concerrox.ported.content.springtolife.mobvariant.MobVariant
+import concerrox.ported.content.springtolife.wolf.WolfSoundVariant
 import concerrox.ported.util.new
+import net.minecraft.core.Holder
 import net.neoforged.neoforge.attachment.AttachmentType
 import net.neoforged.neoforge.registries.DeferredRegister
 import net.neoforged.neoforge.registries.NeoForgeRegistries
@@ -21,6 +23,11 @@ object ModAttachmentTypes {
     val MOB_VARIANT = ATTACHMENT_TYPES_PORTED.new("mob_variant") {
         AttachmentType.builder(Supplier<MobVariant<*>?> { null }).serialize(MobVariant.CODEC)
             .sync(MobVariant.STREAM_CODEC).build()
+    }
+
+    val WOLF_SOUND_VARIANT = ATTACHMENT_TYPES_PORTED.new("wolf/sound_variant") {
+        AttachmentType.builder(Supplier<Holder<WolfSoundVariant>> { null!! }).serialize(WolfSoundVariant.CODEC)
+            .sync(WolfSoundVariant.STREAM_CODEC).build()
     }
 
 }

@@ -1,6 +1,7 @@
 package concerrox.ported.data
 
 import concerrox.ported.Ported
+import concerrox.ported.registry.ModRegistries
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.RegistrySetBuilder
 import net.minecraft.core.registries.Registries
@@ -16,6 +17,7 @@ class ModDatapackBuiltinEntriesProvider(output: PackOutput, lookupProvider: Comp
         RegistrySetBuilder().add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifierProvider::bootstrap)
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatureProvider::bootstrap)
             .add(Registries.PLACED_FEATURE, ModPlacedFeatureProvider::bootstrap)
-            .add(Registries.BIOME, ModBiomeProvider::bootstrap),
+            .add(Registries.BIOME, ModBiomeProvider::bootstrap)
+            .add(ModRegistries.WOLF_SOUND_VARIANT, ModWolfSoundVariantProvider::bootstrap),
         setOf(ResourceLocation.DEFAULT_NAMESPACE, Ported.MOD_ID),
     )

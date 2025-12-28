@@ -23,6 +23,7 @@
     "content.springtolife.MobMixin",
     "content.springtolife.SpawnEggItemMixin",
     "content.springtolife.ThrownEggMixin",
+    "content.springtolife.WolfMixin",
     "content.thegardenawakens.AnimalMixin",
     "content.thegardenawakens.BeeBeePollinateGoalMixin",
     "content.thegardenawakens.CatMixin",

@@ -1,10 +1,12 @@
 package concerrox.ported.event
 
+import concerrox.ported.content.springtolife.wolf.WolfSoundVariant
 import concerrox.ported.content.thegardenawakens.creaking.Creaking
 import concerrox.ported.data.ModItemTagsProvider
 import concerrox.ported.registry.ModCreativeModeTabs
 import concerrox.ported.registry.ModEntityTypes
 import concerrox.ported.registry.ModItems
+import concerrox.ported.registry.ModRegistries
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.CreativeModeTabs
 import net.minecraft.world.item.ItemStack
@@ -13,9 +15,17 @@ import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent
+import net.neoforged.neoforge.registries.DataPackRegistryEvent
 
 @EventBusSubscriber
 object CommonModEventHandler {
+
+    @SubscribeEvent
+    fun onNewDataPackRegistry(event: DataPackRegistryEvent.NewRegistry) {
+        event.dataPackRegistry(
+            ModRegistries.WOLF_SOUND_VARIANT, WolfSoundVariant.DIRECT_CODEC, WolfSoundVariant.NETWORK_CODEC
+        )
+    }
 
     @SubscribeEvent
     fun onBuildCreativeModeTabContents(event: BuildCreativeModeTabContentsEvent) {

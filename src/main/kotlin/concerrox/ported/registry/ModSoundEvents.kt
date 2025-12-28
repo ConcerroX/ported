@@ -1,5 +1,10 @@
 package concerrox.ported.registry
 
+import concerrox.ported.content.springtolife.wolf.WolfSoundVariant
+import concerrox.ported.content.springtolife.wolf.WolfSoundVariants
+import net.minecraft.core.Holder
+import net.minecraft.core.Registry
+import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.sounds.SoundEvent
 
@@ -66,6 +71,29 @@ object ModSoundEvents {
 
     val DRY_GRASS = variableRange("block.dry_grass.ambient")
     val DEAD_BUSH_IDLE = variableRange("block.deadbush.idle")
+
+    val WOLF_SOUNDS = registerWolfSoundVariants()
+
+    fun registerWolfSoundVariants(): Map<WolfSoundVariants.SoundSet, WolfSoundVariant> {
+        return WolfSoundVariants.SoundSet.entries.associateWith {
+            val s = it.soundEventSuffix
+            WolfSoundVariant(
+                registerForHolder("entity.wolf$s.ambient"),
+                registerForHolder("entity.wolf$s.death"),
+                registerForHolder("entity.wolf$s.growl"),
+                registerForHolder("entity.wolf$s.hurt"),
+                registerForHolder("entity.wolf$s.pant"),
+                registerForHolder("entity.wolf$s.whine")
+            )
+        }
+    }
+
+    private fun registerForHolder(name: String): Holder.Reference<SoundEvent> {
+        val location = ResourceLocation.withDefaultNamespace(name)
+        return Registry.registerForHolder(
+            BuiltInRegistries.SOUND_EVENT, location, SoundEvent.createVariableRangeEvent(location)
+        )
+    }
 
     private fun variableRange(name: String): SoundEvent =
         SoundEvent.createVariableRangeEvent(ResourceLocation.withDefaultNamespace(name))
