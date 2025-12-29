@@ -113,16 +113,16 @@ class TestBlock(properties: Properties) : BaseEntityBlock(properties), GameMaste
         val MODE: EnumProperty<TestBlockMode> = EnumProperty.create("mode", TestBlockMode::class.java)
 
         private fun getServerTestBlockEntity(level: Level, pos: BlockPos): TestBlockEntity? {
-            val var10000: TestBlockEntity?
+            val be: TestBlockEntity?
             if (level is ServerLevel) {
                 val var4 = level.getBlockEntity(pos)
                 if (var4 is TestBlockEntity) {
-                    var10000 = var4
-                    return var10000
+                    be = var4
+                    return be
                 }
             }
-            var10000 = null
-            return var10000
+            be = null
+            return be
         }
 
         fun setModeOnStack(stack: ItemStack, mode: TestBlockMode): ItemStack {

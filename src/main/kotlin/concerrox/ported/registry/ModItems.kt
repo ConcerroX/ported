@@ -191,7 +191,6 @@ object ModItems {
     val CACTUS_FLOWER = blockItem(ModBlocks.CACTUS_FLOWER)
     val SHORT_DRY_GRASS = blockItem(ModBlocks.SHORT_DRY_GRASS)
     val DRY_TALL_GRASS = blockItem(ModBlocks.TALL_DRY_GRASS)
-
     val BLUE_EGG = new("blue_egg") {
         EggItem(newProperties {
             stacksTo(16)
@@ -202,7 +201,11 @@ object ModItems {
             stacksTo(16)
         })
     }
-
+    val TEST_INSTANCE_BLOCK = new("test_instance_block") {
+        GameMasterBlockItem(ModBlocks.TEST_INSTANCE_BLOCK.get(), newProperties {
+            rarity(Rarity.EPIC)
+        })
+    }
     val TEST_BLOCK = new("test_block") {
         GameMasterBlockItem(ModBlocks.TEST_BLOCK.get(), newProperties {
             rarity(Rarity.EPIC)

@@ -2,9 +2,9 @@ package concerrox.ported.mixin.client;
 
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.vertex.PoseStack;
+import concerrox.ported.content.bundlesofbravery.bundle.BundleItemUtils;
 import concerrox.ported.event.ClientModEventHandler;
 import concerrox.ported.registry.ModItemTags;
-import concerrox.ported.content.bundlesofbravery.bundle.BundleItemUtils;
 import net.minecraft.CrashReport;
 import net.minecraft.CrashReportCategory;
 import net.minecraft.ReportedException;
@@ -50,17 +50,14 @@ public abstract class GuiGraphicsMixin {
     public abstract void flush();
 
     @Shadow
-    @Final
-    private MultiBufferSource.BufferSource bufferSource;
-
-    @Shadow
     public abstract MultiBufferSource.BufferSource bufferSource();
 
     @Inject(method = "renderItem(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;IIII)V",
             at = @At(value = "HEAD"), cancellable = true)
     public void renderItemWithBundle(LivingEntity entity, Level level, ItemStack stack, int x, int y, int seed,
                                      int guiOffset, CallbackInfo ci) {
-        if (stack != null && !stack.isEmpty() && stack.is(ModItemTags.INSTANCE.getBUNDLES())) {
+        if (stack == null || stack.isEmpty()) return;
+        if (stack.is(ModItemTags.INSTANCE.getBUNDLES())) {
             BakedModel bakedmodel = minecraft.getItemRenderer().getModel(stack, level, entity, seed);
             pose.pushPose();
             pose.translate(x + 8f, y + 8f, 150f + (bakedmodel.isGui3d() ? guiOffset : 0));
@@ -144,7 +141,6 @@ public abstract class GuiGraphicsMixin {
                 renderer.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combineOverlay, model);
             }
         }
-
     }
 
 }

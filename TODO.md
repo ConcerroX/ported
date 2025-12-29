@@ -44,7 +44,7 @@
 - [x] Bush and Firefly bush;
 - [x] Cactus flower;
 - [x] Dry grass;
-- [ ] Test block and Test instance block;
+- [x] Test block and Test instance block;
 - [x] Blue egg and Brown egg;
 - [x] New variants of pig, cow and chicken;
 - [x] New sound variants for wolf;

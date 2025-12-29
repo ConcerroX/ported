@@ -9,6 +9,7 @@ import concerrox.ported.content.springtolife.drygrass.TallDryGrassBlock
 import concerrox.ported.content.springtolife.firefly.FireflyBushBlock
 import concerrox.ported.content.springtolife.leaflitter.LeafLitterBlock
 import concerrox.ported.content.springtolife.test.TestBlock
+import concerrox.ported.content.springtolife.test.TestInstanceBlock
 import concerrox.ported.content.springtolife.wildflowers.FlowerBedBlock
 import concerrox.ported.content.thegardenawakens.creakingheart.CreakingHeartBlock
 import concerrox.ported.content.thegardenawakens.eyeblossom.EyeblossomBlock
@@ -381,8 +382,14 @@ object ModBlocks {
             pushReaction(PushReaction.DESTROY)
         })
     }
-
-
+    val TEST_INSTANCE_BLOCK = new("test_instance_block") {
+        TestInstanceBlock(newProperties {
+            noOcclusion()
+            strength(-1f, 3600000f)
+            noLootTable()
+            isViewBlocking { _, _, _ -> false }
+        })
+    }
     val TEST_BLOCK = new("test_block") {
         TestBlock(newProperties {
             mapColor(MapColor.COLOR_LIGHT_GRAY)

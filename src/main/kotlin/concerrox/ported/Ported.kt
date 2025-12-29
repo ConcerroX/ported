@@ -2,8 +2,11 @@ package concerrox.ported
 
 import com.mojang.logging.LogUtils
 import concerrox.ported.content.springtolife.mobvariant.VanillaMobVariants
+import concerrox.ported.content.springtolife.test.TestBlock
 import concerrox.ported.content.thegardenawakens.palegarden.PaleGardenCreator
 import concerrox.ported.registry.*
+import net.minecraft.client.renderer.item.ItemProperties
+import net.minecraft.core.component.DataComponents
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.DispenserBlock
@@ -12,6 +15,7 @@ import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.config.ModConfig
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 
 internal fun res(path: String) = ResourceLocation.fromNamespaceAndPath(Ported.MOD_ID, path)
@@ -56,6 +60,14 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
             Blocks.IRON_BLOCK.soundType = ModSoundTypes.IRON
 
             PaleGardenCreator.isBiomeRegistered = true
+        }
+
+        modEventBus.addListener { event: FMLClientSetupEvent ->
+            event.enqueueWork {
+                ItemProperties.register(ModItems.TEST_BLOCK.get(), res("mode")) { stack, _, _, _ ->
+                    stack.get(DataComponents.BLOCK_STATE)?.get(TestBlock.MODE)?.ordinal?.toFloat() ?: 0f
+                }
+            }
         }
 
     }
