@@ -12,7 +12,7 @@ val modName = "Ported"
 val modLicense = "MIT License"
 val modAuthors = "ConcerroX"
 val modDescription = "Hello world!"
-version = "1.2.0"
+version = "1.3.0"
 group = "concerrox.ported"
 base.archivesName = modId + "-neoforge-" + libs.versions.minecraft.get()
 
@@ -67,6 +67,7 @@ repositories {
 }
 
 dependencies {
+    jarJar(libs.kotlinForForge)
     implementation(libs.kotlinForForge)
     implementation(libs.emi)
     implementation(libs.cyanide)

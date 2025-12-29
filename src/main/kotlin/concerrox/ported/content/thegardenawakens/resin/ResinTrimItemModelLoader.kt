@@ -1,8 +1,8 @@
 package concerrox.ported.content.thegardenawakens.resin
 
+import com.google.gson.Gson
 import com.google.gson.JsonObject
 import concerrox.ported.PortedConfig
-import dev.emi.emi.runtime.EmiPersistentData.GSON
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.server.packs.PackResources
 import net.minecraft.server.packs.resources.Resource
@@ -17,7 +17,7 @@ internal object ResinTrimItemModelLoader {
     fun loadModels(loadedModels: MutableMap<ResourceLocation, Resource>): MutableMap<ResourceLocation, Resource> {
         fun loadResource(resource: Resource): JsonObject = resource.openAsReader().use { GsonHelper.parse(it) }
         fun toResource(source: PackResources, obj: JsonObject) =
-            Resource(source) { IOUtils.toInputStream(GSON.toJson(obj), StandardCharsets.UTF_8) }
+            Resource(source) { IOUtils.toInputStream(Gson().toJson(obj), StandardCharsets.UTF_8) }
 
         // TODO: fix this
         PortedConfig.DEFAULT_TRIMMABLE_ARMOR.forEach {

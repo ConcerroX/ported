@@ -4,6 +4,11 @@ import com.mojang.logging.LogUtils
 import concerrox.ported.content.springtolife.mobvariant.VanillaMobVariants
 import concerrox.ported.content.springtolife.test.TestBlock
 import concerrox.ported.content.thegardenawakens.palegarden.PaleGardenCreator
+import concerrox.ported.data.DataGenerator
+import concerrox.ported.event.ClientGameEventHandler
+import concerrox.ported.event.ClientModEventHandler
+import concerrox.ported.event.CommonGameEventHandler
+import concerrox.ported.event.CommonModEventHandler
 import concerrox.ported.registry.*
 import net.minecraft.client.renderer.item.ItemProperties
 import net.minecraft.core.component.DataComponents
@@ -17,6 +22,7 @@ import net.neoforged.fml.common.Mod
 import net.neoforged.fml.config.ModConfig
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
+import net.neoforged.neoforge.common.NeoForge
 
 internal fun res(path: String) = ResourceLocation.fromNamespaceAndPath(Ported.MOD_ID, path)
 
@@ -24,6 +30,16 @@ internal fun res(path: String) = ResourceLocation.fromNamespaceAndPath(Ported.MO
 class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
 
     init {
+        NeoForge.EVENT_BUS.register(CommonGameEventHandler)
+        NeoForge.EVENT_BUS.register(ClientGameEventHandler)
+
+        modEventBus.register(CommonModEventHandler)
+        modEventBus.register(ClientModEventHandler)
+        modEventBus.register(DataGenerator)
+
+        modEventBus.addListener(ModPacketTypes::register)
+        modContainer.registerConfig(ModConfig.Type.COMMON, PortedConfig.SPEC)
+
         ModWoodTypes.register()
         ModBlockSetTypes.register()
 
@@ -42,9 +58,6 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus)
         ModMemoryModuleTypes.MEMORY_MODULE_TYPE.register(modEventBus)
         ModTreeDecoratorTypes.TREE_DECORATOR_TYPES.register(modEventBus)
-
-        modEventBus.addListener(ModPacketTypes::register)
-        modContainer.registerConfig(ModConfig.Type.COMMON, PortedConfig.SPEC)
 
         modEventBus.addListener { _: FMLCommonSetupEvent ->
             val potBlock = Blocks.FLOWER_POT as FlowerPotBlock
@@ -74,7 +87,7 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
 
     companion object {
         const val MOD_ID = "ported"
-        const val PORTED_TARGET_VERSION = "1.21.5"
+        const val PORTED_TARGET_VERSION = "1.21.5 Spring to Life"
         internal val LOGGER = LogUtils.getLogger()
     }
 

@@ -1,6 +1,5 @@
 package concerrox.ported.event
 
-import concerrox.ported.Ported
 import concerrox.ported.content.springtolife.fallingleaves.FallingLeavesParticle
 import concerrox.ported.content.springtolife.firefly.FireflyParticle
 import concerrox.ported.content.springtolife.leaflitter.DryFoliageColors
@@ -15,7 +14,6 @@ import concerrox.ported.content.thegardenawakens.creaking.particle.TrailParticle
 import concerrox.ported.content.thegardenawakens.paleoak.PaleOakBoatRenderer
 import concerrox.ported.data.ModItemTagsProvider
 import concerrox.ported.registry.*
-import net.minecraft.client.Minecraft
 import net.minecraft.client.model.BoatModel
 import net.minecraft.client.model.ChestBoatModel
 import net.minecraft.client.renderer.BiomeColors
@@ -23,7 +21,6 @@ import net.minecraft.client.renderer.blockentity.HangingSignRenderer
 import net.minecraft.client.renderer.blockentity.SignRenderer
 import net.minecraft.client.resources.model.ModelResourceLocation
 import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.core.registries.Registries
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.ColorResolver
@@ -31,12 +28,12 @@ import net.minecraft.world.level.GrassColor
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.api.distmarker.OnlyIn
 import net.neoforged.bus.api.SubscribeEvent
-import net.neoforged.fml.common.EventBusSubscriber
-import net.neoforged.neoforge.client.event.*
-
+import net.neoforged.neoforge.client.event.EntityRenderersEvent
+import net.neoforged.neoforge.client.event.ModelEvent
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent
 
 @OnlyIn(Dist.CLIENT)
-@EventBusSubscriber(modid = Ported.MOD_ID, value = [Dist.CLIENT])
 object ClientModEventHandler {
 
     fun createBundleOpenBackModelResourceLocation(item: Item): ModelResourceLocation {
@@ -126,18 +123,6 @@ object ClientModEventHandler {
     @SubscribeEvent
     fun onRegisterItemColorHandlers(event: RegisterColorHandlersEvent.Item) {
         event.register({ _, _ -> GrassColor.getDefaultColor() }, ModBlocks.BUSH.get())
-    }
-
-    private val minecraft = Minecraft.getInstance()
-
-    @SubscribeEvent
-    fun onClientTick(event: ClientTickEvent.Post) {
-        val player = minecraft.player ?: return
-        val level = player.level()
-        val biome = level.getBiome(player.blockPosition()).value()
-        if (biome == level.registryAccess().registryOrThrow(Registries.BIOME).get(ModBiomes.PALE_GARDEN)) {
-            minecraft.musicManager.stopPlaying()
-        }
     }
 
     @SubscribeEvent

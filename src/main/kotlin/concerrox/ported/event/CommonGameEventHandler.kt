@@ -4,11 +4,9 @@ import concerrox.ported.registry.ModItems
 import net.minecraft.world.effect.MobEffectUtil
 import net.minecraft.world.entity.npc.VillagerTrades
 import net.neoforged.bus.api.SubscribeEvent
-import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.event.entity.living.LivingBreatheEvent
 import net.neoforged.neoforge.event.village.WandererTradesEvent
 
-@EventBusSubscriber
 object CommonGameEventHandler {
 
     @SubscribeEvent
