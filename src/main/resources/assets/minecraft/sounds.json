@@ -667,5 +667,58 @@
       }
     ],
     "subtitle": "subtitles.block.deadbush.idle"
+  },
+  "block.iron.break": {
+    "sounds": [
+      "block/iron/break1",
+      "block/iron/break2",
+      "block/iron/break3",
+      "block/iron/break4",
+      "block/iron/break5",
+      "block/iron/break6",
+      "block/iron/break7",
+      "block/iron/break8"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.iron.fall": {
+    "sounds": [
+      "block/iron/step1",
+      "block/iron/step2",
+      "block/iron/step3",
+      "block/iron/step4"
+    ],
+    "subtitle": "subtitles.block.generic.fall"
+  },
+  "block.iron.hit": {
+    "sounds": [
+      "block/iron/step1",
+      "block/iron/step2",
+      "block/iron/step3",
+      "block/iron/step4"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.iron.place": {
+    "sounds": [
+      "block/iron/break1",
+      "block/iron/break2",
+      "block/iron/break3",
+      "block/iron/break4",
+      "block/iron/break5",
+      "block/iron/break6",
+      "block/iron/break7",
+      "block/iron/break8"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.iron.step": {
+    "sounds": [
+      "block/iron/step1",
+      "block/iron/step2",
+      "block/iron/step3",
+      "block/iron/step4"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
   }
 }

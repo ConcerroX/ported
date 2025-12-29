@@ -1,4 +1,4 @@
-package concerrox.ported.content.springtolife.testblock
+package concerrox.ported.content.springtolife.test
 
 import com.mojang.logging.LogUtils
 import concerrox.ported.registry.ModBlockEntityTypes

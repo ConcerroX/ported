@@ -1,4 +1,4 @@
-package concerrox.ported.content.springtolife.testblock
+package concerrox.ported.content.springtolife.test
 
 import concerrox.ported.res
 import net.minecraft.client.Minecraft

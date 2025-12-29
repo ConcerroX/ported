@@ -1,13 +1,11 @@
-package concerrox.ported.content.springtolife.testblock
+package concerrox.ported.content.springtolife.test
 
 import concerrox.ported.registry.ModBlocks
 import net.minecraft.client.gui.GuiGraphics
 import net.minecraft.client.gui.components.Button
-import net.minecraft.client.gui.components.Button.OnPress
 import net.minecraft.client.gui.components.CycleButton
 import net.minecraft.client.gui.components.EditBox
 import net.minecraft.client.gui.screens.Screen
-import net.minecraft.core.BlockPos
 import net.minecraft.network.chat.CommonComponents
 import net.minecraft.network.chat.Component
 import net.neoforged.api.distmarker.Dist
@@ -26,29 +24,27 @@ class TestBlockEditScreen(blockEntity: TestBlockEntity) : Screen(TITLE) {
             EditBox(this.font, this.width / 2 - 152, 80, 240, 20, Component.translatable("test_block.message"))
         this.messageEdit!!.setMaxLength(128)
         this.messageEdit!!.value = this.message
-        this.addRenderableWidget(messageEdit)
+        this.addRenderableWidget(messageEdit!!)
         this.updateMode(this.mode)
-        this.addRenderableWidget<CycleButton<TestBlockMode>>(
+        this.addRenderableWidget(
             CycleButton.builder(TestBlockMode::displayName).withValues(
                 MODES
             ).displayOnlyValue().create(
                 this.width / 2 - 4 - 150, 185, 50, 20, TITLE
             ) { _, mode -> this.updateMode(mode) })
-        this.addRenderableWidget<Button?>(
+        this.addRenderableWidget(
             Button.builder(
                 CommonComponents.GUI_DONE
             ) { _ -> this.onDone() }.bounds(this.width / 2 - 4 - 150, 210, 150, 20).build()
         )
-        this.addRenderableWidget<Button?>(
-            Button.builder(
-                CommonComponents.GUI_CANCEL, OnPress { p_397482_: Button? -> this.onCancel() })
-                .bounds(this.width / 2 + 4, 210, 150, 20).build()
+        this.addRenderableWidget(
+            Button.builder(CommonComponents.GUI_CANCEL) { onCancel() }.bounds(this.width / 2 + 4, 210, 150, 20).build()
         )
     }
 
     override fun setInitialFocus() {
         if (this.messageEdit != null) {
-            this.setInitialFocus(this.messageEdit)
+            this.setInitialFocus(this.messageEdit!!)
         } else {
             super.setInitialFocus()
         }

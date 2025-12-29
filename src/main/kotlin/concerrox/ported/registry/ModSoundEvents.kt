@@ -73,6 +73,12 @@ object ModSoundEvents {
     val DEAD_BUSH_IDLE = variableRange("block.deadbush.idle")
     val SAND_IDLE = variableRange("block.sand.idle")
 
+    val IRON_BREAK = variableRange("block.iron.break")
+    val IRON_STEP = variableRange("block.iron.step")
+    val IRON_PLACE = variableRange("block.iron.place")
+    val IRON_HIT = variableRange("block.iron.hit")
+    val IRON_FALL = variableRange("block.iron.fall")
+
     val WOLF_SOUNDS = registerWolfSoundVariants()
 
     fun registerWolfSoundVariants(): Map<WolfSoundVariants.SoundSet, WolfSoundVariant> {

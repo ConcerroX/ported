@@ -8,7 +8,7 @@ import concerrox.ported.content.springtolife.drygrass.ShortDryGrassBlock
 import concerrox.ported.content.springtolife.drygrass.TallDryGrassBlock
 import concerrox.ported.content.springtolife.firefly.FireflyBushBlock
 import concerrox.ported.content.springtolife.leaflitter.LeafLitterBlock
-import concerrox.ported.content.springtolife.testblock.TestBlock
+import concerrox.ported.content.springtolife.test.TestBlock
 import concerrox.ported.content.springtolife.wildflowers.FlowerBedBlock
 import concerrox.ported.content.thegardenawakens.creakingheart.CreakingHeartBlock
 import concerrox.ported.content.thegardenawakens.eyeblossom.EyeblossomBlock

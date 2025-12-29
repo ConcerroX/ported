@@ -2,8 +2,8 @@ package concerrox.ported.registry
 
 import concerrox.ported.Ported
 import concerrox.ported.content.removedfeatures.netherreactorcore.ArmorStandWithArmsItem
-import concerrox.ported.content.springtolife.testblock.TestBlock
-import concerrox.ported.content.springtolife.testblock.TestBlockMode
+import concerrox.ported.content.springtolife.test.TestBlock
+import concerrox.ported.content.springtolife.test.TestBlockMode
 import concerrox.ported.content.thegardenawakens.paleoak.PaleOakBoatItem
 import net.minecraft.core.Holder
 import net.minecraft.core.component.DataComponents

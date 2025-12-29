@@ -1,7 +1,7 @@
 package concerrox.ported.registry
 
 import concerrox.ported.Ported
-import concerrox.ported.content.springtolife.testblock.TestBlockEntity
+import concerrox.ported.content.springtolife.test.TestBlockEntity
 import concerrox.ported.content.thegardenawakens.creakingheart.CreakingHeartBlockEntity
 import concerrox.ported.content.thegardenawakens.paleoak.PaleOakHangingSignBlockEntity
 import concerrox.ported.content.thegardenawakens.paleoak.PaleOakSignBlockEntity
@@ -9,8 +9,6 @@ import concerrox.ported.util.new
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.entity.BlockEntityType
-import net.minecraft.world.level.block.entity.HangingSignBlockEntity
-import net.minecraft.world.level.block.entity.SignBlockEntity
 import net.neoforged.neoforge.registries.DeferredRegister
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")

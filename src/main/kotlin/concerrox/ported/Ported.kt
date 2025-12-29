@@ -52,6 +52,9 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
             DispenserBlock.registerProjectileBehavior(ModItems.BLUE_EGG)
             DispenserBlock.registerProjectileBehavior(ModItems.BROWN_EGG)
 
+            Blocks.IRON_BARS.soundType = ModSoundTypes.IRON
+            Blocks.IRON_BLOCK.soundType = ModSoundTypes.IRON
+
             PaleGardenCreator.isBiomeRegistered = true
         }
 

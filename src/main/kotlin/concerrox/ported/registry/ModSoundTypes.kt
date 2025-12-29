@@ -15,7 +15,6 @@ object ModSoundTypes {
         ModSoundEvents.SPAWNER_HIT,
         ModSoundEvents.SPAWNER_FALL
     )
-
     val CREAKING_HEART = SoundType(
         1f,
         1f,
@@ -25,7 +24,6 @@ object ModSoundTypes {
         ModSoundEvents.CREAKING_HEART_HIT,
         ModSoundEvents.CREAKING_HEART_FALL
     )
-
     val RESIN = SoundType(
         1f,
         1f,
@@ -35,7 +33,6 @@ object ModSoundTypes {
         SoundEvents.EMPTY,
         ModSoundEvents.RESIN_FALL
     )
-
     val RESIN_BRICKS = SoundType(
         1f,
         1f,
@@ -57,14 +54,22 @@ object ModSoundTypes {
         ModSoundEvents.LEAF_LITTER_FALL
     )
     val CACTUS_FLOWER = SoundType(
-        1.0f,
-        1.0f,
+        1f,
+        1f,
         ModSoundEvents.CACTUS_FLOWER_BREAK,
         SoundEvents.EMPTY,
         ModSoundEvents.CACTUS_FLOWER_PLACE,
         SoundEvents.EMPTY,
         SoundEvents.EMPTY
     )
-
+    val IRON = SoundType(
+        1f,
+        1f,
+        ModSoundEvents.IRON_BREAK,
+        ModSoundEvents.IRON_STEP,
+        ModSoundEvents.IRON_PLACE,
+        ModSoundEvents.IRON_HIT,
+        ModSoundEvents.IRON_FALL
+    )
 
 }

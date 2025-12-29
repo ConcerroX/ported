@@ -1,7 +1,7 @@
 package concerrox.ported.registry
 
 import concerrox.ported.content.bundlesofbravery.bundle.ServerboundSelectBundleItemPayload
-import concerrox.ported.content.springtolife.testblock.ServerboundSetTestBlockPacket
+import concerrox.ported.content.springtolife.test.ServerboundSetTestBlockPacket
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent
 
 object ModPacketTypes {

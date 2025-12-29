@@ -1,4 +1,4 @@
-package concerrox.ported.content.springtolife.testblock
+package concerrox.ported.content.springtolife.test
 
 import com.mojang.serialization.MapCodec
 import net.minecraft.client.Minecraft

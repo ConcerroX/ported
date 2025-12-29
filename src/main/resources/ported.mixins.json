@@ -18,6 +18,7 @@
     "SpawnerBlockMixin",
     "content.springtolife.AnimalMixin",
     "content.springtolife.BlockMixin",
+    "content.springtolife.BlockSetTypeMixin",
     "content.springtolife.CactusBlockMixin",
     "content.springtolife.ChickenMixin",
     "content.springtolife.CreativeModeTabsMixin",
