@@ -10,7 +10,7 @@ import java.util.*
 
 object ModMemoryModuleTypes {
 
-    val MEMORY_MODULE_TYPE: DeferredRegister<MemoryModuleType<*>> =
+    internal val MEMORY_MODULE_TYPE =
         DeferredRegister.create(Registries.MEMORY_MODULE_TYPE, ResourceLocation.DEFAULT_NAMESPACE)
 
     val NEAREST_VISIBLE_ATTACKABLE_PLAYERS = MEMORY_MODULE_TYPE.new("nearest_visible_targetable_players") {

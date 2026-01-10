@@ -24,20 +24,15 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 import net.neoforged.neoforge.common.NeoForge
 
-internal fun res(path: String) = ResourceLocation.fromNamespaceAndPath(Ported.MOD_ID, path)
+internal fun id(path: String) = ResourceLocation.fromNamespaceAndPath(Ported.MOD_ID, path)
 
 @Mod(Ported.MOD_ID)
 class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
 
     init {
         NeoForge.EVENT_BUS.register(CommonGameEventHandler)
-        NeoForge.EVENT_BUS.register(ClientGameEventHandler)
-
         modEventBus.register(CommonModEventHandler)
-        modEventBus.register(ClientModEventHandler)
         modEventBus.register(DataGenerator)
-
-        modEventBus.addListener(ModPacketTypes::register)
         modContainer.registerConfig(ModConfig.Type.COMMON, PortedConfig.SPEC)
 
         ModWoodTypes.register()
@@ -49,6 +44,7 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
         ModBlocks.PORTED_BLOCKS.register(modEventBus)
         ModFeatures.FEATURES.register(modEventBus)
         ModEntityTypes.ENTITY_TYPES.register(modEventBus)
+        ModSensorTypes.SENSOR_TYPES.register(modEventBus)
         ModParticleTypes.PARTICLE_TYPES.register(modEventBus)
         ModDataComponents.DATA_COMPONENTS_PORTED.register(modEventBus)
         ModAttachmentTypes.ATTACHMENT_TYPES_PORTED.register(modEventBus)
@@ -77,7 +73,7 @@ class Ported(modEventBus: IEventBus, modContainer: ModContainer) {
 
         modEventBus.addListener { event: FMLClientSetupEvent ->
             event.enqueueWork {
-                ItemProperties.register(ModItems.TEST_BLOCK.get(), res("mode")) { stack, _, _, _ ->
+                ItemProperties.register(ModItems.TEST_BLOCK.get(), id("mode")) { stack, _, _, _ ->
                     stack.get(DataComponents.BLOCK_STATE)?.get(TestBlock.MODE)?.ordinal?.toFloat() ?: 0f
                 }
             }

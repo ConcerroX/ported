@@ -1,6 +1,6 @@
 package concerrox.ported.content.springtolife.test
 
-import concerrox.ported.res
+import concerrox.ported.id
 import net.minecraft.client.Minecraft
 import net.minecraft.core.BlockPos
 import net.minecraft.network.FriendlyByteBuf
@@ -15,7 +15,7 @@ class ServerboundSetTestBlockPacket(val position: BlockPos, val mode: TestBlockM
     override fun type() = TYPE
 
     companion object {
-        val TYPE = CustomPacketPayload.Type<ServerboundSetTestBlockPacket>(res("set_test_block"))
+        val TYPE = CustomPacketPayload.Type<ServerboundSetTestBlockPacket>(id("set_test_block"))
 
         val STREAM_CODEC: StreamCodec<FriendlyByteBuf, ServerboundSetTestBlockPacket> = StreamCodec.composite(
             BlockPos.STREAM_CODEC,

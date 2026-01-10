@@ -12,7 +12,7 @@ val modName = "Ported"
 val modLicense = "MIT License"
 val modAuthors = "ConcerroX"
 val modDescription = "Hello world!"
-version = "1.3.0"
+version = "1.3.1"
 group = "concerrox.ported"
 base.archivesName = modId + "-neoforge-" + libs.versions.minecraft.get()
 
@@ -62,12 +62,10 @@ neoForge {
 repositories {
     maven("https://thedarkcolour.github.io/KotlinForForge/") // Kotlin for Forge
     maven("https://maven.terraformersmc.com/") // EMI
-    maven("https://maven.minecraftforge.net/") // TerraBlender
     maven("https://cursemaven.com/") // Cyanide
 }
 
 dependencies {
-    jarJar(libs.kotlinForForge)
     implementation(libs.kotlinForForge)
     implementation(libs.emi)
     implementation(libs.cyanide)
@@ -88,7 +86,6 @@ tasks.withType<ProcessResources>().configureEach {
         "neo_version" to versions.neoForge,
         "neo_version_range" to versions.neoForgeRange,
         "loader_version_range" to versions.neoForgeLoaderRange,
-        "terra_blender_version_range" to versions.terraBlenderRange,
         "mod_id" to modId,
         "mod_name" to modName,
         "mod_license" to modLicense,

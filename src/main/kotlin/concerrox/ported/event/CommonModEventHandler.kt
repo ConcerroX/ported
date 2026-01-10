@@ -1,5 +1,7 @@
 package concerrox.ported.event
 
+import concerrox.ported.content.bundlesofbravery.bundle.ServerboundSelectBundleItemPayload
+import concerrox.ported.content.springtolife.test.ServerboundSetTestBlockPacket
 import concerrox.ported.content.springtolife.test.TestBlock
 import concerrox.ported.content.springtolife.test.TestBlockMode
 import concerrox.ported.content.springtolife.wolf.WolfSoundVariant
@@ -19,6 +21,7 @@ import net.minecraft.world.item.component.BlockItemStateProperties
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent
 import net.neoforged.neoforge.registries.DataPackRegistryEvent
 
 object CommonModEventHandler {
@@ -315,6 +318,21 @@ object CommonModEventHandler {
     @SubscribeEvent
     fun onCreateEntityAttribute(event: EntityAttributeCreationEvent) {
         event.put(ModEntityTypes.CREAKING.get(), Creaking.createAttributes().build())
+    }
+
+    @SubscribeEvent
+    fun onRegisterPayloadHandlers(event: RegisterPayloadHandlersEvent) {
+        val registrar = event.registrar("1")
+        registrar.playToServer(
+            ServerboundSelectBundleItemPayload.TYPE,
+            ServerboundSelectBundleItemPayload.STREAM_CODEC,
+            ServerboundSelectBundleItemPayload::handle
+        )
+        registrar.playToServer(
+            ServerboundSetTestBlockPacket.TYPE,
+            ServerboundSetTestBlockPacket.STREAM_CODEC,
+            ServerboundSetTestBlockPacket::handle
+        )
     }
 
 }

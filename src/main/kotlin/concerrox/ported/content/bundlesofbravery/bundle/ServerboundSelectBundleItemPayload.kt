@@ -1,6 +1,6 @@
 package concerrox.ported.content.bundlesofbravery.bundle
 
-import concerrox.ported.res
+import concerrox.ported.id
 import io.netty.buffer.ByteBuf
 import net.minecraft.network.codec.ByteBufCodecs
 import net.minecraft.network.codec.StreamCodec
@@ -27,7 +27,7 @@ data class ServerboundSelectBundleItemPayload(val slotId: Int, val selectedItemI
             ServerboundSelectBundleItemPayload::selectedItemIndex,
             ::ServerboundSelectBundleItemPayload
         )
-        val TYPE = CustomPacketPayload.Type<ServerboundSelectBundleItemPayload>(res("bundle_item_selected"))
+        val TYPE = CustomPacketPayload.Type<ServerboundSelectBundleItemPayload>(id("bundle_item_selected"))
 
         fun handle(data: ServerboundSelectBundleItemPayload, context: IPayloadContext) {
             context.player().containerMenu.setSelectedBundleItemIndex(data.slotId, data.selectedItemIndex)

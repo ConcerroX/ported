@@ -69,5 +69,24 @@
 - [x] Woodland Mansions can now generate in Pale Garden biome;
 - [x] Fix MC-259651: updateSkyBrightness() is not used client-side, causing multiple issues;
 
-
-3dex
+# 1.21.6 Spring to Life
+- [ ] Dried ghast;
+- [ ] Happy ghast;
+- [ ] Harness;
+- [ ] Tears music disc;
+- [ ] New advancements: Stay Hydrated! & Heart Transplanter;
+- [ ] Locator bar;
+- [ ] New background music tracks;
+- [ ] Updated Lead mechanics and recipes;
+- [ ] Leather can now be found in more loot chests;
+- [ ] Removable saddles and recipe of saddles;
+- [ ] Carrot can now be used to tame horses;
+- [ ] Updated Ghast texture;
+- [ ] The room "1x1_b5.nbt" generates in Woodland mansion again;
+- [ ] Piglins can now give dried ghast blocks when bartered with;
+- [ ] Updated fog;
+- [ ] Add "Show Music Toast" option;
+- [ ] Add "Music Frequency" option;
+- [ ] Add sound volume category "UI";
+- [ ] Updated the pattern of clouds in the sky;
+- [ ] Update Splashes;

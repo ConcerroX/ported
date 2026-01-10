@@ -2,7 +2,7 @@ package concerrox.ported.data
 
 import concerrox.ported.registry.ModBiomes
 import concerrox.ported.registry.ModPlacedFeatures
-import concerrox.ported.res
+import concerrox.ported.id
 import net.minecraft.core.HolderSet
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstrapContext
@@ -22,7 +22,7 @@ object ModBiomeModifierProvider {
         val placedFeatures = context.lookup(Registries.PLACED_FEATURE)
         val biomes = context.lookup(Registries.BIOME)
 
-        fun key(path: String) = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, res(path))
+        fun key(path: String) = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, id(path))
 
         context.register(
             key("add_patch_leaf_litter"), BiomeModifiers.AddFeaturesBiomeModifier(

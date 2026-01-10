@@ -6,12 +6,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ColorParticleOption;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,9 +27,18 @@ import java.util.Map;
 public abstract class LeavesBlockMixin extends Block {
 
     @Unique
-    private static Map<Block, Float> LEAF_PARTICLE_CHANCES;
-    @Unique
-    private static boolean ported$isLeafParticleChancesCached = false;
+    private static final Map<ResourceLocation, Float> LEAF_PARTICLE_CHANCES = Map.of(
+            ResourceLocation.withDefaultNamespace("oak_leaves"), 0.01f,
+            ResourceLocation.withDefaultNamespace("spruce_leaves"), 0.01f,
+            ResourceLocation.withDefaultNamespace("birch_leaves"), 0.01f,
+            ResourceLocation.withDefaultNamespace("jungle_leaves"), 0.01f,
+            ResourceLocation.withDefaultNamespace("acacia_leaves"), 0.01f,
+            ResourceLocation.withDefaultNamespace("dark_oak_leaves"), 0.01f,
+            ResourceLocation.withDefaultNamespace("pale_oak_leaves"), 0.02f,
+            ResourceLocation.withDefaultNamespace("mangrove_leaves"), 0.01f,
+            ResourceLocation.withDefaultNamespace("azalea_leaves"), 0.01f,
+            ResourceLocation.withDefaultNamespace("flowering_azalea_leaves"), 0.01f
+    );
 
     public LeavesBlockMixin(Properties properties) {
         super(properties);
@@ -37,40 +47,36 @@ public abstract class LeavesBlockMixin extends Block {
     @Unique
     private void ported$makeFallingLeavesParticles(Level level, BlockPos pos, RandomSource random,
                                                    BlockState blockBelow, BlockPos belowPos) {
-        if (!ported$isLeafParticleChancesCached) {
-            LEAF_PARTICLE_CHANCES = Map.of(Blocks.OAK_LEAVES, 0.01f, Blocks.SPRUCE_LEAVES, 0.01f, Blocks.BIRCH_LEAVES, 0.01f, Blocks.JUNGLE_LEAVES, 0.01f, Blocks.ACACIA_LEAVES, 0.01f, Blocks.DARK_OAK_LEAVES, 0.01f, ModBlocks.INSTANCE.getPALE_OAK_LEAVES()
-                    .get(), 0.02f, Blocks.MANGROVE_LEAVES, 0.01f, Blocks.AZALEA_LEAVES, 0.01f, Blocks.FLOWERING_AZALEA_LEAVES, 0.01f);
-            ported$isLeafParticleChancesCached = true;
-        }
-        var leafParticleChance = LEAF_PARTICLE_CHANCES.get(this);
+        var leafParticleChance = LEAF_PARTICLE_CHANCES.getOrDefault(BuiltInRegistries.BLOCK.getKey(this), 0f);
         if (!(random.nextFloat() >= leafParticleChance) && !isFaceFull(blockBelow.getCollisionShape(level, belowPos), Direction.UP)) {
             ported$spawnFallingLeavesParticle(level, pos, random);
         }
     }
 
     @Unique
-    protected void ported$spawnFallingLeavesParticle(Level level, BlockPos p_400280_, RandomSource p_400310_) {
+    protected void ported$spawnFallingLeavesParticle(Level level, BlockPos pos, RandomSource random) {
         if ((Block) this == ModBlocks.INSTANCE.getPALE_OAK_LEAVES().get()) {
-            ParticleUtils.spawnParticleBelow(level, p_400280_, p_400310_, ModParticleTypes.INSTANCE.getPALE_OAK_LEAVES()
-                    .get());
+            ParticleUtils.spawnParticleBelow(level, pos, random, ModParticleTypes.INSTANCE.getPALE_OAK_LEAVES().get());
         } else {
-            var particleOption = ColorParticleOption.create(ModParticleTypes.INSTANCE.getTINTED_LEAVES()
-                    .get(), ported$getClientLeafTintColor(level, p_400280_));
-            ParticleUtils.spawnParticleBelow(level, p_400280_, p_400310_, particleOption);
+            var option = ColorParticleOption.create(
+                    ModParticleTypes.INSTANCE.getTINTED_LEAVES().get(),
+                    ported$getClientLeafTintColor(level, pos)
+            );
+            ParticleUtils.spawnParticleBelow(level, pos, random, option);
         }
     }
 
     @Unique
-    public int ported$getClientLeafTintColor(Level level, BlockPos p_400248_) {
+    public int ported$getClientLeafTintColor(Level level, BlockPos pos) {
         if (level instanceof ServerLevel) return 0;
-        return Minecraft.getInstance().getBlockColors().getColor(level.getBlockState(p_400248_), level, p_400248_, 0);
+        return Minecraft.getInstance().getBlockColors().getColor(level.getBlockState(pos), level, pos, 0);
     }
 
     @Inject(method = "animateTick", at = @At("TAIL"))
     private void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random, CallbackInfo ci) {
-        BlockPos blockpos = pos.below();
-        BlockState blockstate = level.getBlockState(blockpos);
-        ported$makeFallingLeavesParticles(level, pos, random, blockstate, blockpos);
+        BlockPos below = pos.below();
+        BlockState blockstate = level.getBlockState(below);
+        ported$makeFallingLeavesParticles(level, pos, random, blockstate, below);
     }
 
 }
