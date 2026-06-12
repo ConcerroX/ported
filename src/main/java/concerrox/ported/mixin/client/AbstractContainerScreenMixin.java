@@ -49,18 +49,18 @@ public abstract class AbstractContainerScreenMixin implements AbstractContainerS
         ported$itemSlotMouseActions = (List<ItemSlotMouseAction>) itemSlotMouseActions;
     }
 
-    @Unique
-    @Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
-        if (ported$lastHoveredSlot != null && ported$lastHoveredSlot.hasItem()) {
-            for (ItemSlotMouseAction mouseAction : getItemSlotMouseActions()) {
-                if (mouseAction.matches(ported$lastHoveredSlot) && mouseAction.onMouseScrolled(scrollX, scrollY, ported$lastHoveredSlot.index, ported$lastHoveredSlot.getItem())) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+//    @Unique
+//    @Override
+//    public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
+//        if (ported$lastHoveredSlot != null && ported$lastHoveredSlot.hasItem()) {
+//            for (ItemSlotMouseAction mouseAction : getItemSlotMouseActions()) {
+//                if (mouseAction.matches(ported$lastHoveredSlot) && mouseAction.onMouseScrolled(scrollX, scrollY, ported$lastHoveredSlot.index, ported$lastHoveredSlot.getItem())) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
 
     @Unique
     private void onStopHovering(Slot slot) {

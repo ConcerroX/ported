@@ -234,47 +234,47 @@ object CommonModEventHandler {
 
             CreativeModeTabs.OP_BLOCKS -> {
                 if (Minecraft.getInstance().options.operatorItemsTab().get()) {
-                    event.insertAfter(
-                        Items.DEBUG_STICK.defaultInstance, ModItems.TEST_BLOCK.toStack().apply {
-                            set(
-                                DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(
-                                    TestBlock.MODE, TestBlockMode.ACCEPT
-                                )
-                            )
-                        }, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                    )
-                    event.insertAfter(
-                        Items.DEBUG_STICK.defaultInstance, ModItems.TEST_BLOCK.toStack().apply {
-                            set(
-                                DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(
-                                    TestBlock.MODE, TestBlockMode.FAIL
-                                )
-                            )
-                        }, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                    )
-                    event.insertAfter(
-                        Items.DEBUG_STICK.defaultInstance, ModItems.TEST_BLOCK.toStack().apply {
-                            set(
-                                DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(
-                                    TestBlock.MODE, TestBlockMode.LOG
-                                )
-                            )
-                        }, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                    )
-                    event.insertAfter(
-                        Items.DEBUG_STICK.defaultInstance, ModItems.TEST_BLOCK.toStack().apply {
-                            set(
-                                DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(
-                                    TestBlock.MODE, TestBlockMode.START
-                                )
-                            )
-                        }, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                    )
-                    event.insertAfter(
-                        Items.DEBUG_STICK.defaultInstance,
-                        ModItems.TEST_INSTANCE_BLOCK.toStack(),
-                        CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                    )
+//                    event.insertAfter(
+//                        Items.DEBUG_STICK.defaultInstance, ModItems.TEST_BLOCK.toStack().apply {
+//                            set(
+//                                DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(
+//                                    TestBlock.MODE, TestBlockMode.ACCEPT
+//                                )
+//                            )
+//                        }, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+//                    )
+//                    event.insertAfter(
+//                        Items.DEBUG_STICK.defaultInstance, ModItems.TEST_BLOCK.toStack().apply {
+//                            set(
+//                                DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(
+//                                    TestBlock.MODE, TestBlockMode.FAIL
+//                                )
+//                            )
+//                        }, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+//                    )
+//                    event.insertAfter(
+//                        Items.DEBUG_STICK.defaultInstance, ModItems.TEST_BLOCK.toStack().apply {
+//                            set(
+//                                DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(
+//                                    TestBlock.MODE, TestBlockMode.LOG
+//                                )
+//                            )
+//                        }, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+//                    )
+//                    event.insertAfter(
+//                        Items.DEBUG_STICK.defaultInstance, ModItems.TEST_BLOCK.toStack().apply {
+//                            set(
+//                                DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(
+//                                    TestBlock.MODE, TestBlockMode.START
+//                                )
+//                            )
+//                        }, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+//                    )
+//                    event.insertAfter(
+//                        Items.DEBUG_STICK.defaultInstance,
+//                        ModItems.TEST_INSTANCE_BLOCK.toStack(),
+//                        CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+//                    )
                 }
             }
 
